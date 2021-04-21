@@ -1,16 +1,16 @@
-import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { getGatsbyImageData } from "gatsby-source-sanity";
-import clientConfig from "../../client-config";
+import React from 'react';
+import {GatsbyImage} from 'gatsby-plugin-image';
+import {getGatsbyImageData} from 'gatsby-source-sanity';
 
-import * as styles from "./figure.module.css";
+import clientConfig from '../../client-config';
+import * as styles from './figure.module.css';
 
-export function Figure({ node }) {
+export function Figure({node}) {
   if (!node.asset) {
     return null;
   }
 
-  const imageData = getGatsbyImageData(node.asset, { maxWidth: 675 }, clientConfig.sanity);
+  const imageData = getGatsbyImageData(node.asset, {maxWidth: 675}, clientConfig.sanity);
 
   return (
     <figure className={styles.root}>
