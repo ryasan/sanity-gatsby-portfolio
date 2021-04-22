@@ -4,7 +4,7 @@
 .root {
   position: relative;
   z-index: 100;
-  box-shadow: var(--box-shadow-sm);
+  border-bottom: 0.1rem solid var(--color-very-light-gray);
 }
 
 .wrapper {
@@ -26,17 +26,17 @@
   @nest & a {
     color: inherit;
     text-decoration: none;
-    height: 3rem;
+    height: 2.25rem;
     display: flex;
 
     & svg {
       height: 100%;
-      color: var(--black-700);
+      color: var(--black-600);
     }
 
     @media (hover: hover) {
-      @nest &:hover {
-        color: var(--color-accent);
+      @nest &:hover svg {
+        color: var(--gray-800);
       }
     }
   }
@@ -85,7 +85,7 @@
   @media (--media-max-small) {
     position: absolute;
     background: var(--color-white);
-    color: var(--color-black);
+    color: var(--black-600);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     left: 0;
     right: 0;

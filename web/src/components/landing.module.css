@@ -2,9 +2,169 @@
 @import '../styles/custom-properties.css';
 
 .root {
-  background-color: var(--black-700);
+  background-color: var(--black-600);
   height: 75vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+}
+
+.leftColumn {
+  flex: 1;
+  color: white;
+}
+
+.rightColumn {
+  font-size: 13px;
+  flex: 1;
+}
+
+.board {
+  background-image: url('../static/board.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 20em;
+  position: absolute;
+  transform: translate(-10em, -12em);
+  width: 28em;
+}
+
+.myStuff {
+  --landscape-screen-height: 10em;
+  --landscape-screen-width: 20em;
+  --portrait-screen-height: 17em;
+  --portrait-screen-width: 12em;
+
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.screen {
+  align-items: center;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.screenInnerBase {
+  border-radius: 0.3em;
+  overflow: hidden;
+  position: relative;
+}
+
+.screenInnerPortrait {
+  composes: screenInnerBase;
+  height: var(--portrait-screen-height);
+  width: var(--portrait-screen-width);
+}
+
+.screenInnerLandscape {
+  composes: screenInnerBase;
+  height: var(--landscape-screen-height);
+  width: var(--landscape-screen-width);
+}
+
+@keyframes infinite-slide-portrait {
+  0% {
+    transform: translateY(calc(var(--portrait-screen-height) * -2));
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes infinite-slide-landscape {
+  0% {
+    transform: translateY(calc(var(--landscape-screen-height) * -2));
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.screenTrackBase {
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  position: absolute;
+  width: 100%;
+}
+
+.screenTrackPortrait {
+  composes: screenTrackBase;
+  animation-name: infinite-slide-portrait;
+}
+
+.screenTrackLandscape {
+  composes: screenTrackBase;
+  animation-name: infinite-slide-landscape;
+}
+
+.codeBase {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+}
+
+.codePortrait {
+  composes: codeBase;
+  background-image: url('../static/portrait-screen.svg');
+  height: var(--portrait-screen-height);
+}
+
+.codeLandscape {
+  composes: codeBase;
+  background-image: url('../static/landscape-screen.svg');
+  height: var(--landscape-screen-height);
+}
+
+.frameBase {
+  background: transparent;
+  border: 0.6em solid var(--color-white);
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+.framePortrait {
+  composes: frameBase;
+  height: var(--portrait-screen-height);
+}
+
+.frameLandscape {
+  composes: frameBase;
+  height: var(--landscape-screen-height);
+}
+
+.stand {
+  background: var(--color-white);
+  border: 0.7em solid var(--color-light-gray);
+  border-left-color: var(--black-600);
+  border-right-color: var(--black-600);
+  border-top: 0;
+  height: 1.5em;
+  position: relative;
+  width: 4em;
+}
+
+.standBottom {
+  background: var(--color-white);
+  /* bottom: -1.3em; */
+  height: 0.6em;
+  /* position: absolute; */
+  /* transform: translateX(-0.7em); */
+  width: 4em;
 }
