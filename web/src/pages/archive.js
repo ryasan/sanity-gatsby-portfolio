@@ -45,8 +45,7 @@ const ArchivePage = (props) => {
       </Layout>
     );
   }
-  const projectNodes =
-    data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs);
+  const projectNodes = data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs); // prettier-ignore
   return (
     <Layout>
       <SEO title='Archive' />
