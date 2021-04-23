@@ -2,15 +2,15 @@ import React from 'react';
 
 import Container from './container';
 import MeImage from '../static/me.jpg';
-import * as styles from './landing.module.css';
+import * as styles from './hero-banner.module.css';
 
-const Landing = () => (
+const HeroBanner = () => (
   <div className={styles.root}>
     <Container className={styles.container}>
       <div className={styles.leftColumn}>
         <h1 className={styles.title}>Ryan Santos</h1>
         <div className={styles.subtitle}>Frontend Developer</div>
-        <img className={styles.meImg} src={MeImage} alt='me' />
+        <img className={styles.meImage} src={MeImage} alt='me' />
       </div>
       <div className={styles.rightColumn}>
         <div className={styles.myStuff}>
@@ -44,4 +44,4 @@ const Landing = () => (
   </div>
 );
 
-export default Landing;
+export default HeroBanner;
