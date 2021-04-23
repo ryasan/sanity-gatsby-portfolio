@@ -3,7 +3,7 @@
 
 .root {
   background-color: var(--black-500);
-  height: 75vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
