@@ -26,13 +26,13 @@
   @nest & a {
     color: inherit;
     text-decoration: none;
-    height: 2.25rem;
+    height: 1.5rem;
     display: flex;
     text-align: left;
 
     & svg {
-      height: 2.25rem;
-      color: var(--black-600);
+      height: 1.5rem;
+      color: var(--color-accent);
     }
 
     @media (hover: hover) {
@@ -86,7 +86,7 @@
   @media (--media-max-small) {
     position: absolute;
     background: var(--color-white);
-    color: var(--black-600);
+    color: var(--black-500);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     left: 0;
     right: 0;

@@ -2,7 +2,7 @@
 @import '../styles/custom-properties.css';
 
 .root {
-  background-color: var(--black-600);
+  background-color: var(--black-500);
   height: 75vh;
   display: flex;
   justify-content: center;
@@ -181,9 +181,6 @@
 
 .standBottom {
   background: var(--color-white);
-  /* bottom: -1.3em; */
   height: 0.6em;
-  /* position: absolute; */
-  /* transform: translateX(-0.7em); */
   width: 4em;
 }

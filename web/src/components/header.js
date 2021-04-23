@@ -10,7 +10,7 @@ const Header = ({onHideNav, onShowNav, showNav}) => (
     <div className={styles.wrapper}>
       <div className={styles.branding}>
         <Link to='/'>
-          <Icon symbol='my-signature' />
+          <Icon symbol='my-initials' />
         </Link>
       </div>
 

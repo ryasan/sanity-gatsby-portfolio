@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 
 import HamburgerIcon from './hamburger';
 import MySignatureIcon from './my-signature';
+import MyInitialsIcon from './my-initials';
 
 function Icon(props) {
   switch (props.symbol) {
     case 'hamburger':
       return <HamburgerIcon {...props} />;
+    case 'my-initials':
+      return <MyInitialsIcon {...props} />;
     case 'my-signature':
       return <MySignatureIcon {...props} />;
     default:
