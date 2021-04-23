@@ -28,9 +28,10 @@
     text-decoration: none;
     height: 2.25rem;
     display: flex;
+    text-align: left;
 
     & svg {
-      height: 100%;
+      height: 2.25rem;
       color: var(--black-600);
     }
 
