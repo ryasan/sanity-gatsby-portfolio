@@ -32,12 +32,12 @@
 
     & svg {
       height: 1.5rem;
-      color: var(--color-accent);
+      color: var(--black-500);
     }
 
     @media (hover: hover) {
       @nest &:hover svg {
-        color: var(--gray-800);
+        color: var(--color-accent);
       }
     }
   }
