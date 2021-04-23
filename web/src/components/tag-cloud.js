@@ -65,7 +65,7 @@ const createInitialState = (size) => {
 };
 
 const {radius, maxSpeed, initSpeed, direction} = {
-  radius: 300,
+  radius: 250,
   maxSpeed: 20,
   initSpeed: 40,
   direction: 135,
@@ -139,7 +139,7 @@ const TagCloud = () => {
   return (
     <div
       ref={tagCloudRef}
-      className={styles.tagCloud}
+      className={styles.root}
       onMouseMove={(ev) => {
         if (tagCloudRef?.current) {
           const rect = tagCloudRef.current.getBoundingClientRect();

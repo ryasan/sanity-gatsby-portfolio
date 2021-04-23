@@ -1,0 +1,7 @@
+.root {
+  display: initial;
+}
+
+.title {
+  composes: title1 from './typography.module.css';
+}
