@@ -7,12 +7,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .container {
   width: 100%;
   display: flex;
   padding: 0;
+  z-index: 1;
 }
 
 .leftColumn {
@@ -150,13 +158,13 @@
 
 .codePortrait {
   composes: codeBase;
-  background-image: url('../static/portrait-screen.svg');
+  background-image: url('../static/images/portrait-screen.svg');
   height: var(--portrait-screen-height);
 }
 
 .codeLandscape {
   composes: codeBase;
-  background-image: url('../static/landscape-screen.svg');
+  background-image: url('../static/images/landscape-screen.svg');
   height: var(--landscape-screen-height);
 }
 

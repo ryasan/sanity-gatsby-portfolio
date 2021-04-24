@@ -1,15 +1,18 @@
 import React, {useState} from 'react';
+import ParticlesJS from 'react-particles-js';
 
-import Container from './container';
-import MeImage from '../static/me.jpg';
-import Loader from './loader';
 import * as styles from './hero-banner.module.css';
+import Container from './container';
+import Loader from './loader';
 import {cn} from '../lib/helpers';
+import MeImage from '../static/images/me.jpg';
+import particlesParams from '../static/json/particles-params.json';
 
 const HeroBanner = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   return (
     <div className={styles.root}>
+      <ParticlesJS className={styles.particles} params={particlesParams} />
       <Container className={styles.container}>
         <div className={styles.leftColumn}>
           <h1 className={styles.title}>Ryan Santos</h1>
