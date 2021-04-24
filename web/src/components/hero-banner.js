@@ -1,47 +1,60 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Container from './container';
 import MeImage from '../static/me.jpg';
+import Loader from './loader';
 import * as styles from './hero-banner.module.css';
+import {cn} from '../lib/helpers';
 
-const HeroBanner = () => (
-  <div className={styles.root}>
-    <Container className={styles.container}>
-      <div className={styles.leftColumn}>
-        <h1 className={styles.title}>Ryan Santos</h1>
-        <div className={styles.subtitle}>Frontend Developer</div>
-        <img className={styles.meImage} src={MeImage} alt='me' />
-      </div>
-      <div className={styles.rightColumn}>
-        <div className={styles.myStuff}>
-          <div className={styles.screen}>
-            <div className={styles.screenInnerLandscape}>
-              <div className={styles.screenTrackLandscape}>
-                <div className={styles.codeLandscape}></div>
-                <div className={styles.codeLandscape}></div>
-                <div className={styles.codeLandscape}></div>
-              </div>
-              <div className={styles.frameLandscape}></div>
-            </div>
-            <div className={styles.stand}></div>
-            <div className={styles.standBottom}></div>
-          </div>
-          <div className={styles.screen}>
-            <div className={styles.screenInnerPortrait}>
-              <div className={styles.screenTrackPortrait}>
-                <div className={styles.codePortrait}></div>
-                <div className={styles.codePortrait}></div>
-                <div className={styles.codePortrait}></div>
-              </div>
-              <div className={styles.framePortrait}></div>
-            </div>
-            <div className={styles.stand}></div>
-            <div className={styles.standBottom}></div>
+const HeroBanner = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  return (
+    <div className={styles.root}>
+      <Container className={styles.container}>
+        <div className={styles.leftColumn}>
+          <h1 className={styles.title}>Ryan Santos</h1>
+          <div className={styles.subtitle}>Frontend Developer</div>
+          <div className={styles.meImageContainer}>
+            {!isLoaded && <Loader />}
+            <img
+              className={cn(styles.meImage, isLoaded && styles.showMeImage)}
+              src={MeImage}
+              onLoad={() => setIsLoaded(true)}
+              alt='me'
+            />
           </div>
         </div>
-      </div>
-    </Container>
-  </div>
-);
+        <div className={styles.rightColumn}>
+          <div className={styles.myStuff}>
+            <div className={styles.screen}>
+              <div className={styles.screenInnerLandscape}>
+                <div className={styles.screenTrackLandscape}>
+                  <div className={styles.codeLandscape}></div>
+                  <div className={styles.codeLandscape}></div>
+                  <div className={styles.codeLandscape}></div>
+                </div>
+                <div className={styles.frameLandscape}></div>
+              </div>
+              <div className={styles.stand}></div>
+              <div className={styles.standBottom}></div>
+            </div>
+            <div className={styles.screen}>
+              <div className={styles.screenInnerPortrait}>
+                <div className={styles.screenTrackPortrait}>
+                  <div className={styles.codePortrait}></div>
+                  <div className={styles.codePortrait}></div>
+                  <div className={styles.codePortrait}></div>
+                </div>
+                <div className={styles.framePortrait}></div>
+              </div>
+              <div className={styles.stand}></div>
+              <div className={styles.standBottom}></div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </div>
+  );
+};
 
 export default HeroBanner;

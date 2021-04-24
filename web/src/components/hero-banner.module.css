@@ -37,13 +37,21 @@
   letter-spacing: 0.5rem;
 }
 
+.meImageContainer {
+  margin-top: 1.5rem;
+}
+
 .meImage {
   width: 8rem;
   height: 8rem;
   object-fit: cover;
   border-radius: 50%;
   filter: grayscale(1);
-  margin-top: 1.5rem;
+  display: none;
+}
+
+.showMeImage {
+  display: initial;
 }
 
 .rightColumn {

@@ -1,0 +1,20 @@
+@import '../styles/custom-properties.css';
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.root {
+  animation: spin 1s linear infinite;
+  border: 0.5rem solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 0.5rem solid var(--color-light-gray);
+  height: 3rem;
+  width: 3rem;
+}
