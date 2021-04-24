@@ -36,7 +36,7 @@ export const query = graphql`
   }
 `;
 
-const ArchivePage = (props) => {
+const ProjectsPage = (props) => {
   const {data, errors} = props;
   if (errors) {
     return (
@@ -48,7 +48,7 @@ const ArchivePage = (props) => {
   const projectNodes = data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs); // prettier-ignore
   return (
     <Layout>
-      <SEO title='Archive' />
+      <SEO title='Projects' />
       <Container>
         <h1 className={responsiveTitle1}>Projects</h1>
         {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
@@ -57,4 +57,4 @@ const ArchivePage = (props) => {
   );
 };
 
-export default ArchivePage;
+export default ProjectsPage;

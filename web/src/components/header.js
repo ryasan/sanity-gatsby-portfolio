@@ -24,13 +24,13 @@ const Header = ({onHideNav, onShowNav, showNav}) => (
             <Link to='/about/'>About</Link>
           </li>
           <li>
-            <Link to='/archive/'>Projects</Link>
+            <Link to='/projects/'>Projects</Link>
           </li>
           <li>
-            <Link to='/archive/'>Blog</Link>
+            <Link to='/blog/'>Blog</Link>
           </li>
           <li>
-            <Link to='/archive/'>Contact</Link>
+            <Link to='/contact/'>Contact</Link>
           </li>
         </ul>
       </nav>
