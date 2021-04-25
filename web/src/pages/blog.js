@@ -4,7 +4,7 @@ import Container from '../components/container';
 import Layout from '../containers/layout';
 import SEO from '../components/seo';
 
-const BlogPage = () => {
+const ContactPage = () => {
   return (
     <Layout>
       <SEO title='Blog' />
@@ -15,4 +15,4 @@ const BlogPage = () => {
   );
 };
 
-export default BlogPage;
+export default ContactPage;
