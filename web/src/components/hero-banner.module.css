@@ -49,6 +49,14 @@
   margin-top: 1.5rem;
   width: 8rem;
   height: 8rem;
+  position: relative;
+}
+
+.loaderContainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .meImageInner {
@@ -58,11 +66,12 @@
   box-sizing: initial;
   border-radius: 50%;
   position: relative;
-  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s opacity;
 }
 
 .visible {
-  visibility: visible;
+  opacity: 1;
 }
 
 .meImage {

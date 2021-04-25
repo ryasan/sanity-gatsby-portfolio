@@ -10,6 +10,7 @@ import particlesParams from '../static/json/particles-params.json';
 
 const HeroBanner = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+
   return (
     <div className={styles.root}>
       <ParticlesJS className={styles.particles} params={particlesParams} />
@@ -18,7 +19,11 @@ const HeroBanner = () => {
           <h1 className={styles.title}>Ryan Santos</h1>
           <div className={styles.subtitle}>Frontend Developer</div>
           <div className={styles.meImageContainer}>
-            {!isLoaded && <Loader />}
+            {!isLoaded && (
+              <div className={styles.loaderContainer}>
+                <Loader />
+              </div>
+            )}
             <div className={cn(styles.meImageInner, isLoaded && styles.visible)}>
               <img
                 className={styles.meImage}
