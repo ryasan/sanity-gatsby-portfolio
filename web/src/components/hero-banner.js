@@ -19,12 +19,14 @@ const HeroBanner = () => {
           <div className={styles.subtitle}>Frontend Developer</div>
           <div className={styles.meImageContainer}>
             {!isLoaded && <Loader />}
-            <img
-              className={cn(styles.meImage, isLoaded && styles.showMeImage)}
-              src={MeImage}
-              onLoad={() => setIsLoaded(true)}
-              alt='me'
-            />
+            <div className={cn(styles.meImageInner, isLoaded && styles.visible)}>
+              <img
+                className={styles.meImage}
+                src={MeImage}
+                onLoad={() => setIsLoaded(true)}
+                alt='me'
+              />
+            </div>
           </div>
         </div>
         <div className={styles.rightColumn}>
