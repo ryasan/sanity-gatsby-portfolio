@@ -1,3 +1,10 @@
 {
-  "printWidth": 100
+  "printWidth": 100,
+  "singleQuote": true,
+  "bracketSpacing": false,
+  "trailingComma": "all",
+  "jsxSingleQuote": true,
+  "jsxBracketSameLine": true,
+  "quoteProps": "consistent",
+  "arrowParens": "always"
 }

@@ -10,7 +10,7 @@ import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers';
 import {responsiveTitle1} from '../components/typography.module.css';
 
 export const query = graphql`
-  query ArchivePageQuery {
+  query ProjectsPageQuery {
     projects: allSanitySampleProject(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
