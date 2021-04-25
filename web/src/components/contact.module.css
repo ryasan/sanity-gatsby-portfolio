@@ -1,0 +1,48 @@
+@import '../styles/custom-properties.css';
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.875rem;
+}
+
+.leftColumn {
+  height: 50vh;
+}
+
+.rightColumn {
+  flex: 1;
+
+  @nest & > div {
+    margin-bottom: 0.625rem;
+  }
+}
+
+.title {
+  composes: title1 from './typography.module.css';
+  margin-top: 0;
+}
+
+.topRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0.625rem;
+  width: 100%;
+}
+
+.middleRow {
+  display: flex;
+}
+
+.bottomRow {
+  display: flex;
+}
+
+.inputBase {
+  border: 0.125rem solid var(--black-500);
+  border-radius: 0.1875rem;
+  flex: 1;
+  /* height: 2.1875rem; */
+  font-size: 1rem;
+  padding: 0.3125rem;
+}

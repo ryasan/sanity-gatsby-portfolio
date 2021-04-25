@@ -17,6 +17,7 @@
     "lerna": "^3.13.1"
   },
   "dependencies": {
+    "react-google-maps": "^9.4.5",
     "react-particles-js": "^3.4.1"
   }
 }
