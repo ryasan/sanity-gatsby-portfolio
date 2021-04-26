@@ -48,8 +48,6 @@ const BlogPage = (props) => {
 
   const blogPostNodes = data && data.blogPosts && mapEdgesToNodes(data.blogPosts);
 
-  console.log(blogPostNodes);
-
   return (
     <Layout>
       <SEO title='Blog' />

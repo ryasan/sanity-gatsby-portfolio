@@ -4,7 +4,7 @@
 .root {
   position: relative;
   z-index: 100;
-  border-bottom: 0.1rem solid var(--color-very-light-gray);
+  border-bottom: 0.0625rem solid var(--color-very-light-gray);
 }
 
 .wrapper {
@@ -32,7 +32,6 @@
 
     & svg {
       height: 1.5rem;
-      color: var(--black-500);
     }
 
     @media (hover: hover) {
@@ -80,13 +79,14 @@
   @media (hover: hover) {
     @nest & ul li a:hover {
       color: var(--color-accent);
+      border-color: var(--color-accent);
     }
   }
 
   @media (--media-max-small) {
     position: absolute;
     background: var(--color-white);
-    color: var(--black-500);
+    color: var(--color-black);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     left: 0;
     right: 0;
@@ -94,10 +94,6 @@
 
     @nest & ul {
       padding: 1rem 0;
-    }
-
-    @nest & ul li a {
-      padding: 0.5rem 1.5rem;
     }
   }
 
@@ -109,11 +105,35 @@
       display: flex;
       justify-content: flex-end;
     }
-
-    @nest & ul li a {
-      padding: 0.5rem;
-    }
   }
+}
+
+.navLink {
+  padding: 0.5rem;
+}
+
+.toggleThemeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.1875rem;
+  padding: 0 0.46875rem;
+
+  @nest & img {
+    height: 2rem;
+  }
+}
+
+.blackButton {
+  composes: toggleThemeButton;
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.whiteButton {
+  composes: toggleThemeButton;
+  color: var(--color-black);
+  background-color: var(--color-white);
 }
 
 .showNav {

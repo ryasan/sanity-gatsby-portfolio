@@ -2,7 +2,7 @@
 @import '../styles/custom-properties.css';
 
 .root {
-  background-color: var(--black-500);
+  background-color: var(--color-black);
   min-height: 50vh;
   display: flex;
   justify-content: center;

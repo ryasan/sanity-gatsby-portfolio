@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+*.dark-color {
+  color: var(--color-black);
+}
+
 html {
   font-family: var(--font-family-sans);
   font-size: var(--font-base-size);
@@ -19,9 +23,19 @@ body {
   margin: 0;
 }
 
+body.dark {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
 html,
 body,
 body > div,
 body > div > div {
   height: 100%;
+}
+
+button,
+a {
+  cursor: pointer;
 }

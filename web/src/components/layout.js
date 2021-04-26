@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './header';
 
-import '../styles/layout.css';
 import * as styles from './layout.module.css';
+import '../styles/layout.css';
 
 const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => (
   <>
