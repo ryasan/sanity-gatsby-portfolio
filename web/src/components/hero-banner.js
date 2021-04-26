@@ -6,6 +6,7 @@ import Container from './container';
 import MeImage from '../static/images/me.jpg';
 import particlesParamsWhite from '../static/json/particles-params-white.json';
 import particlesParamsBlack from '../static/json/particles-params-black.json';
+import Icon from './icon';
 import {ThemeContext, DARK_THEME} from '../context/theme-context';
 import {cn} from '../lib/helpers';
 
@@ -34,6 +35,17 @@ const HeroBanner = () => {
               />
             </div>
           </div>
+          <ul className={styles.socialList}>
+            <li className={styles.socialItem}>
+              <Icon symbol='codepen' />
+            </li>
+            <li className={styles.socialItem}>
+              <Icon symbol='github' />
+            </li>
+            <li className={styles.socialItem}>
+              <Icon symbol='linkedin' />
+            </li>
+          </ul>
         </div>
         <div className={styles.rightColumn}>
           <div className={styles.myStuff}>
