@@ -69,6 +69,9 @@ function Contact() {
             placeholder='Message'
             rows={5}
           />
+          <button className={isDark ? styles.submitButtonDarkMode : styles.submitButtonLightMode}>
+            Send
+          </button>
         </div>
       </div>
     </div>
