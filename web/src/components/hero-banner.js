@@ -1,15 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import ParticlesJS from 'react-particles-js';
 
 import * as styles from './hero-banner.module.css';
 import Container from './container';
-import Loader from './loader';
-import {cn} from '../lib/helpers';
 import MeImage from '../static/images/me.jpg';
 import particlesParams from '../static/json/particles-params.json';
+import {cn} from '../lib/helpers';
 
 const HeroBanner = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    console.log(isLoaded);
+  }, [isLoaded]);
 
   return (
     <div className={styles.root}>
@@ -19,11 +22,6 @@ const HeroBanner = () => {
           <h1 className={styles.title}>Ryan Santos</h1>
           <div className={styles.subtitle}>Frontend Developer</div>
           <div className={styles.meImageContainer}>
-            {!isLoaded && (
-              <div className={styles.loaderContainer}>
-                <Loader />
-              </div>
-            )}
             <div className={cn(styles.meImageInner, isLoaded && styles.visible)}>
               <img
                 className={styles.meImage}
