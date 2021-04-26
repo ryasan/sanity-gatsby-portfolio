@@ -2,13 +2,12 @@ import {format, distanceInWords, differenceInDays} from 'date-fns';
 import React from 'react';
 import {Link} from 'gatsby';
 
+import * as styles from './project.module.css';
 import {buildImageObj} from '../lib/helpers';
 import {imageUrlFor} from '../lib/image-url';
 import BlockContent from './block-content';
 import Container from './container';
 import RoleList from './role-list';
-
-import * as styles from './project.module.css';
 
 function Project(props) {
   const {_rawBody, title, categories, mainImage, members, publishedAt, relatedProjects} = props;
