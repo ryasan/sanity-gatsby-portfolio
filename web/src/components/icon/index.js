@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CodepenIcon from './codepen';
 import GithubIcon from './github';
 import HamburgerIcon from './hamburger';
-import LinkedInIcon from './linkedin';
+import LinkedInIcon from './linked-in';
 import MyInitialsIcon from './my-initials';
 import MySignatureIcon from './my-signature';
 
@@ -16,7 +16,7 @@ function Icon(props) {
       return <GithubIcon {...props} />;
     case 'hamburger':
       return <HamburgerIcon {...props} />;
-    case 'linkedin':
+    case 'linkedIn':
       return <LinkedInIcon {...props} />;
     case 'my-initials':
       return <MyInitialsIcon {...props} />;
