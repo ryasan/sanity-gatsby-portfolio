@@ -9,15 +9,14 @@
 }
 
 .rootLightMode {
- composes: root;
- border-bottom-color: var(--color-very-light-gray);
+  composes: root;
+  border-bottom-color: var(--color-very-light-gray);
 }
 
 .rootDarkMode {
- composes: root;
- border-bottom-color: var(--color-black);
+  composes: root;
+  border-bottom-color: var(--color-black);
 }
-
 
 .wrapper {
   box-sizing: border-box;

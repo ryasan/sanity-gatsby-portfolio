@@ -38,19 +38,22 @@ const HeroBanner = () => {
           <ul className={styles.socialList}>
             <li
               className={styles.socialItem}
-              onClick={() => window.open('https://codepen.io/ryasan86', '_blank')}>
+              onClick={() => window.open('https://codepen.io/ryasan86', '_blank')}
+              tabIndex='0'>
               <Icon symbol='codepen' />
               <span>Codepen</span>
             </li>
             <li
               className={styles.socialItem}
-              onClick={() => window.open('https://github.com/ryasan86', '_blank')}>
+              onClick={() => window.open('https://github.com/ryasan86', '_blank')}
+              tabIndex='0'>
               <Icon symbol='github' />
               <span>Github</span>
             </li>
             <li
               className={styles.socialItem}
-              onClick={() => window.open('https://www.linkedin.com/in/ryasan86', '_blank')}>
+              onClick={() => window.open('https://www.linkedin.com/in/ryasan86', '_blank')}
+              tabIndex='0'>
               <Icon symbol='linkedIn' />
               <span>LinkedIn</span>
             </li>
