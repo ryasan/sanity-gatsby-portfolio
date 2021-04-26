@@ -5,6 +5,7 @@
   position: relative;
   z-index: 100;
   border-bottom: 0.0625rem solid;
+  padding: 0.5rem 0;
 }
 
 .rootLightMode {
