@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import ParticlesJS from 'react-particles-js';
 
 import * as styles from './hero-banner.module.css';
@@ -9,11 +9,6 @@ import {cn} from '../lib/helpers';
 
 const HeroBanner = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    console.log(isLoaded);
-  }, [isLoaded]);
-
   return (
     <div className={styles.root}>
       <ParticlesJS className={styles.particles} params={particlesParams} />

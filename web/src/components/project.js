@@ -1,22 +1,31 @@
-import {format, distanceInWords, differenceInDays} from 'date-fns';
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'gatsby';
+import {format, distanceInWords, differenceInDays} from 'date-fns';
 
 import * as styles from './project.module.css';
-import {buildImageObj} from '../lib/helpers';
+import {buildImageObj, cn} from '../lib/helpers';
 import {imageUrlFor} from '../lib/image-url';
 import BlockContent from './block-content';
 import Container from './container';
 import RoleList from './role-list';
+import Loader from './loader';
 
 function Project(props) {
   const {_rawBody, title, categories, mainImage, members, publishedAt, relatedProjects} = props;
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <Container>
       <article className={styles.root}>
+        {isLoading && (
+          <div className={styles.loaderContainer}>
+            <Loader />
+          </div>
+        )}
         {props.mainImage && mainImage.asset && (
-          <div className={styles.mainImage}>
+          <div className={cn(styles.mainImage, !isLoading && styles.visible)}>
             <img
+              onLoad={() => setIsLoading(false)}
               src={imageUrlFor(buildImageObj(mainImage))
                 .width(1200)
                 .height(Math.floor((9 / 16) * 1200))
