@@ -1,6 +1,6 @@
 export default {
   name: 'blogPost',
-  title: 'Blog Post',
+  title: 'Blog Posts',
   type: 'document',
   fields: [
     {
@@ -33,7 +33,7 @@ export default {
       name: 'authors',
       title: 'Authors',
       type: 'array',
-      of: [{type: 'postAuthor'}],
+      of: [{type: 'blogPostAuthor'}],
     },
     {
       name: 'mainImage',

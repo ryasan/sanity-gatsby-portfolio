@@ -3,6 +3,7 @@ import {compose, withProps} from 'recompose';
 import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
 
 import * as styles from './contact.module.css';
+import {responsiveTitle1} from '../components/typography.module.css';
 import googleMapsConfig from '../static/json/google-maps-config.json';
 import MarkerIcon from '../static/images/marker.svg';
 
@@ -37,7 +38,7 @@ function Contact() {
         <GoogleMaps />
       </div>
       <div className={styles.rightColumn}>
-        <h2 className={styles.title}>Contact Me</h2>
+        <h2 className={responsiveTitle1}>Contact Me</h2>
         <div className={styles.topRow}>
           <input className={styles.inputBase} type='text' placeholder='Name' />
           <input className={styles.inputBase} type='text' placeholder='Email' />
