@@ -10,7 +10,6 @@ import {ThemeContext, DARK_THEME} from '../context/theme-context';
 
 function Header({onHideNav, onShowNav, showNav}) {
   const {theme, toggleTheme} = useContext(ThemeContext);
-
   const isDark = theme === DARK_THEME;
 
   return (
@@ -28,7 +27,7 @@ function Header({onHideNav, onShowNav, showNav}) {
 
         <nav className={cn(styles.nav, showNav && styles.showNav, isDark && DARK_THEME)}>
           <ul>
-            <li className={cn(!isDark && styles.blackButton, isDark && styles.whiteButton)}>
+            <li className={isDark ? styles.whiteButton : styles.blackButton}>
               <a onClick={toggleTheme}>{`${isDark ? 'Light' : 'Dark'} Mode`}</a>
               <img src={isDark ? SunSVG : MoonSVG} alt='toggle-button-image' />
             </li>

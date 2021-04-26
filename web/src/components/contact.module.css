@@ -4,10 +4,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 1.875rem;
+  border-radius: 0.1875rem;
 }
 
 .leftColumn {
   height: 50vh;
+
+  @nest & * {
+    border-radius: 0.1875rem;
+  }
 }
 
 .rightColumn {
@@ -39,9 +44,21 @@
 }
 
 .inputBase {
-  border: 0.125rem solid var(--color-black);
+  border: 0.125rem solid;
   border-radius: 0.1875rem;
   flex: 1;
   font-size: 1rem;
   padding: 0.3125rem;
+}
+
+.whiteInput {
+  composes: inputBase;
+  border-color: var(--color-black);
+  color: var(--color-black);
+}
+
+.blackInput {
+  composes: inputBase;
+  border-color: var(--color-white);
+  color: var(--color-white);
 }

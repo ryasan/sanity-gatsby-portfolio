@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {compose, withProps} from 'recompose';
 import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
 
@@ -6,6 +6,7 @@ import * as styles from './contact.module.css';
 import {responsiveTitle1} from '../components/typography.module.css';
 import googleMapsConfig from '../static/json/google-maps-config.json';
 import MarkerIcon from '../static/images/marker.svg';
+import {ThemeContext, DARK_THEME} from '../context/theme-context';
 
 const gMapsApiKey = 'AIzaSyANr_3txW2d9EoNsRJjlJ4hyenEcHLSYr8';
 
@@ -32,6 +33,9 @@ const GoogleMaps = compose(
 ));
 
 function Contact() {
+  const {theme} = useContext(ThemeContext);
+  const isDark = theme === DARK_THEME;
+
   return (
     <div className={styles.root}>
       <div className={styles.leftColumn}>
@@ -40,14 +44,31 @@ function Contact() {
       <div className={styles.rightColumn}>
         <h2 className={responsiveTitle1}>Contact Me</h2>
         <div className={styles.topRow}>
-          <input className={styles.inputBase} type='text' placeholder='Name' />
-          <input className={styles.inputBase} type='text' placeholder='Email' />
+          <input
+            className={isDark ? styles.blackInput : styles.whiteInput}
+            type='text'
+            placeholder='Name'
+          />
+          <input
+            className={isDark ? styles.blackInput : styles.whiteInput}
+            type='text'
+            placeholder='Email'
+          />
         </div>
         <div className={styles.middleRow}>
-          <input className={styles.inputBase} type='text' placeholder='Subject' />
+          <input
+            className={isDark ? styles.blackInput : styles.whiteInput}
+            type='text'
+            placeholder='Subject'
+          />
         </div>
         <div className={styles.bottomRow}>
-          <textarea className={styles.inputBase} type='text' placeholder='Message' rows={5} />
+          <textarea
+            className={isDark ? styles.blackInput : styles.whiteInput}
+            type='text'
+            placeholder='Message'
+            rows={5}
+          />
         </div>
       </div>
     </div>

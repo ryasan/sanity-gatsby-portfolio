@@ -112,7 +112,7 @@
   padding: 0.5rem;
 }
 
-.toggleThemeButton {
+.buttonBase {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,13 +125,13 @@
 }
 
 .blackButton {
-  composes: toggleThemeButton;
+  composes: buttonBase;
   background-color: var(--color-black);
   color: var(--color-white);
 }
 
 .whiteButton {
-  composes: toggleThemeButton;
+  composes: buttonBase;
   color: var(--color-black);
   background-color: var(--color-white);
 }
