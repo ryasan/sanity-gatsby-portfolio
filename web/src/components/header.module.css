@@ -4,8 +4,19 @@
 .root {
   position: relative;
   z-index: 100;
-  border-bottom: 0.0625rem solid var(--color-very-light-gray);
+  border-bottom: 0.0625rem solid;
 }
+
+.rootLightMode {
+ composes: root;
+ border-bottom-color: var(--color-very-light-gray);
+}
+
+.rootDarkMode {
+ composes: root;
+ border-bottom-color: var(--color-black);
+}
+
 
 .wrapper {
   box-sizing: border-box;
@@ -120,7 +131,7 @@
   padding: 0 0.46875rem;
 
   @nest & img {
-    height: 2rem;
+    height: 1.5rem;
   }
 }
 

@@ -10,6 +10,14 @@
   color: var(--color-black);
 }
 
+*.white-background-color {
+  background-color: var(--color-white) !important;
+}
+
+*.dark-gray-background-color {
+  background-color: var(--color-dark-gray) !important;
+}
+
 html {
   font-family: var(--font-family-sans);
   font-size: var(--font-base-size);

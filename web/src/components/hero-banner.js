@@ -1,17 +1,25 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import ParticlesJS from 'react-particles-js';
 
 import * as styles from './hero-banner.module.css';
 import Container from './container';
 import MeImage from '../static/images/me.jpg';
-import particlesParams from '../static/json/particles-params.json';
+import particlesParamsWhite from '../static/json/particles-params-white.json';
+import particlesParamsBlack from '../static/json/particles-params-black.json';
+import {ThemeContext, DARK_THEME} from '../context/theme-context';
 import {cn} from '../lib/helpers';
 
 const HeroBanner = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const {theme} = useContext(ThemeContext);
+  const isDark = theme === DARK_THEME;
+
   return (
-    <div className={styles.root}>
-      <ParticlesJS className={styles.particles} params={particlesParams} />
+    <div className={cn(styles.root, isDark && 'dark-gray-background-color')}>
+      <ParticlesJS
+        className={styles.particles}
+        params={theme === DARK_THEME ? particlesParamsBlack : particlesParamsWhite}
+      />
       <Container className={styles.container}>
         <div className={styles.leftColumn}>
           <h1 className={styles.title}>Ryan Santos</h1>
@@ -38,7 +46,7 @@ const HeroBanner = () => {
                 </div>
                 <div className={styles.frameLandscape}></div>
               </div>
-              <div className={styles.stand}></div>
+              <div className={isDark ? styles.standDarkMode : styles.standLightMode}></div>
               <div className={styles.standBottom}></div>
             </div>
             <div className={styles.screen}>
@@ -50,7 +58,7 @@ const HeroBanner = () => {
                 </div>
                 <div className={styles.framePortrait}></div>
               </div>
-              <div className={styles.stand}></div>
+              <div className={isDark ? styles.standDarkMode : styles.standLightMode}></div>
               <div className={styles.standBottom}></div>
             </div>
           </div>

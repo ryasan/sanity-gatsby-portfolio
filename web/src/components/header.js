@@ -13,7 +13,7 @@ function Header({onHideNav, onShowNav, showNav}) {
   const isDark = theme === DARK_THEME;
 
   return (
-    <div className={cn(styles.root)}>
+    <div className={isDark ? styles.rootDarkMode : styles.rootLightMode}>
       <div className={styles.wrapper}>
         <div className={styles.branding}>
           <Link to='/'>

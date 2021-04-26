@@ -206,15 +206,25 @@
   height: var(--landscape-screen-height);
 }
 
-.stand {
+.standBase {
   background: var(--color-white);
   border: 0.7em solid var(--color-light-gray);
-  border-left-color: var(--black-600);
-  border-right-color: var(--black-600);
   border-top: 0;
   height: 1.5em;
   position: relative;
   width: 4em;
+}
+
+.standLightMode {
+  composes: standBase;
+  border-left-color: var(--color-black);
+  border-right-color: var(--color-black);
+}
+
+.standDarkMode {
+  composes: standBase;
+  border-left-color: var(--color-dark-gray);
+  border-right-color: var(--color-dark-gray);
 }
 
 .standBottom {
