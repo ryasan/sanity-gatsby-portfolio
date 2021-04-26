@@ -27,8 +27,11 @@ function Header({onHideNav, onShowNav, showNav}) {
 
         <nav className={cn(styles.nav, showNav && styles.showNav, isDark && DARK_THEME)}>
           <ul>
-            <li className={isDark ? styles.whiteButton : styles.blackButton}>
-              <a onClick={toggleTheme}>{`${isDark ? 'Light' : 'Dark'} Mode`}</a>
+            <li
+              onClick={toggleTheme}
+              className={isDark ? styles.whiteButton : styles.blackButton}
+              tabIndex={0}>
+              <a>{`${isDark ? 'Light' : 'Dark'} Mode`}</a>
               <img src={isDark ? SunSVG : MoonSVG} alt='toggle-button-image' />
             </li>
             <li className={styles.navLink}>
