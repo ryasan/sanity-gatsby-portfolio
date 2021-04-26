@@ -24,7 +24,7 @@ const AboutPage = () => (
         </p>
         <p>
           While working as a hardware guy and as time passed, I was gradually exposed to the
-          software side of things. I quickly found development to be much more fulfilling so I
+          software side of things. I found development to be super fun so I switched gears and
           started a new chapter in my life. Fast forward to today and now I&apos;m into all things
           development &amp; design!
         </p>
