@@ -5,10 +5,11 @@ import * as styles from './hero-banner.module.css';
 import Container from './container';
 import MeImage from '../static/images/me.jpg';
 import particlesParams from '../static/json/particles-params.json';
+import Loader from './loader';
 import {cn} from '../lib/helpers';
 
 const HeroBanner = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   return (
     <div className={styles.root}>
       <ParticlesJS className={styles.particles} params={particlesParams} />
@@ -17,11 +18,16 @@ const HeroBanner = () => {
           <h1 className={styles.title}>Ryan Santos</h1>
           <div className={styles.subtitle}>Frontend Developer</div>
           <div className={styles.meImageContainer}>
-            <div className={cn(styles.meImageInner, isLoaded && styles.visible)}>
+            {isLoading && (
+              <div className={styles.loaderContainer}>
+                <Loader />
+              </div>
+            )}
+            <div className={cn(styles.meImageInner, !isLoading && styles.visible)}>
               <img
                 className={styles.meImage}
                 src={MeImage}
-                onLoad={() => setIsLoaded(true)}
+                onLoad={() => setIsLoading(false)}
                 alt='me'
               />
             </div>
