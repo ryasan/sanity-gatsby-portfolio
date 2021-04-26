@@ -1,15 +1,15 @@
 import {Link} from 'gatsby';
 import React from 'react';
 
-import * as styles from './project-preview.module.css';
+import * as styles from './blog-post-preview.module.css';
 import {responsiveTitle3} from './typography.module.css';
 import BlockText from './block-text';
 import {imageUrlFor} from '../lib/image-url';
 import {cn, buildImageObj} from '../lib/helpers';
 
-function ProjectPreview(props) {
+function BlogPostPreview(props) {
   return (
-    <Link className={styles.root} to={`/projects/${props.slug.current}`}>
+    <Link className={styles.root} to={`/blog/${props.slug.current}`}>
       <div className={styles.leadMediaThumb}>
         {props.mainImage && props.mainImage.asset && (
           <img
@@ -31,4 +31,4 @@ function ProjectPreview(props) {
   );
 }
 
-export default ProjectPreview;
+export default BlogPostPreview;
