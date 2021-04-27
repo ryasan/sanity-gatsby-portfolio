@@ -6,11 +6,10 @@ import Icon from './icon';
 import MoonSVG from '../static/images/moon.svg';
 import SunSVG from '../static/images/sun.svg';
 import {cn} from '../lib/helpers';
-import {ThemeContext, DARK_THEME} from '../context/theme-context';
+import {ThemeContext, withThemeInfo} from '../context/theme-context';
 
-function Header({onHideNav, onShowNav, showNav}) {
-  const {theme, toggleTheme} = useContext(ThemeContext);
-  const isDark = theme === DARK_THEME;
+function Header({onHideNav, onShowNav, showNav, isDark}) {
+  const {toggleTheme} = useContext(ThemeContext);
 
   return (
     <div className={isDark ? styles.rootDarkMode : styles.rootLightMode}>
@@ -25,7 +24,7 @@ function Header({onHideNav, onShowNav, showNav}) {
           <Icon symbol='hamburger' />
         </button>
 
-        <nav className={cn(styles.nav, showNav && styles.showNav, isDark && DARK_THEME)}>
+        <nav className={cn(styles.nav, showNav && styles.showNav, isDark && 'dark')}>
           <ul>
             <li
               onClick={toggleTheme}
@@ -53,4 +52,4 @@ function Header({onHideNav, onShowNav, showNav}) {
   );
 }
 
-export default Header;
+export default withThemeInfo(Header);

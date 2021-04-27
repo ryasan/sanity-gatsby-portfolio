@@ -31,25 +31,31 @@
   justify-content: center;
   align-items: center;
   font-family: 'Montserrat';
+  text-align: center;
 }
 
 .title {
-  font-size: 4.5rem;
+  composes: responsiveTitle1 from './typography.module.css';
   margin: 0;
 }
 
 .subtitle {
+  composes: responsiveTitle4 from './typography.module.css';
   color: var(--color-accent);
-  font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.2rem;
 }
 
 .meImageContainer {
   margin-top: 1.5rem;
-  width: 8rem;
-  height: 8rem;
+  width: 6rem;
+  height: 6rem;
   position: relative;
+
+  @media (--media-min-medium) {
+    width: 8rem;
+    height: 8rem;
+  }
 }
 
 .loaderContainer {
@@ -121,7 +127,6 @@
   composes: screenInnerBase;
   height: var(--portrait-screen-height);
   width: var(--portrait-screen-width);
-  /* margin-right: 3em; */
 }
 
 .screenInnerLandscape {
@@ -243,7 +248,7 @@
 
 .socialItem {
   list-style-type: none;
-  height: 2.5rem;
+  height: 2rem;
   color: var(--color-accent);
   cursor: pointer;
   position: relative;
@@ -270,5 +275,11 @@
 
   @nest & span {
     opacity: 1;
+  }
+}
+
+.hideIfTablet {
+  @media (max-width: 768px) {
+    display: none;
   }
 }

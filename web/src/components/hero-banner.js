@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import ParticlesJS from 'react-particles-js';
 
 import * as styles from './hero-banner.module.css';
@@ -7,19 +7,17 @@ import MeImage from '../static/images/me.jpg';
 import particlesParamsWhite from '../static/json/particles-params-white.json';
 import particlesParamsBlack from '../static/json/particles-params-black.json';
 import Icon from './icon';
-import {ThemeContext, DARK_THEME} from '../context/theme-context';
+import {withThemeInfo} from '../context/theme-context';
 import {cn} from '../lib/helpers';
 
-const HeroBanner = () => {
+const HeroBanner = ({isDark}) => {
   const [isLoading, setIsLoading] = useState(true);
-  const {theme} = useContext(ThemeContext);
-  const isDark = theme === DARK_THEME;
 
   return (
     <div className={cn(styles.root, isDark && 'dark-gray-background-color')}>
       <ParticlesJS
         className={styles.particles}
-        params={theme === DARK_THEME ? particlesParamsBlack : particlesParamsWhite}
+        params={isDark ? particlesParamsBlack : particlesParamsWhite}
       />
       <Container className={styles.container}>
         <div className={styles.leftColumn}>
@@ -59,7 +57,7 @@ const HeroBanner = () => {
             </li>
           </ul>
         </div>
-        <div className={styles.rightColumn}>
+        <div className={cn(styles.rightColumn, styles.hideIfTablet)}>
           <div className={styles.myStuff}>
             <div className={styles.screen}>
               <div className={styles.screenInnerLandscape}>
@@ -92,4 +90,4 @@ const HeroBanner = () => {
   );
 };
 
-export default HeroBanner;
+export default withThemeInfo(HeroBanner);

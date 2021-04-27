@@ -1,12 +1,11 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {compose, withProps} from 'recompose';
 import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
 
 import * as styles from './contact.module.css';
 import {responsiveTitle1} from '../components/typography.module.css';
-import googleMapsConfig from '../static/json/google-maps-config.json';
 import MarkerIcon from '../static/images/marker.svg';
-import {ThemeContext, DARK_THEME} from '../context/theme-context';
+import {withThemeInfo} from '../context/theme-context';
 
 const gMapsApiKey = 'AIzaSyANr_3txW2d9EoNsRJjlJ4hyenEcHLSYr8';
 
@@ -22,20 +21,14 @@ const GoogleMaps = compose(
   withScriptjs,
   withGoogleMap,
 )((props) => (
-  <GoogleMap
-    defaultZoom={12}
-    defaultCenter={{lat: 34.079425, lng: -118.134693}}
-    defaultOptions={{googleMapsConfig}}>
+  <GoogleMap defaultZoom={12} defaultCenter={{lat: 34.079425, lng: -118.134693}}>
     {props.markerIsShowing && (
       <Marker position={{lat: 34.079425, lng: -118.134693}} icon={MarkerIcon} />
     )}
   </GoogleMap>
 ));
 
-function Contact() {
-  const {theme} = useContext(ThemeContext);
-  const isDark = theme === DARK_THEME;
-
+function Contact({isDark}) {
   return (
     <div className={styles.root}>
       <div className={styles.leftColumn}>
@@ -78,4 +71,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default withThemeInfo(Contact);

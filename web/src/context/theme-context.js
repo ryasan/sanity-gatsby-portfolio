@@ -1,23 +1,30 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useState, useContext} from 'react';
 
-export const LIGHT_THEME = 'light';
-export const DARK_THEME = 'dark';
+const LIGHT = 'light';
+const DARK = 'dark';
 
 export const ThemeContext = createContext({});
 
 function ThemeProvider({children}) {
-  const [theme, setTheme] = useState(LIGHT_THEME);
+  const [theme, setTheme] = useState(LIGHT);
 
   function toggleTheme() {
-    setTheme((theme) => (theme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME));
-    if (document.body.classList.contains(DARK_THEME)) {
-      document.body.classList.remove(DARK_THEME);
+    setTheme((theme) => (theme === LIGHT ? DARK : LIGHT));
+    if (document.body.classList.contains(DARK)) {
+      document.body.classList.remove(DARK);
     } else {
-      document.body.classList.add(DARK_THEME);
+      document.body.classList.add(DARK);
     }
   }
 
   return <ThemeContext.Provider value={{theme, toggleTheme}}>{children}</ThemeContext.Provider>;
 }
 
-export {ThemeProvider};
+const withThemeInfo = (Component) => (props) => {
+  const {theme} = useContext(ThemeContext);
+  const ComplexComponent = <Component {...props} isDark={theme === DARK} />;
+
+  return ComplexComponent;
+};
+
+export {ThemeProvider, withThemeInfo};
