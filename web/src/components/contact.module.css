@@ -1,10 +1,14 @@
+@import '../styles/custom-media.css';
 @import '../styles/custom-properties.css';
 
 .root {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 1.875rem;
   border-radius: 0.1875rem;
+
+  @media (--media-min-large) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.875rem;
+  }
 }
 
 .leftColumn {
@@ -29,10 +33,28 @@
 }
 
 .topRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 0.625rem;
   width: 100%;
+
+  @nest & input {
+    margin-bottom: 0.625rem;
+    width: 100%;
+  }
+
+  @media (--media-min-large) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.625rem;
+  }
+}
+
+.topRow input {
+  @media(--media-min-large) {
+    margin-bottom: 0;
+  }
+}
+
+.topRow input:last-child {
+  margin-bottom: 0;
 }
 
 .middleRow {
