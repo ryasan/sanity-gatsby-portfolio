@@ -10,7 +10,6 @@ import {ThemeContext, withThemeInfo} from '../context/theme-context';
 
 function Header({onHideNav, onShowNav, showNav, isDark}) {
   const {toggleTheme} = useContext(ThemeContext);
-
   return (
     <div className={isDark ? styles.rootDarkMode : styles.rootLightMode}>
       <div className={styles.wrapper}>
@@ -24,13 +23,13 @@ function Header({onHideNav, onShowNav, showNav, isDark}) {
           <Icon symbol='hamburger' />
         </button>
 
-        <nav className={cn(styles.nav, showNav && styles.showNav, isDark && 'dark')}>
+        <nav className={cn(styles.nav, showNav && styles.showNav, isDark && styles.navDarkMode)}>
           <ul>
             <li
               onClick={toggleTheme}
-              className={isDark ? styles.whiteButton : styles.blackButton}
+              className={isDark ? styles.buttonLightMode : styles.buttonDarkMode}
               tabIndex={0}>
-              <a>{`${isDark ? 'Light' : 'Dark'} Mode`}</a>
+              <span>{`${isDark ? 'Light' : 'Dark'} Mode`}</span>
               <img src={isDark ? SunSVG : MoonSVG} alt='toggle-button-image' />
             </li>
             <li className={styles.navLink}>

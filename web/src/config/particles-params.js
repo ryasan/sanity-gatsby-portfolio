@@ -1,4 +1,6 @@
-const ParticlesParams = {
+import {mediaQueries} from '../lib/media';
+
+export const particlesParams = {
   autoPlay: true,
   background: {
     image: '',
@@ -316,7 +318,7 @@ const ParticlesParams = {
         factor: 1000,
       },
       limit: 0,
-      value: 50,
+      value: mediaQueries.minMedium.matches ? 50 : 25,
     },
     opacity: {
       random: {
@@ -401,5 +403,3 @@ const ParticlesParams = {
   responsive: [],
   themes: [],
 };
-
-export default ParticlesParams;

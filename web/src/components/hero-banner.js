@@ -4,21 +4,16 @@ import ParticlesJS from 'react-particles-js';
 import * as styles from './hero-banner.module.css';
 import Container from './container';
 import MeImage from '../static/images/me.jpg';
-import particlesParamsWhite from '../static/json/particles-params-white.json';
-import particlesParamsBlack from '../static/json/particles-params-black.json';
+import {particlesParams} from '../config/particles-params';
 import Icon from './icon';
 import {withThemeInfo} from '../context/theme-context';
 import {cn} from '../lib/helpers';
 
 const HeroBanner = ({isDark}) => {
   const [isLoading, setIsLoading] = useState(true);
-
   return (
     <div className={cn(styles.root, isDark && 'dark-gray-background-color')}>
-      <ParticlesJS
-        className={styles.particles}
-        params={isDark ? particlesParamsBlack : particlesParamsWhite}
-      />
+      <ParticlesJS className={styles.particles} params={particlesParams} />
       <Container className={styles.container}>
         <div className={styles.leftColumn}>
           <h1 className={styles.title}>Ryan Santos</h1>
