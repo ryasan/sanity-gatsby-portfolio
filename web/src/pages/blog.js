@@ -5,6 +5,7 @@ import {responsiveTitle1} from '../components/typography.module.css';
 import Container from '../components/container';
 import Layout from '../containers/layout';
 import SEO from '../components/seo';
+import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
 import GraphQLErrorList from '../components/graphql-error-list';
 import {mapEdgesToNodes} from '../lib/helpers';
 
@@ -46,13 +47,14 @@ const BlogPage = (props) => {
     );
   }
 
-  const blogPostNodes = data && data.blogPosts && mapEdgesToNodes(data.blogPosts);
+  const postNodes = data && data.blogPosts && mapEdgesToNodes(data.blogPosts);
 
   return (
     <Layout>
       <SEO title='Blog' />
       <Container>
         <h1 className={responsiveTitle1}>Blog</h1>
+        {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
       </Container>
     </Layout>
   );

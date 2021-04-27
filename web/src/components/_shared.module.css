@@ -1,0 +1,10 @@
+@import '../styles/custom-media.css';
+@import '../styles/custom-properties.css';
+
+.containerBoxShadow {
+  box-shadow: rgb(0 0 0 / 10%) 0px 0.0625rem 0.1875rem 0px;
+}
+
+.containerBorderRadius {
+  border-radius: 0.3125rem;
+}

@@ -1,6 +1,4 @@
-import {mediaQueries} from '../lib/media';
-
-export const particlesParams = {
+export const particlesParams = ({mediaQueries}) => ({
   autoPlay: true,
   background: {
     image: '',
@@ -402,4 +400,4 @@ export const particlesParams = {
   pauseOnOutsideViewport: true,
   responsive: [],
   themes: [],
-};
+});

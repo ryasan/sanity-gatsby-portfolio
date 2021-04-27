@@ -8,12 +8,15 @@ import {particlesParams} from '../config/particles-params';
 import Icon from './icon';
 import {withThemeInfo} from '../context/theme-context';
 import {cn} from '../lib/helpers';
+import {useMediaQueries} from '../lib/media';
 
 const HeroBanner = ({isDark}) => {
   const [isLoading, setIsLoading] = useState(true);
+  const mediaQueries = useMediaQueries();
+
   return (
     <div className={cn(styles.root, isDark && 'dark-gray-background-color')}>
-      <ParticlesJS className={styles.particles} params={particlesParams} />
+      <ParticlesJS className={styles.particles} params={particlesParams({mediaQueries})} />
       <Container className={styles.container}>
         <div className={styles.leftColumn}>
           <h1 className={styles.title}>Ryan Santos</h1>

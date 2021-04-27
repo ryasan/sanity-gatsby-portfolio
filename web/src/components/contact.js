@@ -3,8 +3,8 @@ import {compose, withProps} from 'recompose';
 import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
 
 import * as styles from './contact.module.css';
-import {responsiveTitle1} from '../components/typography.module.css';
 import MarkerIcon from '../static/images/marker.svg';
+import {responsiveTitle1} from '../components/typography.module.css';
 import {withThemeInfo} from '../context/theme-context';
 
 const gMapsApiKey = 'AIzaSyANr_3txW2d9EoNsRJjlJ4hyenEcHLSYr8';
