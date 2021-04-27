@@ -243,7 +243,7 @@
 
 .socialItem {
   list-style-type: none;
-  height: 3.125rem;
+  height: 2.5rem;
   color: var(--color-accent);
   cursor: pointer;
   position: relative;
