@@ -44,6 +44,10 @@
   color: var(--color-accent);
   font-weight: 600;
   letter-spacing: 0.2rem;
+
+  @media (--media-min-large) {
+    letter-spacing: 0.3rem;
+  }
 }
 
 .meImageContainer {
@@ -265,6 +269,10 @@
     transform: translate(-50%, -50%);
     transition: opacity 0.2s ease-out;
     opacity: 0;
+  }
+
+    @media (--media-min-medium) {
+    height: 2.777rem;
   }
 }
 
