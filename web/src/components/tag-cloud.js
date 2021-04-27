@@ -2,6 +2,7 @@ import React, {useState, useRef, useEffect, useCallback} from 'react';
 
 import * as styles from './tag-cloud.module.css';
 import {isNullOrUndefined} from '../lib/type-check-utils';
+import {mediaQueries} from '../lib/media';
 
 const skills = [
   'React',
@@ -65,7 +66,7 @@ const createInitialState = (size) => {
 };
 
 const {radius, maxSpeed, initSpeed, direction} = {
-  radius: 250,
+  radius: mediaQueries.minMedium.matches ? 250 : 200,
   maxSpeed: 20,
   initSpeed: 40,
   direction: 135,
