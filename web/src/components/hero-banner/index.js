@@ -21,7 +21,7 @@ const HeroBanner = ({isDark}) => (
             <img className={styles.meImage} src={MeImage} alt='me' />
           </div>
         </div>
-        {/* <SocialList /> */}
+        <SocialList />
       </div>
       <div className={cn(styles.rightColumn, styles.hideIfTablet)}>
         <div className={styles.myStuff}>

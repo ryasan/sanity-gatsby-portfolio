@@ -1,3 +1,6 @@
+@import '../../styles/custom-media.css';
+@import '../../styles/custom-properties.css';
+
 .socialList {
   margin-top: 2.125rem;
   padding: 0 3.125rem;
