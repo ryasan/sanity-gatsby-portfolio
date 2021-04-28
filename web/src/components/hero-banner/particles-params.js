@@ -316,7 +316,7 @@ export const particlesParams = {
         factor: 1000,
       },
       limit: 0,
-      value: 50,
+      value: 20,
     },
     opacity: {
       random: {

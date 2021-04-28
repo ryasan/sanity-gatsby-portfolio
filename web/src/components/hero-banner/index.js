@@ -1,51 +1,22 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import ParticlesJS from 'react-particles-js';
 
 import * as styles from './hero-banner.module.css';
 import Container from '../container';
 import MeImage from '../../static/images/me.jpg';
-import {particlesParams as initialOptions} from '../../config/particles-params';
+import {particlesParams} from './particles-params';
 import Icon from '../icon';
 import {withThemeInfo} from '../../context/theme-context';
 import {cn} from '../../lib/helpers';
-import {screens} from '../../lib/media';
-import {isNullOrUndefined} from '../../lib/type-check-utils';
 
 const HeroBanner = ({isDark}) => {
-  const [options, setOptions] = useState(initialOptions);
-
   const openLink = (link) => {
     if (typeof window === 'undefined') window.open(link);
   };
 
-  const changeNumberOfParticles = (value) => {
-    setOptions((prev) => ({
-      ...prev,
-      particles: {...prev.particles, number: {...prev.particles.number, value}},
-    }));
-  };
-
-  const onResize = () => {
-    if (isNullOrUndefined(window)) return;
-    if (window.innerWidth < screens.minSmall) changeNumberOfParticles(15);
-    if (window.innerWidth >= screens.minSmall) changeNumberOfParticles(50);
-  };
-
-  useEffect(() => {
-    if (isNullOrUndefined(window)) return;
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
-
-  useEffect(() => {
-    if (isNullOrUndefined(window)) return;
-    if (window.innerWidth < screens.minSmall) changeNumberOfParticles(15);
-    if (window.innerWidth >= screens.minSmall) changeNumberOfParticles(50);
-  }, []);
-
   return (
     <div className={cn(styles.root, isDark && 'dark-gray-background-color')}>
-      <ParticlesJS className={styles.particles} params={options} />
+      <ParticlesJS className={styles.particles} params={particlesParams} />
       <Container className={styles.container}>
         <div className={styles.leftColumn}>
           <h1 className={styles.title}>Ryan Santos</h1>
