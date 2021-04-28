@@ -136,7 +136,7 @@
 }
 
 .navLink:hover {
-  background-color: #00bbd40e;
+  background-color: #00bbd417;
   border-radius: 0.1875rem;
 }
 
@@ -151,6 +151,10 @@
 
   @nest & img {
     height: 1.5rem;
+  }
+
+  @media (--media-min-large) {
+    margin-right: 0.9375rem;
   }
 }
 

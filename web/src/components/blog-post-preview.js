@@ -2,10 +2,9 @@ import {Link} from 'gatsby';
 import React from 'react';
 
 import * as styles from './blog-post-preview.module.css';
-import {responsiveTitle3} from './typography.module.css';
 import BlockText from './block-text';
 import {imageUrlFor} from '../lib/image-url';
-import {cn, buildImageObj} from '../lib/helpers';
+import {buildImageObj} from '../lib/helpers';
 
 function BlogPostPreview(props) {
   return (
@@ -21,7 +20,7 @@ function BlogPostPreview(props) {
           />
         )}
       </div>
-      <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
+      <h3 className={styles.title}>{props.title}</h3>
       {props._rawExcerpt && (
         <div className={styles.excerpt}>
           <BlockText blocks={props._rawExcerpt} />

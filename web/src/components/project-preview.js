@@ -2,10 +2,10 @@ import {Link} from 'gatsby';
 import React from 'react';
 
 import * as styles from './project-preview.module.css';
-import {responsiveTitle3} from './typography.module.css';
 import BlockText from './block-text';
 import {imageUrlFor} from '../lib/image-url';
-import {cn, buildImageObj} from '../lib/helpers';
+import {buildImageObj} from '../lib/helpers';
+import {withThemeInfo} from '../context/theme-context';
 
 function ProjectPreview(props) {
   return (
@@ -21,7 +21,7 @@ function ProjectPreview(props) {
           />
         )}
       </div>
-      <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
+      <h3 className={styles.title}>{props.title}</h3>
       {props._rawExcerpt && (
         <div className={styles.excerpt}>
           <BlockText blocks={props._rawExcerpt} />
@@ -31,4 +31,4 @@ function ProjectPreview(props) {
   );
 }
 
-export default ProjectPreview;
+export default withThemeInfo(ProjectPreview);

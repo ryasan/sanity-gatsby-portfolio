@@ -1,3 +1,5 @@
+@import '../styles/custom-properties.css';
+
 .root {
   display: block;
   color: inherit;
@@ -5,13 +7,20 @@
 }
 
 .title {
-  composes: responsiveTitle1 from './typography.module.css';
+  composes: responsiveTitle2 from './typography.module.css';
+
+  @media (hover: hover) {
+    @nest .root:hover & {
+      text-decoration: underline;
+    }
+  }
 }
 
 .leadMediaThumb {
   position: relative;
   padding-bottom: 66.666%;
   background: #eee;
+  border-radius: 0.3125rem;
 
   @nest & img {
     position: absolute;
@@ -20,14 +29,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-}
-
-.title {
-  @media (hover: hover) {
-    @nest .root:hover & {
-      text-decoration: underline;
-    }
+    border-radius: 0.3125rem;
   }
 }
 

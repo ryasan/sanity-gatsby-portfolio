@@ -12,6 +12,7 @@ import ProjectPreviewGrid from '../components/project-preview-grid';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
 import HeroBanner from '../components/hero-banner';
+import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
@@ -19,6 +20,7 @@ export const query = graphql`
       description
       keywords
     }
+
     projects: allSanityProject(
       limit: 3
       sort: {fields: [publishedAt], order: DESC}
@@ -27,6 +29,42 @@ export const query = graphql`
       edges {
         node {
           id
+          mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+            }
+            alt
+          }
+          title
+          _rawExcerpt
+          slug {
+            current
+          }
+        }
+      }
+    }
+
+    posts: allSanityBlogPost(limit: 3, sort: {fields: [publishedAt], order: DESC}) {
+      edges {
+        node {
+          id
+          publishedAt
           mainImage {
             crop {
               _key
@@ -77,6 +115,9 @@ const IndexPage = (props) => {
         .filter(filterOutDocsWithoutSlugs)
         .filter(filterOutDocsPublishedInTheFuture)
     : [];
+  const postNodes = (data || {}).posts
+    ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
+    : [];
 
   if (!site) {
     throw new Error(
@@ -97,6 +138,7 @@ const IndexPage = (props) => {
             browseMoreHref='/projects/'
           />
         )}
+        {postNodes && <BlogPostPreviewGrid title='Latest blog posts' nodes={postNodes} />}
       </Container>
     </Layout>
   );
