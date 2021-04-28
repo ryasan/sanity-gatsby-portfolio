@@ -12,7 +12,6 @@ import {screens} from '../lib/media';
 import {isNullOrUndefined} from '../lib/type-check-utils';
 
 const HeroBanner = ({isDark}) => {
-  const [isLoading, setIsLoading] = useState(true);
   const [options, setOptions] = useState(initialOptions);
 
   const openLink = (link) => {
@@ -52,13 +51,8 @@ const HeroBanner = ({isDark}) => {
           <h1 className={styles.title}>Ryan Santos</h1>
           <div className={styles.subtitle}>Frontend Developer</div>
           <div className={styles.meImageContainer}>
-            <div className={cn(styles.meImageInner, !isLoading && styles.visible)}>
-              <img
-                className={styles.meImage}
-                src={MeImage}
-                onLoad={() => setIsLoading(false)}
-                alt='me'
-              />
+            <div className={styles.meImageInner}>
+              <img className={styles.meImage} src={MeImage} alt='me' />
             </div>
           </div>
           <ul className={styles.socialList}>
