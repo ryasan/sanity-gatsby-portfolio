@@ -68,7 +68,7 @@ const TagCloud = () => {
   const tagCloudRef = useRef(null);
 
   const {radius, maxSpeed, initSpeed, direction} = {
-    radius: 200,
+    radius: 250,
     maxSpeed: 20,
     initSpeed: 40,
     direction: 135,
