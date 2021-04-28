@@ -2,9 +2,9 @@ import React from 'react';
 
 import {responsiveTitle1} from '../components/typography.module.css';
 import Layout from '../containers/layout';
-import Container from '../components/container/index';
+import Container from '../components/container';
 import SEO from '../components/seo';
-import SkillsAndExperience from '../components/skills-experience/index';
+import SkillsAndExperience from '../components/skills-experience';
 
 const AboutPage = () => (
   <Layout>

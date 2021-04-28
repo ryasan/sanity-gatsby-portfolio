@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../header/index';
+import Header from '../header';
 import * as styles from './layout.module.css';
 import '../../styles/layout.css';
 

@@ -6,13 +6,13 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture,
 } from '../lib/helpers';
-import Container from '../components/container/index';
+import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
-import ProjectPreviewGrid from '../components/project-preview-grid/index';
+import ProjectPreviewGrid from '../components/project-preview-grid';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
-import HeroBanner from '../components/hero-banner/index';
-import BlogPostPreviewGrid from '../components/blog-post-preview-grid/index';
+import HeroBanner from '../components/hero-banner';
+import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {

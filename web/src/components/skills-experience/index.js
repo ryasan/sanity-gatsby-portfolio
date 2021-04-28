@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as styles from './skills-experience.module.css';
 import {responsiveTitle1} from '../typography.module.css';
-import TagCloud from '../tag-cloud/index';
+import TagCloud from '../tag-cloud';
 
 const SkillsAndExperience = () => (
   <div className={styles.root}>

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ParticlesJS from 'react-particles-js';
 
 import * as styles from './hero-banner.module.css';
-import Container from '../container/index';
+import Container from '../container';
 import MeImage from '../../static/images/me.jpg';
 import {particlesParams as initialOptions} from '../../config/particles-params';
 import Icon from '../icon';

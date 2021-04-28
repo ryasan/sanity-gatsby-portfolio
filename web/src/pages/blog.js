@@ -2,10 +2,10 @@ import React from 'react';
 import {graphql} from 'gatsby';
 
 import {responsiveTitle1} from '../components/typography.module.css';
-import Container from '../components/container/index';
+import Container from '../components/container';
 import Layout from '../containers/layout';
 import SEO from '../components/seo';
-import BlogPostPreviewGrid from '../components/blog-post-preview-grid/index';
+import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
 import GraphQLErrorList from '../components/graphql-error-list';
 import {mapEdgesToNodes} from '../lib/helpers';
 

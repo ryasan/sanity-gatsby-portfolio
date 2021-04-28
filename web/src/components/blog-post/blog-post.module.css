@@ -8,10 +8,18 @@
   composes: responsiveTitle1 from '../typography.module.css';
 }
 
+.loaderContainer {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .mainImage {
   position: relative;
   background: #eee;
   padding-bottom: calc(9 / 16 * 100%);
+  opacity: 0;
 
   @nest & img {
     position: absolute;
@@ -23,6 +31,11 @@
     object-fit: cover;
   }
 }
+
+.visible {
+  opacity: 1;
+}
+
 
 .grid {
   display: grid;
