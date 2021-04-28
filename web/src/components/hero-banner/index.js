@@ -8,10 +8,13 @@ import {particlesParams} from './particles-params';
 import Icon from '../icon';
 import {withThemeInfo} from '../../context/theme-context';
 import {cn} from '../../lib/helpers';
+import {isNullOrUndefined} from '../../lib/type-check-utils';
 
 const HeroBanner = ({isDark}) => {
   const openLink = (link) => {
-    if (typeof window === 'undefined') window.open(link);
+    if (!isNullOrUndefined(window)) {
+      window.open(link);
+    }
   };
 
   return (
