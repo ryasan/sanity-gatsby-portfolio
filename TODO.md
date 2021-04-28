@@ -5,3 +5,5 @@
 3. Fix Google maps.
 4. Responsive.
 5. Fix HMR warnings.
+6. Fix about page bug.
+7. Find out why.
