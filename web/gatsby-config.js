@@ -21,5 +21,18 @@ module.exports = {
         overlayDrafts: !isProd && token,
       },
     },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: 'Montserrat',
+              variants: ['600', '800'],
+            },
+          ],
+        },
+      },
+    },
   ],
 };

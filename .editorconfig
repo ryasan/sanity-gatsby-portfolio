@@ -8,5 +8,5 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 quote_type = single
 
-[*.{js,jsx}]
+[*.{js,jsx,css}]
 max_line_length = 100

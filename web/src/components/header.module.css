@@ -16,6 +16,7 @@
 .rootDarkMode {
   composes: root;
   border-bottom-color: var(--color-black);
+  box-shadow: var(--box-shadow-sm);
 }
 
 .wrapper {
