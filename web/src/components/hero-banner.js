@@ -9,6 +9,7 @@ import Icon from './icon';
 import {withThemeInfo} from '../context/theme-context';
 import {cn} from '../lib/helpers';
 import {screens} from '../lib/media';
+import {isNullOrUndefined} from '../lib/type-check-utils';
 
 const HeroBanner = ({isDark}) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,19 +27,19 @@ const HeroBanner = ({isDark}) => {
   };
 
   const onResize = () => {
-    if (typeof window === 'undefined') return;
+    if (isNullOrUndefined(window)) return;
     if (window.innerWidth < screens.minSmall) changeNumberOfParticles(15);
     if (window.innerWidth >= screens.minSmall) changeNumberOfParticles(50);
   };
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (isNullOrUndefined(window)) return;
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (isNullOrUndefined(window)) return;
     if (window.innerWidth < screens.minSmall) changeNumberOfParticles(15);
     if (window.innerWidth >= screens.minSmall) changeNumberOfParticles(50);
   }, []);
