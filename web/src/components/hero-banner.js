@@ -1,22 +1,52 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import ParticlesJS from 'react-particles-js';
 
 import * as styles from './hero-banner.module.css';
 import Container from './container';
 import MeImage from '../static/images/me.jpg';
-import {particlesParams} from '../config/particles-params';
+import {particlesParams as initialOptions} from '../config/particles-params';
 import Icon from './icon';
 import {withThemeInfo} from '../context/theme-context';
 import {cn} from '../lib/helpers';
-import {useMediaQueries} from '../lib/media';
+import {screens} from '../lib/media';
 
 const HeroBanner = ({isDark}) => {
   const [isLoading, setIsLoading] = useState(true);
-  const mediaQueries = useMediaQueries();
+  const [options, setOptions] = useState(initialOptions);
+
+  const openLink = (link) => {
+    if (typeof window === 'undefined') window.open(link);
+  };
+
+  const changeNumberOfParticles = (value) => {
+    setOptions((prev) => ({
+      ...prev,
+      particles: {...prev.particles, number: {...prev.particles.number, value}},
+    }));
+  };
+
+  const onResize = () => {
+    if (typeof window === 'undefined') return;
+    if (window.innerWidth < screens.minSmall) changeNumberOfParticles(30);
+    if (window.innerWidth >= screens.minSmall) changeNumberOfParticles(50);
+  };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', onResize);
+      return () => window.removeEventListener('resize', onResize);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.innerWidth < screens.minSmall) changeNumberOfParticles(30);
+    if (window.innerWidth >= screens.minSmall) changeNumberOfParticles(50);
+  }, []);
 
   return (
     <div className={cn(styles.root, isDark && 'dark-gray-background-color')}>
-      <ParticlesJS className={styles.particles} params={particlesParams({mediaQueries})} />
+      <ParticlesJS className={styles.particles} params={options} />
       <Container className={styles.container}>
         <div className={styles.leftColumn}>
           <h1 className={styles.title}>Ryan Santos</h1>
@@ -34,21 +64,21 @@ const HeroBanner = ({isDark}) => {
           <ul className={styles.socialList}>
             <li
               className={styles.socialItem}
-              onClick={() => window.open('https://codepen.io/ryasan86', '_blank')}
+              onClick={() => openLink('https://codepen.io/ryasan86')}
               tabIndex='0'>
               <Icon symbol='codepen' />
               <span>Codepen</span>
             </li>
             <li
               className={styles.socialItem}
-              onClick={() => window.open('https://github.com/ryasan86', '_blank')}
+              onClick={() => openLink('https://github.com/ryasan86')}
               tabIndex='0'>
               <Icon symbol='github' />
               <span>Github</span>
             </li>
             <li
               className={styles.socialItem}
-              onClick={() => window.open('https://www.linkedin.com/in/ryasan86', '_blank')}
+              onClick={() => openLink('https://www.linkedin.com/in/ryasan86')}
               tabIndex='0'>
               <Icon symbol='linkedIn' />
               <span>LinkedIn</span>

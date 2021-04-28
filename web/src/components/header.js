@@ -23,7 +23,11 @@ function Header({onHideNav, onShowNav, showNav, isDark}) {
           <Icon symbol='hamburger' />
         </button>
 
-        <nav className={cn(styles.nav, showNav && styles.showNav, isDark && styles.navDarkMode)}>
+        <nav
+          className={cn(
+            isDark ? styles.navDarkMode : styles.navLightMode,
+            showNav && styles.showNav,
+          )}>
           <ul>
             <li
               onClick={toggleTheme}

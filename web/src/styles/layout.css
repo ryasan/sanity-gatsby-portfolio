@@ -18,6 +18,11 @@
   background-color: var(--color-dark-gray) !important;
 }
 
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
 html {
   font-family: var(--font-family-sans);
   font-size: var(--font-base-size);

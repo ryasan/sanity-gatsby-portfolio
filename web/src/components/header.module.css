@@ -73,7 +73,7 @@
   }
 }
 
-.nav {
+.navBase {
   display: none;
   top: 0;
 
@@ -120,13 +120,24 @@
   }
 }
 
+.navLightMode {
+  composes: navBase;
+}
+
 .navDarkMode {
+  composes: navBase;
   background-color: var(--color-black);
   color: var(--color-white);
 }
 
 .navLink {
   padding: 0.5rem;
+  cursor: pointer;
+}
+
+.navLink:hover {
+  background-color: #00bbd40e;
+  border-radius: 0.1875rem;
 }
 
 .buttonBase {
@@ -141,6 +152,10 @@
   @nest & img {
     height: 1.5rem;
   }
+}
+
+.buttonBase:hover {
+  color: var(--color-accent);
 }
 
 .buttonLightMode {

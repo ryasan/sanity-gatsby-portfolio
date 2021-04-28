@@ -7,7 +7,7 @@
 .columnContainer {
   margin-top: 3rem;
 
-  @media (--media-min-large) {
+  @media (--media-min-medium) {
     display: flex;
   }
 }

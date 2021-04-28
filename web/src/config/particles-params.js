@@ -1,4 +1,4 @@
-export const particlesParams = ({mediaQueries}) => ({
+export const particlesParams = {
   autoPlay: true,
   background: {
     image: '',
@@ -316,7 +316,7 @@ export const particlesParams = ({mediaQueries}) => ({
         factor: 1000,
       },
       limit: 0,
-      value: mediaQueries.minMedium.matches ? 50 : 25,
+      value: 50,
     },
     opacity: {
       random: {
@@ -400,4 +400,4 @@ export const particlesParams = ({mediaQueries}) => ({
   pauseOnOutsideViewport: true,
   responsive: [],
   themes: [],
-});
+};
