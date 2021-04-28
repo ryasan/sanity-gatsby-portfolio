@@ -27,20 +27,19 @@ const HeroBanner = ({isDark}) => {
 
   const onResize = () => {
     if (typeof window === 'undefined') return;
-    if (window.innerWidth < screens.minSmall) changeNumberOfParticles(30);
+    if (window.innerWidth < screens.minSmall) changeNumberOfParticles(15);
     if (window.innerWidth >= screens.minSmall) changeNumberOfParticles(50);
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', onResize);
-      return () => window.removeEventListener('resize', onResize);
-    }
+    if (typeof window === 'undefined') return;
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    if (window.innerWidth < screens.minSmall) changeNumberOfParticles(30);
+    if (window.innerWidth < screens.minSmall) changeNumberOfParticles(15);
     if (window.innerWidth >= screens.minSmall) changeNumberOfParticles(50);
   }, []);
 
