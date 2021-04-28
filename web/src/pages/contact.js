@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Container from '../components/container';
+import Container from '../components/container/index';
 import Layout from '../containers/layout';
 import SEO from '../components/seo';
-import Contact from '../components/contact';
+import Contact from '../components/contact/index';
 
 const ContactPage = () => {
   return (

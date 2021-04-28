@@ -6,13 +6,13 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture,
 } from '../lib/helpers';
-import Container from '../components/container';
+import Container from '../components/container/index';
 import GraphQLErrorList from '../components/graphql-error-list';
-import ProjectPreviewGrid from '../components/project-preview-grid';
+import ProjectPreviewGrid from '../components/project-preview-grid/index';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
-import HeroBanner from '../components/hero-banner';
-import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
+import HeroBanner from '../components/hero-banner/index';
+import BlogPostPreviewGrid from '../components/blog-post-preview-grid/index';
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
@@ -103,9 +103,9 @@ const IndexPage = (props) => {
 
   if (errors) {
     return (
-      <Layout>
+      <div>
         <GraphQLErrorList errors={errors} />
-      </Layout>
+      </div>
     );
   }
 

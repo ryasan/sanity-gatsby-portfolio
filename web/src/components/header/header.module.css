@@ -1,0 +1,180 @@
+@import '../../styles/custom-media.css';
+@import '../../styles/custom-properties.css';
+
+.root {
+  position: relative;
+  z-index: 100;
+  border-bottom: 0.0625rem solid;
+  padding: 0.3125rem;
+}
+
+.rootLightMode {
+  composes: root;
+  border-bottom-color: var(--color-very-light-gray);
+}
+
+.rootDarkMode {
+  composes: root;
+  border-bottom-color: var(--color-black);
+  box-shadow: var(--box-shadow-xs);
+}
+
+.wrapper {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 960px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (--media-min-small) {
+    padding: 0.5em 0.5em;
+  }
+}
+
+.branding {
+  font-weight: 600;
+
+  @nest & a {
+    color: inherit;
+    text-decoration: none;
+    height: 1rem;
+    display: flex;
+    text-align: left;
+
+    & svg {
+      height: 1rem;
+    }
+
+    @media (hover: hover) {
+      @nest &:hover svg {
+        color: var(--color-accent);
+      }
+    }
+  }
+}
+
+.toggleNavButton {
+  appearance: none;
+  font-size: 25px;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: calc(14 / 17 / 2 * 1rem);
+  outline: none;
+  color: inherit;
+
+  & svg {
+    display: block;
+    fill: inherit;
+  }
+
+  @media (--media-min-small) {
+    display: none;
+  }
+}
+
+.navBase {
+  display: none;
+  top: 0;
+
+  @nest & ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  @nest & ul li a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @media (hover: hover) {
+    @nest & ul li a:hover {
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+  }
+
+  @media (--media-max-small) {
+    position: absolute;
+    background: var(--color-white);
+    color: var(--color-black);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    left: 0;
+    right: 0;
+    top: 3.125rem;
+
+    @nest & ul {
+      padding: 1rem 0;
+    }
+  }
+
+  @media (--media-min-small) {
+    display: block;
+
+    @nest & ul {
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.navLightMode {
+  composes: navBase;
+}
+
+.navDarkMode {
+  composes: navBase;
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.navLink {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.navLink:hover {
+  background-color: #00bbd417;
+  border-radius: 0.1875rem;
+}
+
+.buttonBase {
+  display: flex;
+  align-items: center;
+  border-radius: 0.1875rem;
+  padding: 0.3125rem 0.46875rem;
+  cursor: pointer;
+  width: 7.8125rem;
+  justify-content: space-between;
+
+  @nest & img {
+    height: 1.5rem;
+  }
+
+  @media (--media-min-large) {
+    margin-right: 0.9375rem;
+  }
+}
+
+.buttonBase:hover {
+  color: var(--color-accent);
+}
+
+.buttonLightMode {
+  composes: buttonBase;
+  color: var(--color-black);
+  background-color: var(--color-white);
+}
+
+.buttonDarkMode {
+  composes: buttonBase;
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.showNav {
+  display: block;
+}
