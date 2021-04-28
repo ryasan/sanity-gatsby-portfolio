@@ -1,0 +1,49 @@
+.socialList {
+  margin-top: 2.125rem;
+  padding: 0 3.125rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.socialItem {
+  list-style-type: none;
+  height: 2rem;
+  color: var(--color-accent);
+  cursor: pointer;
+  position: relative;
+
+  @nest & svg {
+    height: 100%;
+    transition: opacity 0.2s ease-out;
+  }
+
+  @nest & > span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
+  }
+
+  @media (--media-min-medium) {
+    height: 2.777rem;
+  }
+}
+
+.socialItem:hover {
+  @nest & svg {
+    opacity: 0;
+  }
+
+  @nest & span {
+    opacity: 1;
+  }
+}
+
+.hideIfTablet {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

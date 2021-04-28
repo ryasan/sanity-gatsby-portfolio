@@ -8,8 +8,9 @@ module.exports = {
     },
   },
   env: {
-    node: true,
-    browser: true,
+    'node': true,
+    'browser': true,
+    'jest/globals': true,
   },
   rules: {
     'react/prop-types': 'off',
@@ -26,4 +27,5 @@ module.exports = {
       version: 'detect',
     },
   },
+  plugins: ['jest'],
 };

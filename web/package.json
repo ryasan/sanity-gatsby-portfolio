@@ -9,7 +9,9 @@
     "dev": "gatsby develop",
     "lint": "eslint .",
     "format": "prettier-eslint --write \"**/*.js\" \"!.cache/**\" \"!node_modules/**\" \"!public/**\"",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "jest --watch --no-watchman",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open"
   },
   "dependencies": {
     "@sanity/block-content-to-react": "^2.0.7",
@@ -25,14 +27,20 @@
     "react-helmet": "^5.2.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
     "@types/react": "^17.0.3",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.3",
+    "babel-preset-gatsby": "^1.4.0",
     "dotenv": "^8.0.0",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.21.5",
+    "jest": "^26.6.3",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.6.0",
     "prettier-eslint-cli": "^4.7.1",
