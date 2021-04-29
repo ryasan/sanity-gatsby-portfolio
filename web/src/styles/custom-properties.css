@@ -23,6 +23,7 @@
   --transition: all 0.2s ease;
 
   /* Container */
+  --border-radius-sm: 0.3125rem;
   --border-radius: 0.625rem;
 
   /* prettier-ignore */

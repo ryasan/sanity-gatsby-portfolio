@@ -49,6 +49,8 @@
 }
 
 .mainContent {
+  overflow: hidden;
+
   @nest & a {
     color: var(--color-accent);
 

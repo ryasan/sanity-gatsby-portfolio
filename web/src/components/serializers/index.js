@@ -2,7 +2,8 @@ import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import {atomOneDark} from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-import {Figure} from './figure';
+import * as styles from './serializers.module.css';
+import {Figure} from '../figure';
 
 const Code = ({node}) => {
   if (!node || !node.code) {
@@ -11,12 +12,14 @@ const Code = ({node}) => {
   const {language, code} = node;
 
   return (
-    <SyntaxHighlighter
-      language={language || 'text'}
-      style={atomOneDark}
-      customStyle={{fontWeight: '600', flex: '1', maxWidth: '87.1vw'}}>
-      {code}
-    </SyntaxHighlighter>
+    <div className={styles.root}>
+      <SyntaxHighlighter
+        language={language || 'text'}
+        style={atomOneDark}
+        customStyle={{width: '100%'}}>
+        {code}
+      </SyntaxHighlighter>
+    </div>
   );
 };
 

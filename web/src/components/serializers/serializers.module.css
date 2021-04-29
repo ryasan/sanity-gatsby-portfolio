@@ -1,0 +1,14 @@
+@import '../../styles/custom-properties.css';
+
+.root {
+  background-color: #282d33;
+
+  @nest & pre {
+    font-family: 'Roboto Mono';
+    font-weight: 500;
+  }
+
+  @nest & code {
+    font-family: inherit;
+  }
+}
