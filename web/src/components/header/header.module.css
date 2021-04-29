@@ -141,38 +141,15 @@
   border-radius: 0.1875rem;
 }
 
-.buttonBase {
+.toggleSwitchContainer {
   display: flex;
   align-items: center;
-  border-radius: 0.1875rem;
-  padding: 0.3125rem 0.46875rem;
-  cursor: pointer;
-  width: 7.8125rem;
-  justify-content: space-between;
+  margin-left: 0.625rem;
 
-  @nest & img {
-    height: 1.5rem;
+  @media (--media-min-small) {
+    margin-left: initial;
+    margin-right: 0.625rem;
   }
-
-  @media (--media-min-large) {
-    margin-right: 0.9375rem;
-  }
-}
-
-.buttonBase:hover {
-  color: var(--color-accent);
-}
-
-.buttonLightMode {
-  composes: buttonBase;
-  color: var(--color-black);
-  background-color: var(--color-white);
-}
-
-.buttonDarkMode {
-  composes: buttonBase;
-  background-color: var(--color-black);
-  color: var(--color-white);
 }
 
 .showNav {

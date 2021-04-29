@@ -1,15 +1,13 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Link} from 'gatsby';
 
 import * as styles from './header.module.css';
 import Icon from '../icon';
-import MoonSVG from '../../static/images/moon.svg';
-import SunSVG from '../../static/images/sun.svg';
+import ThemeToggleSwitch from '../theme-toggle-switch';
 import {cn} from '../../lib/helpers';
-import {ThemeContext, withThemeInfo} from '../../context/theme-context';
+import {withThemeInfo} from '../../context/theme-context';
 
 function Header({onHideNav, onShowNav, showNav, isDark}) {
-  const {toggleTheme} = useContext(ThemeContext);
   return (
     <div className={isDark ? styles.rootDarkMode : styles.rootLightMode}>
       <div className={styles.wrapper}>
@@ -29,12 +27,8 @@ function Header({onHideNav, onShowNav, showNav, isDark}) {
             showNav && styles.showNav,
           )}>
           <ul>
-            <li
-              onClick={toggleTheme}
-              className={isDark ? styles.buttonLightMode : styles.buttonDarkMode}
-              tabIndex={0}>
-              <span>{`${isDark ? 'Light' : 'Dark'} Mode`}</span>
-              <img src={isDark ? SunSVG : MoonSVG} alt='toggle-button-image' />
+            <li className={styles.toggleSwitchContainer}>
+              <ThemeToggleSwitch>{`${isDark ? 'Light' : 'Dark'} Mode`}</ThemeToggleSwitch>
             </li>
             <li className={styles.navLink}>
               <Link to='/about/'>About</Link>

@@ -11,10 +11,14 @@
     "graphql-deploy": "lerna run graphql-deploy",
     "lint": "lerna run lint",
     "postinstall": "lerna bootstrap",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:frontend": "(cd web && npm run test)"
   },
   "devDependencies": {
-    "lerna": "^3.13.1"
+    "@testing-library/react": "^11.2.6",
+    "cypress": "^7.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "lerna": "^3.13.1",
+    "start-server-and-test": "^1.12.1"
   },
   "dependencies": {
     "gatsby-plugin-webfonts": "^2.1.0",
