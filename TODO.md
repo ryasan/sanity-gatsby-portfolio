@@ -9,3 +9,4 @@
 7. ~~Add custom typography for Montserrat.~~
 8. ~~Fix hero image bug.~~
 9. ~~Add loader for blogs.~~
+10. Toggle button sun image bug.
