@@ -9,11 +9,12 @@ const Code = ({node}) => {
     return null;
   }
   const {language, code} = node;
+
   return (
     <SyntaxHighlighter
       language={language || 'text'}
       style={atomOneDark}
-      customStyle={{fontWeight: '600'}}>
+      customStyle={{fontWeight: '600', flex: '1', maxWidth: '87.1vw'}}>
       {code}
     </SyntaxHighlighter>
   );
