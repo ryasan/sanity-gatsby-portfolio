@@ -131,6 +131,7 @@ const IndexPage = (props) => {
       <HeroBanner />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
+        {postNodes && <BlogPostPreviewGrid title='Latest blog posts' nodes={postNodes} />}
         {projectNodes && (
           <ProjectPreviewGrid
             title='Latest projects'
@@ -138,7 +139,6 @@ const IndexPage = (props) => {
             browseMoreHref='/projects/'
           />
         )}
-        {postNodes && <BlogPostPreviewGrid title='Latest blog posts' nodes={postNodes} />}
       </Container>
     </Layout>
   );

@@ -30,6 +30,10 @@ module.exports = {
               family: 'Montserrat',
               variants: ['600', '800'],
             },
+            {
+              family: 'Roboto',
+              variants: ['500'],
+            },
           ],
         },
       },
