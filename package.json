@@ -14,16 +14,12 @@
     "test:frontend": "(cd web && npm run test)"
   },
   "devDependencies": {
-    "@testing-library/react": "^11.2.6",
-    "cypress": "^7.2.0",
     "identity-obj-proxy": "^3.0.0",
     "lerna": "^3.13.1",
     "start-server-and-test": "^1.12.1"
   },
   "dependencies": {
-    "gatsby-plugin-webfonts": "^2.1.0",
     "react-google-maps": "^9.4.5",
-    "react-media": "^1.10.0",
     "react-particles-js": "^3.4.1"
   }
 }
