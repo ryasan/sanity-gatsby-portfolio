@@ -6,6 +6,7 @@
 
 .title {
   composes: responsiveTitle2 from '../typography.module.css';
+  margin-top: 0.625rem;
 
   @media (hover: hover) {
     @nest .root:hover & {
