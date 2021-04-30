@@ -48,9 +48,9 @@ const ProjectsPage = (props) => {
   const projectNodes = data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs); // prettier-ignore
   return (
     <Layout>
-      <SEO title='Projects' />
+      <SEO title='Side Projects' />
       <Container>
-        <h1 className={responsiveTitle1}>Projects</h1>
+        <h1 className={responsiveTitle1}>Side Projects</h1>
         {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
       </Container>
     </Layout>

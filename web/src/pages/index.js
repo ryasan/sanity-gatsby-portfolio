@@ -134,7 +134,7 @@ const IndexPage = (props) => {
         {postNodes && <BlogPostPreviewGrid title='Latest blog posts' nodes={postNodes} />}
         {projectNodes && (
           <ProjectPreviewGrid
-            title='Latest projects'
+            title='Latest side projects'
             nodes={projectNodes}
             browseMoreHref='/projects/'
           />
