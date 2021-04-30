@@ -52,8 +52,10 @@
   color: var(--color-accent);
   font-weight: 600;
   letter-spacing: 0.2rem;
+  margin: 1.25rem 0;
 
-  @media (--media-min-large) {
+  @media (--media-min-medium) {
+    margin: 1.5rem 0;
     letter-spacing: 0.3rem;
   }
 }
