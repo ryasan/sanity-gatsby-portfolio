@@ -30,17 +30,31 @@ function Header({onHideNav, onShowNav, showNav, isDark}) {
             <li className={styles.toggleSwitchContainer}>
               <ThemeToggleSwitch>{`${isDark ? 'Light' : 'Dark'} Mode`}</ThemeToggleSwitch>
             </li>
-            <li className={styles.navLink}>
-              <Link to='/about/'>About</Link>
+            <li>
+              <Link to='/about/' className={styles.navLink} activeClassName={styles.navLinkActive}>
+                About
+              </Link>
             </li>
-            <li className={styles.navLink}>
-              <Link to='/projects/'>Projects</Link>
+            <li>
+              <Link
+                to='/projects/'
+                className={styles.navLink}
+                activeClassName={styles.navLinkActive}>
+                Projects
+              </Link>
             </li>
-            <li className={styles.navLink}>
-              <Link to='/blog/'>Blog</Link>
+            <li>
+              <Link to='/blog/' className={styles.navLink} activeClassName={styles.navLinkActive}>
+                Blog
+              </Link>
             </li>
-            <li className={styles.navLink}>
-              <Link to='/contact/'>Contact</Link>
+            <li>
+              <Link
+                to='/contact/'
+                className={styles.navLink}
+                activeClassName={styles.navLinkActive}>
+                Contact
+              </Link>
             </li>
           </ul>
         </nav>

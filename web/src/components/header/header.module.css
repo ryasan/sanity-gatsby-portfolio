@@ -134,21 +134,34 @@
 .navLink {
   padding: 0.5rem;
   cursor: pointer;
+  border-radius: 0.1875rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  margin-left: 0.625rem;
+  margin-right: 0.625rem;
+
+  @media (--media-min-small) {
+    margin-right: 0;
+  }
 }
 
 .navLink:hover {
   background-color: #00bbd417;
-  border-radius: 0.1875rem;
+}
+
+.navLinkActive {
+  composes: navLink;
+  color: var(--color-accent) !important;
+  background-color: #00bbd417;
 }
 
 .toggleSwitchContainer {
   display: flex;
   align-items: center;
   margin-left: 0.625rem;
+  margin-bottom: 0.625rem;
 
   @media (--media-min-small) {
-    margin-left: initial;
-    margin-right: 0.625rem;
+    margin-bottom: 0;
   }
 }
 
