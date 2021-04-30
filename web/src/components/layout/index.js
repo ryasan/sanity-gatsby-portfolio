@@ -11,12 +11,12 @@ const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => (
     <div className={styles.content}>{children}</div>
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
+        <SocialList />
         <div className={styles.siteInfo}>
           © {new Date().getFullYear()}, Built with <a href='https://www.sanity.io'>Sanity</a> &amp;
           {` `}
           <a href='https://www.gatsbyjs.org'>Gatsby</a>
         </div>
-        <SocialList />
       </div>
     </footer>
   </>
