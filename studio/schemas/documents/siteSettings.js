@@ -21,6 +21,18 @@ export default {
       description: 'Describe your portfolio for search engines and social media.'
     },
     {
+      name: 'url',
+      type: 'string',
+      title: 'URL',
+      description: 'Add site url.'
+    },
+    {
+      name: 'imageUrl',
+      type: 'string',
+      title: 'Image URL',
+      description: 'Add Image URL.'
+    },
+    {
       name: 'keywords',
       type: 'array',
       title: 'Keywords',
