@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import HomePageImg from '../static/images/portfolio-home-page.png';
 import {StaticQuery, graphql} from 'gatsby';
 
 function SEO({description, lang, meta, keywords, title}) {
@@ -23,11 +24,7 @@ function SEO({description, lang, meta, keywords, title}) {
               },
               {
                 property: 'og:image',
-                content: 'https://i.postimg.cc/HsmmNP6c/Screen-Shot-2021-04-29-at-8-59-58-PM.png',
-              },
-              {
-                name: 'description',
-                content: metaDescription,
+                content: HomePageImg,
               },
               {
                 property: 'og:title',
@@ -35,6 +32,10 @@ function SEO({description, lang, meta, keywords, title}) {
               },
               {
                 property: 'og:description',
+                content: metaDescription,
+              },
+              {
+                name: 'description',
                 content: metaDescription,
               },
               {
