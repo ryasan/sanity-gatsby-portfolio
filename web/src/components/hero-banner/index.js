@@ -3,7 +3,6 @@ import ParticlesJS from 'react-particles-js';
 
 import * as styles from './hero-banner.module.css';
 import Container from '../container';
-import MeImage from '../../static/images/me.jpg';
 import SocialList from '../social';
 import {particlesParams} from './particles-params';
 import {withThemeInfo} from '../../context/theme-context';
@@ -18,7 +17,7 @@ const HeroBanner = ({isDark}) => (
         <div className={styles.subtitle}>Frontend Developer</div>
         <div className={styles.meImageContainer}>
           <div className={styles.meImageInner}>
-            <img className={styles.meImage} src={MeImage} alt='me' />
+            <img className={styles.meImage} src='https://i.postimg.cc/bYt1zL19/me.jpg' alt='me' />
           </div>
         </div>
         <SocialList />
