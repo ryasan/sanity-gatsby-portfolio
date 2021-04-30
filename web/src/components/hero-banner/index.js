@@ -26,7 +26,7 @@ const HeroBanner = ({isDark}) => (
               </div>
               <div className={styles.frameLandscape}></div>
             </div>
-            <div className={isDark ? styles.standDarkMode : styles.standLightMode}></div>
+            <div className={styles.stand}></div>
             <div className={styles.standBottom}></div>
           </div>
           <div className={styles.screen}>
@@ -38,7 +38,7 @@ const HeroBanner = ({isDark}) => (
               </div>
               <div className={styles.framePortrait}></div>
             </div>
-            <div className={isDark ? styles.standDarkMode : styles.standLightMode}></div>
+            <div className={styles.stand}></div>
             <div className={styles.standBottom}></div>
           </div>
         </div>
