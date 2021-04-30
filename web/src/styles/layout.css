@@ -55,5 +55,5 @@ a {
 
 blockquote {
   border-left: 0.21875rem solid var(--color-accent);
-  text-indent: 0.9375rem;
+  padding-left: 0.9375rem;
 }
