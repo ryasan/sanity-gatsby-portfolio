@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {format, distanceInWords, differenceInDays} from 'date-fns';
 
 import * as styles from './blog-post.module.css';
-import {buildImageObj, cn} from '../../lib/helpers';
+import {buildImageObj} from '../../lib/helpers';
 import {imageUrlFor} from '../../lib/image-url';
 import BlockContent from '../block-content';
 import Container from '../container';
@@ -11,20 +11,12 @@ import Loader from '../loader';
 
 function BlogPost(props) {
   const {_rawBody, authors, categories, title, mainImage, publishedAt} = props;
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
     <Container>
       <article className={styles.root}>
-        {isLoading && (
-          <div className={styles.loaderContainer}>
-            <Loader />
-          </div>
-        )}
-        {mainImage && mainImage.asset && (
-          <div className={cn(styles.mainImage, !isLoading && styles.visible)}>
+        {mainImage && mainImage.asset ? (
+          <div className={styles.mainImage}>
             <img
-              onLoad={() => setIsLoading(false)}
               src={imageUrlFor(buildImageObj(mainImage))
                 .width(1200)
                 .height(Math.floor((9 / 16) * 1200))
@@ -32,6 +24,10 @@ function BlogPost(props) {
                 .url()}
               alt={mainImage.alt}
             />
+          </div>
+        ) : (
+          <div className={styles.loaderContainer}>
+            <Loader />
           </div>
         )}
         <div className={styles.grid}>
