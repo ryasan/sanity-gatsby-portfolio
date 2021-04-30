@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '../header';
 import * as styles from './layout.module.css';
 import '../../styles/layout.css';
+import SocialList from '../social';
 
 const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => (
   <>
@@ -15,6 +16,7 @@ const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => (
           {` `}
           <a href='https://www.gatsbyjs.org'>Gatsby</a>
         </div>
+        <SocialList />
       </div>
     </footer>
   </>

@@ -65,6 +65,7 @@ function Contact({isDark}) {
           <button className={isDark ? styles.submitButtonDarkMode : styles.submitButtonLightMode}>
             Send
           </button>
+          <small>*not working yet</small>
         </div>
       </div>
     </div>

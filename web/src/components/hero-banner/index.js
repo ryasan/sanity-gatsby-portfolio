@@ -3,7 +3,6 @@ import ParticlesJS from 'react-particles-js';
 
 import * as styles from './hero-banner.module.css';
 import Container from '../container';
-import SocialList from '../social';
 import {particlesParams} from './particles-params';
 import {withThemeInfo} from '../../context/theme-context';
 import {cn} from '../../lib/helpers';
@@ -15,7 +14,6 @@ const HeroBanner = ({isDark}) => (
       <div className={styles.leftColumn}>
         <h1 className={styles.title}>Ryan Santos</h1>
         <div className={styles.subtitle}>Frontend Developer</div>
-        <SocialList />
       </div>
       <div className={cn(styles.rightColumn, styles.hideIfTablet)}>
         <div className={styles.myStuff}>

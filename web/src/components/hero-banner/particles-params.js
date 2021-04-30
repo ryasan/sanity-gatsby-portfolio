@@ -5,7 +5,7 @@ import VSCodeSVG from '../../static/images/vscode.svg';
 export const particlesParams = {
   particles: {
     number: {
-      value: 10,
+      value: 6,
       density: {
         enable: true,
         value_area: 800,
@@ -39,13 +39,13 @@ export const particlesParams = {
       ],
     },
     size: {
-      value: 30,
+      value: 150,
       random: false,
       anim: {
         enable: true,
         speed: 4,
-        size_min: 10,
-        sync: false,
+        size_min: 50,
+        sync: true,
       },
     },
   },
