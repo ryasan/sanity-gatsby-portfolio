@@ -2,7 +2,8 @@
 @import '../../styles/custom-properties.css';
 
 .root {
-  background-color: var(--color-black);
+  background: rgb(30, 32, 34);
+  background: linear-gradient(90deg, rgba(30, 32, 34, 1) 0%, rgba(54, 60, 68, 1) 100%);
   min-height: 50vh;
   display: flex;
   justify-content: center;
