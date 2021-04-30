@@ -10,7 +10,10 @@ function SEO({description, lang, meta, keywords, title}) {
       render={(data) => {
         const metaDescription = description || (data.site && data.site.description) || '';
         const siteTitle = (data.site && data.site.title) || '';
+        const siteUrl = (data.site && data.site.url) || '';
+        const siteImageUrl = (data.site && data.site.imageUrl) || '';
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || '';
+        console.log(siteImageUrl, siteUrl);
         return (
           <Helmet
             htmlAttributes={{lang}}
@@ -19,11 +22,11 @@ function SEO({description, lang, meta, keywords, title}) {
             meta={[
               {
                 property: 'og:url',
-                content: 'https://sanity-gatsby-portfolio-web-rnacpvxg.netlify.app/',
+                content: siteUrl,
               },
               {
                 property: 'og:image',
-                content: 'https://i.postimg.cc/KvhB4LNS/portfolio-home-page.png',
+                content: siteImageUrl,
               },
               {
                 property: 'og:title',
@@ -96,6 +99,8 @@ const detailsQuery = graphql`
       title
       description
       keywords
+      url
+      imageUrl
       author {
         name
       }

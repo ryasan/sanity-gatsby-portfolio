@@ -52,18 +52,6 @@
   }
 }
 
-.meImageContainer {
-  margin-top: 1.5rem;
-  width: 6rem;
-  height: 6rem;
-  position: relative;
-
-  @media (--media-min-medium) {
-    width: 8rem;
-    height: 8rem;
-  }
-}
-
 .loaderContainer {
   position: absolute;
   left: 50%;
@@ -71,26 +59,8 @@
   transform: translate(-50%, -50%);
 }
 
-.meImageInner {
-  width: 100%;
-  height: 100%;
-  border: 0.25rem solid var(--color-accent);
-  box-sizing: initial;
-  border-radius: 50%;
-  position: relative;
-  transition: 0.3s opacity;
-}
-
 .visible {
   opacity: 1;
-}
-
-.meImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  filter: grayscale(1);
 }
 
 .rightColumn {

@@ -15,11 +15,6 @@ const HeroBanner = ({isDark}) => (
       <div className={styles.leftColumn}>
         <h1 className={styles.title}>Ryan Santos</h1>
         <div className={styles.subtitle}>Frontend Developer</div>
-        <div className={styles.meImageContainer}>
-          <div className={styles.meImageInner}>
-            <img className={styles.meImage} src='https://i.postimg.cc/bYt1zL19/me.jpg' alt='me' />
-          </div>
-        </div>
         <SocialList />
       </div>
       <div className={cn(styles.rightColumn, styles.hideIfTablet)}>
