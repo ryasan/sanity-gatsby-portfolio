@@ -36,16 +36,16 @@ function Header({onHideNav, onShowNav, showNav, isDark}) {
               </Link>
             </li>
             <li>
+              <Link to='/blog/' className={styles.navLink} activeClassName={styles.navLinkActive}>
+                Blog
+              </Link>
+            </li>
+            <li>
               <Link
                 to='/projects/'
                 className={styles.navLink}
                 activeClassName={styles.navLinkActive}>
                 Projects
-              </Link>
-            </li>
-            <li>
-              <Link to='/blog/' className={styles.navLink} activeClassName={styles.navLinkActive}>
-                Blog
               </Link>
             </li>
             <li>
