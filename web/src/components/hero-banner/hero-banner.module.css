@@ -4,7 +4,6 @@
 .root {
   background: rgb(30, 32, 34);
   background: linear-gradient(90deg, rgba(30, 32, 34, 1) 0%, rgba(54, 60, 68, 1) 100%);
-  min-height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,14 +21,10 @@
   display: flex;
   flex-direction: column;
   padding: 0;
-  z-index: 1;
-
-  @media (--media-min-large) {
-    flex-direction: row;
-  }
 }
 
-.leftColumn {
+.topRow {
+  margin-top: 3em;
   flex: 1;
   color: white;
   display: flex;
@@ -42,9 +37,9 @@
 
 .title {
   composes: responsiveTitle1 from '../typography.module.css';
-  margin: 0;
   font-weight: 800;
   letter-spacing: 0.2rem;
+  margin-bottom: 0;
 }
 
 .subtitle {
@@ -52,10 +47,10 @@
   color: var(--color-accent);
   font-weight: 600;
   letter-spacing: 0.2rem;
-  margin: 1.25rem 0;
+  margin-top: 1.25rem;
 
   @media (--media-min-medium) {
-    margin: 1.5rem 0;
+    margin-top: 1.5rem;
     letter-spacing: 0.3rem;
   }
 }
@@ -71,13 +66,15 @@
   opacity: 1;
 }
 
-.rightColumn {
+.bottomRow {
   font-size: 8px;
-  display: flex;
-  justify-content: center;
+  flex: 1;
+  bottom: 0;
+  position: relative;
+  margin-top: 3em;
 
   @media (--media-min-small) {
-    font-size: 11px !important;
+    font-size: 11px;
   }
 
   @media (--media-min-medium) {
@@ -86,16 +83,13 @@
 }
 
 .myStuff {
-  --landscape-screen-height: 10em;
-  --landscape-screen-width: 20em;
+  --landscape-screen-height: 12em;
+  --landscape-screen-width: 24em;
   --portrait-screen-height: 17em;
   --portrait-screen-width: 12em;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   align-items: flex-end;
   justify-content: center;
-  transform: translateX(2em);
 }
 
 .screen {
@@ -202,7 +196,7 @@
 }
 
 .stand {
-  border: 0.7em solid var(--color-light-gray);
+  border: 0.8em solid var(--color-light-gray);
   border-left-color: transparent;
   border-right-color: transparent;
   border-top: 0;
@@ -267,10 +261,4 @@
   @nest & span {
     opacity: 1;
   }
-}
-
-.hideIfTablet {
-  /* @media (max-width: 768px) {
-    display: none;
-  } */
 }

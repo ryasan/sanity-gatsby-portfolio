@@ -11,11 +11,11 @@ const HeroBanner = ({isDark}) => (
   <div className={cn(styles.root, isDark && 'dark-gray-background-color')}>
     <ParticlesJS className={styles.particles} params={particlesParams} />
     <Container className={styles.container}>
-      <div className={styles.leftColumn}>
+      <div className={styles.topRow}>
         <h1 className={styles.title}>Ryan Santos</h1>
         <div className={styles.subtitle}>Frontend Developer</div>
       </div>
-      <div className={cn(styles.rightColumn, styles.hideIfTablet)}>
+      <div className={styles.bottomRow}>
         <div className={styles.myStuff}>
           <div className={styles.screen}>
             <div className={styles.screenInnerLandscape}>
@@ -25,18 +25,6 @@ const HeroBanner = ({isDark}) => (
                 <div className={styles.codeLandscape}></div>
               </div>
               <div className={styles.frameLandscape}></div>
-            </div>
-            <div className={styles.stand}></div>
-            <div className={styles.standBottom}></div>
-          </div>
-          <div className={styles.screen}>
-            <div className={styles.screenInnerPortrait}>
-              <div className={styles.screenTrackPortrait}>
-                <div className={styles.codePortrait}></div>
-                <div className={styles.codePortrait}></div>
-                <div className={styles.codePortrait}></div>
-              </div>
-              <div className={styles.framePortrait}></div>
             </div>
             <div className={styles.stand}></div>
             <div className={styles.standBottom}></div>
