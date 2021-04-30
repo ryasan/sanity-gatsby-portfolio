@@ -18,6 +18,14 @@ function SEO({description, lang, meta, keywords, title}) {
             titleTemplate={title === siteTitle ? '%s' : `%s | ${siteTitle}`}
             meta={[
               {
+                property: 'og:url',
+                content: 'https://sanity-gatsby-portfolio-web-rnacpvxg.netlify.app/',
+              },
+              {
+                property: 'og:image',
+                content: 'https://i.postimg.cc/HsmmNP6c/Screen-Shot-2021-04-29-at-8-59-58-PM.png',
+              },
+              {
                 name: 'description',
                 content: metaDescription,
               },
