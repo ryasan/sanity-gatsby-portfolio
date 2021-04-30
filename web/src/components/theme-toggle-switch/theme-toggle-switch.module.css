@@ -14,6 +14,19 @@
   }
 }
 
+.icon {
+  position: absolute;
+  height: 20px;
+  top: 50%;
+  left: 4%;
+  transform: translateY(-50%);
+}
+
+.icon:first-of-type {
+  left: initial;
+  right: 4%;
+}
+
 .input {
   opacity: 0;
   width: 0;
@@ -27,7 +40,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--color-accent);
+  background-color: var(--color-black);
   transition: 0.4s;
   border-radius: calc(34px * 0.8);
 
@@ -36,19 +49,24 @@
   }
 }
 
+.sliderBeforeDarkMode {
+  background-color: var(--blue-400) !important;
+}
+
+
 .slider:before {
   position: absolute;
   content: '';
-  background-color: var(--color-black);
+  background-color: var(--color-white);
   transition: 0.4s;
   border-radius: 50%;
-  background-image: url('../../static/images/moon.svg');
   background-position: center center;
   background-repeat: no-repeat;
   height: calc(26px * 0.8);
   width: calc(26px * 0.8);
   left: calc(4px * 0.8);
   bottom: calc(4px * 0.8);
+  z-index: 1;
 
   @media (--media-min-small) {
     height: 26px;
@@ -58,16 +76,14 @@
   }
 }
 
-.input:checked + .slider {
-  background-color: var(--color-white);
-}
-
 .input:checked + .slider:before {
-  background-image: url('../../static/images/sun.svg');
-  background-color: var(--blue-400);
   transform: translateX(calc(26px * 0.8));
 
   @media (--media-min-small) {
     transform: translateX(26px);
+  }
+
+  @nest & .slider {
+    background-color: red;
   }
 }
