@@ -26,7 +26,7 @@
 .topRow {
   margin-top: 3em;
   flex: 1;
-  color: white;
+  color: var(--color-white);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,9 +45,9 @@
 }
 
 .subtitle {
-  composes: responsiveTitle4 from '../typography.module.css';
+  composes: responsiveTitle2 from '../typography.module.css';
   color: var(--color-accent);
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 0.2rem;
   margin-top: 1.25rem;
 

@@ -15,7 +15,7 @@ export const particlesParams = {
       enable: false,
     },
     move: {
-      speed: 1,
+      speed: 0.2,
       out_mode: 'out',
     },
     shape: {
@@ -39,7 +39,7 @@ export const particlesParams = {
       ],
     },
     size: {
-      value: 150,
+      value: 75,
       random: false,
       anim: {
         enable: true,
