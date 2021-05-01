@@ -13,7 +13,7 @@ function SEO({description, lang, meta, keywords, title}) {
         const siteUrl = (data.site && data.site.url) || '';
         const siteImageUrl = (data.site && data.site.imageUrl) || '';
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || '';
-        console.log(siteImageUrl, siteUrl);
+
         return (
           <Helmet
             htmlAttributes={{lang}}
