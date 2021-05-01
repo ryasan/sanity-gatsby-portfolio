@@ -16,7 +16,8 @@ const Code = ({node}) => {
       <SyntaxHighlighter
         language={language || 'text'}
         style={dracula}
-        customStyle={{width: '100%'}}>
+        customStyle={{width: '100%'}}
+        codeTagProps={{className: 'code-block'}}>
         {code}
       </SyntaxHighlighter>
     </div>

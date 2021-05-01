@@ -38,11 +38,13 @@ body {
   background: var(--color-white);
   color: var(--color-black);
   margin: 0;
+  font-weight: 500;
+  font-family: var(--font-family-sans);
 }
 
 body.dark {
   background: var(--color-black);
-  color: var(--color-white);
+  color: var(--color-gray);
 }
 
 html,
@@ -60,4 +62,18 @@ a {
 blockquote {
   border-left: 0.21875rem solid var(--color-accent);
   padding-left: 0.9375rem;
+}
+
+code:not(.code-block) {
+  background-color: var(--color-very-light-gray);
+  border-radius: 0.125rem;
+  padding: 0.0625rem 0.125rem;
+  font-weight: 600;
+}
+
+body.dark code:not(.code-block) {
+  background-color: #262f3d;
+  border-radius: 0.125rem;
+  padding: 0.0625rem 0.125rem;
+  font-weight: 600;
 }

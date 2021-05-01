@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import CodepenIcon from './codepen';
+import CoffeeIcon from './coffee';
+import DeskLampIcon from './desk-lamp';
 import GithubIcon from './github';
 import HamburgerIcon from './hamburger';
+import HomeIcon from './home';
 import LinkedInIcon from './linked-in';
 import MyInitialsIcon from './my-initials';
 import MySignatureIcon from './my-signature';
-import CoffeeIcon from './coffee';
-import DeskLampIcon from './desk-lamp';
 
 function Icon(props) {
   switch (props.symbol) {
@@ -22,6 +23,8 @@ function Icon(props) {
       return <GithubIcon {...props} />;
     case 'hamburger':
       return <HamburgerIcon {...props} />;
+    case 'home':
+      return <HomeIcon {...props} />;
     case 'linkedIn':
       return <LinkedInIcon {...props} />;
     case 'my-initials':
