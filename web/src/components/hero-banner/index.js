@@ -7,10 +7,10 @@ import {withThemeInfo} from '../../context/theme-context';
 import {cn} from '../../lib/helpers';
 
 const HeroBanner = ({isDark}) => (
-  <div className={cn(styles.root, isDark && styles.grayGradientBackground)}>
+  <div className={cn(styles.root, isDark && styles.whiteGradientBackground)}>
     <Container className={styles.container}>
       <div className={styles.topRow}>
-        <h1 className={cn(styles.title, isDark && styles.colorWhite)}>Ryan Santos</h1>
+        <h1 className={cn(styles.title, isDark && styles.colorBlack)}>Ryan Santos</h1>
         <div className={styles.subtitle}>Frontend Developer</div>
       </div>
       <div className={styles.bottomRow}>
