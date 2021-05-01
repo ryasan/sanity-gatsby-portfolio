@@ -11,6 +11,9 @@ export const particlesParams = {
         value_area: 800,
       },
     },
+    opacity: {
+      random: false,
+    },
     line_linked: {
       enable: false,
     },
@@ -43,7 +46,7 @@ export const particlesParams = {
       random: false,
       anim: {
         enable: true,
-        speed: 4,
+        speed: 1,
         size_min: 50,
         sync: true,
       },
