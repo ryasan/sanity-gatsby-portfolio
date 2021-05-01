@@ -54,9 +54,7 @@ const BlogPage = (props) => {
       <SEO title='Blog' />
       <Container>
         <h1 className={responsiveTitle1}>Blog</h1>
-        {postNodes && postNodes.length > 0 && (
-          <BlogPostPreviewGrid nodes={postNodes} browseMoreHref='/projects/' />
-        )}
+        {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
       </Container>
     </Layout>
   );
