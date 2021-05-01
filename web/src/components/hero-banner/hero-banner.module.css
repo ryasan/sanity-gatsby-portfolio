@@ -74,6 +74,8 @@
   bottom: 0;
   position: relative;
   margin-top: 3em;
+  display: flex;
+  justify-content: center;
 
   @media (--media-min-small) {
     font-size: 11px;
@@ -90,8 +92,11 @@
   --portrait-screen-height: 17em;
   --portrait-screen-width: 12em;
 
+  display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: space-between;
+  max-width: 40em;
+  width: 100%;
 }
 
 .screen {
@@ -103,20 +108,10 @@
   position: relative;
 }
 
-.screenInnerBase {
+.screenInner {
   border-radius: 0.3em;
   overflow: hidden;
   position: relative;
-}
-
-.screenInnerPortrait {
-  composes: screenInnerBase;
-  height: var(--portrait-screen-height);
-  width: var(--portrait-screen-width);
-}
-
-.screenInnerLandscape {
-  composes: screenInnerBase;
   height: var(--landscape-screen-height);
   width: var(--landscape-screen-width);
 }
@@ -141,59 +136,31 @@
   }
 }
 
-.screenTrackBase {
+.screenTrack {
   animation-duration: 20s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   position: absolute;
   width: 100%;
-}
-
-.screenTrackPortrait {
-  composes: screenTrackBase;
-  animation-name: infinite-slide-portrait;
-}
-
-.screenTrackLandscape {
-  composes: screenTrackBase;
   animation-name: infinite-slide-landscape;
 }
 
-.codeBase {
+.code {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   width: 100%;
-}
-
-.codePortrait {
-  composes: codeBase;
-  background-image: url('../../static/images/portrait-screen.svg');
-  height: var(--portrait-screen-height);
-}
-
-.codeLandscape {
-  composes: codeBase;
   background-image: url('../../static/images/landscape-screen.svg');
   height: var(--landscape-screen-height);
 }
 
-.frameBase {
+.frame {
   background: transparent;
   border: 0.6em solid var(--color-white);
   position: absolute;
   width: 100%;
   z-index: 100;
-}
-
-.framePortrait {
-  composes: frameBase;
-  height: var(--portrait-screen-height);
-}
-
-.frameLandscape {
-  composes: frameBase;
   height: var(--landscape-screen-height);
 }
 
@@ -213,6 +180,20 @@
   width: 100%;
   height: 100%;
   background-color: var(--color-white);
+}
+
+.deskLamp {
+  color: var(--color-white);
+  width: 6em;
+  bottom: -1px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.coffee {
+  color: var(--color-white);
+  width: 3.5em;
 }
 
 .standBottom {

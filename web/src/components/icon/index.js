@@ -7,11 +7,17 @@ import HamburgerIcon from './hamburger';
 import LinkedInIcon from './linked-in';
 import MyInitialsIcon from './my-initials';
 import MySignatureIcon from './my-signature';
+import CoffeeIcon from './coffee';
+import DeskLampIcon from './desk-lamp';
 
 function Icon(props) {
   switch (props.symbol) {
     case 'codepen':
       return <CodepenIcon {...props} />;
+    case 'coffee':
+      return <CoffeeIcon {...props} />;
+    case 'desk-lamp':
+      return <DeskLampIcon {...props} />;
     case 'github':
       return <GithubIcon {...props} />;
     case 'hamburger':
