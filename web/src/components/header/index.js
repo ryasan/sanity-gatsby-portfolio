@@ -6,14 +6,13 @@ import Icon from '../icon';
 import ThemeToggleSwitch from '../theme-toggle-switch';
 import {cn} from '../../lib/helpers';
 import {withThemeInfo} from '../../context/theme-context';
-import {isEmptyObject} from '../../lib/type-check-utils';
 
 function Header({onHideNav, onShowNav, showNav, isDark}) {
   return (
     <div className={cn(styles.root, isDark && styles.rootDarkMode)}>
       <div className={styles.wrapper}>
         <div className={cn(styles.branding, isDark && styles.brandingDarkMode)}>
-          {!isEmptyObject(window) && window.location.pathname === '/' ? (
+          {typeof window !== 'undefined' && window.location.pathname === '/' ? (
             <Link to='/'>
               <Icon symbol='my-initials' />
             </Link>
