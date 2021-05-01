@@ -11,9 +11,9 @@ function Header({onHideNav, onShowNav, showNav, isDark}) {
   return (
     <div className={cn(styles.root, isDark && styles.rootDarkMode)}>
       <div className={styles.wrapper}>
-        <div className={styles.branding}>
+        <div className={cn(styles.branding, isDark && styles.brandingDarkMode)}>
           <Link to='/'>
-            <Icon symbol='my-initials' className={isDark && 'dark-color'} />
+            <Icon symbol='my-initials' />
           </Link>
         </div>
 
