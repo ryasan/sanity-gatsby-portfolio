@@ -9,11 +9,11 @@ import {withThemeInfo} from '../../context/theme-context';
 
 function Header({onHideNav, onShowNav, showNav, isDark}) {
   return (
-    <div className={isDark ? styles.rootDarkMode : styles.rootLightMode}>
+    <div className={cn(styles.root, isDark && styles.rootDarkMode)}>
       <div className={styles.wrapper}>
         <div className={styles.branding}>
           <Link to='/'>
-            <Icon symbol='my-initials' className={isDark ? '' : 'dark-color'} />
+            <Icon symbol='my-initials' className={isDark && 'dark-color'} />
           </Link>
         </div>
 
@@ -21,11 +21,7 @@ function Header({onHideNav, onShowNav, showNav, isDark}) {
           <Icon symbol='hamburger' />
         </button>
 
-        <nav
-          className={cn(
-            isDark ? styles.navDarkMode : styles.navLightMode,
-            showNav && styles.showNav,
-          )}>
+        <nav className={cn(styles.nav, isDark && styles.navDarkMode, showNav && styles.showNav)}>
           <ul>
             <li className={styles.toggleSwitchContainer}>
               <ThemeToggleSwitch>{`${isDark ? 'Light' : 'Dark'} Mode`}</ThemeToggleSwitch>

@@ -2,20 +2,19 @@
 @import '../../styles/custom-properties.css';
 
 .root {
-  position: relative;
-  z-index: 100;
+  position: sticky;
+  top: 0;
+  z-index: 10;
   border-bottom: 0.0625rem solid;
   padding: 0.3125rem;
-}
-
-.rootLightMode {
-  composes: root;
+  background-color: var(--color-white);
   border-bottom-color: var(--color-very-light-gray);
 }
 
 .rootDarkMode {
   composes: root;
   border-bottom-color: var(--color-black);
+  background-color: var(--color-black);
   box-shadow: var(--box-shadow-xs);
 }
 
@@ -74,7 +73,7 @@
   }
 }
 
-.navBase {
+.nav {
   display: none;
   top: 0;
 
@@ -121,12 +120,8 @@
   }
 }
 
-.navLightMode {
-  composes: navBase;
-}
-
 .navDarkMode {
-  composes: navBase;
+  composes: nav;
   background-color: var(--color-black);
   color: var(--color-white);
 }
