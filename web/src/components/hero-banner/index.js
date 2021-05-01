@@ -7,28 +7,29 @@ import {withThemeInfo} from '../../context/theme-context';
 import {cn} from '../../lib/helpers';
 
 const HeroBanner = ({isDark}) => (
-  <div className={cn(styles.root, isDark && 'dark-gray-background-color')}>
+  <div className={cn(styles.root, isDark && styles.grayGradientBackground)}>
     <Container className={styles.container}>
       <div className={styles.topRow}>
-        <h1 className={styles.title}>Ryan Santos</h1>
+        <h1 className={cn(styles.title, isDark && styles.colorWhite)}>Ryan Santos</h1>
         <div className={styles.subtitle}>Frontend Developer</div>
       </div>
       <div className={styles.bottomRow}>
         <div className={styles.myStuff}>
-          <Icon className={styles.deskLamp} symbol='desk-lamp' />
+          <Icon className={cn(styles.deskLamp, isDark && styles.colorBlack)} symbol='desk-lamp' />
           <div className={styles.screen}>
             <div className={styles.screenInner}>
-              <div className={styles.screenTrack}>
+              <div className={cn(styles.screenTrack)}>
                 <div className={styles.code}></div>
                 <div className={styles.code}></div>
                 <div className={styles.code}></div>
               </div>
-              <div className={styles.frame}></div>
+              <div className={cn(styles.frame, isDark && styles.borderColorBlack)}></div>
             </div>
-            <div className={styles.stand}></div>
-            <div className={styles.standBottom}></div>
+            <div className={cn(styles.stand, isDark && styles.borderColorDarkGray)}></div>
+            <div className={cn(styles.standNeck, isDark && styles.backgroundColorBlack)}></div>
+            <div className={cn(styles.standBottom, isDark && styles.backgroundColorBlack)}></div>
           </div>
-          <Icon className={styles.coffee} symbol='coffee' />
+          <Icon className={cn(styles.coffee, isDark && styles.colorBlack)} symbol='coffee' />
         </div>
       </div>
     </Container>

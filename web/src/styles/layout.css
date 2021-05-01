@@ -18,6 +18,10 @@
   background-color: var(--color-dark-gray) !important;
 }
 
+*.black-background-color {
+  background-color: var(--color-black);
+}
+
 ::selection {
   background-color: var(--color-accent);
   color: var(--color-white);

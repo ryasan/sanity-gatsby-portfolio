@@ -3203,7 +3203,7 @@
   "resolved" "https://registry.npmjs.org/lodash.uniq/-/lodash.uniq-4.5.0.tgz"
   "version" "4.5.0"
 
-"lodash@^4.16.2", "lodash@^4.17.11", "lodash@^4.17.12", "lodash@^4.17.14", "lodash@^4.17.21", "lodash@^4.2.1":
+"lodash@^4.16.2", "lodash@^4.17.12", "lodash@^4.17.14", "lodash@^4.17.21", "lodash@^4.2.1":
   "integrity" "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
   "resolved" "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   "version" "4.17.21"
@@ -4039,11 +4039,6 @@
   dependencies:
     "pify" "^3.0.0"
 
-"pathseg@^1.2.0":
-  "integrity" "sha512-+pQS7lTaoVIXhaCW7R3Wd/165APzZHWzYVqe7dxzdupxQwebgpBaCmf0/XZwmoA/rkDq3qvzO0qv4d5oFVrBRw=="
-  "resolved" "https://registry.npmjs.org/pathseg/-/pathseg-1.2.0.tgz"
-  "version" "1.2.0"
-
 "pause-stream@0.0.11":
   "integrity" "sha1-/lo0sMvOErWqaitAPuLnO2AvFEU="
   "resolved" "https://registry.npmjs.org/pause-stream/-/pause-stream-0.0.11.tgz"
@@ -4252,15 +4247,7 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
-"react-particles-js@^3.4.1":
-  "integrity" "sha512-c3+vITUMN9RlgbERZYd9Kzvjmf49ENp07+9+NDLvE1Jf9euabrJi/q6gCCcv5foxGHBYjHnGs47Tusmrl0/+GQ=="
-  "resolved" "https://registry.npmjs.org/react-particles-js/-/react-particles-js-3.4.1.tgz"
-  "version" "3.4.1"
-  dependencies:
-    "lodash" "^4.17.11"
-    "tsparticles" "^1.18.10"
-
-"react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^15.0.0 || ^16.0.0", "react@^16.0.0", "react@^16.14.0":
+"react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^15.0.0 || ^16.0.0", "react@^16.14.0":
   "integrity" "sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.14.0.tgz"
   "version" "16.14.0"
@@ -5162,13 +5149,6 @@
   "integrity" "sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.10.0.tgz"
   "version" "1.10.0"
-
-"tsparticles@^1.18.10":
-  "integrity" "sha512-Ogk/pRrBIdu9FjXXeJ3jBYnhxTWJQ+gNUJdeoescMHSTdHojsrDy/2TB3+DcSEpSYmvGA6nbqWkz+Xi5v9gHjw=="
-  "resolved" "https://registry.npmjs.org/tsparticles/-/tsparticles-1.26.3.tgz"
-  "version" "1.26.3"
-  optionalDependencies:
-    "pathseg" "^1.2.0"
 
 "tunnel-agent@^0.6.0":
   "integrity" "sha1-J6XeoGs2sEoKmWZ3SykIaPD8QP0="
