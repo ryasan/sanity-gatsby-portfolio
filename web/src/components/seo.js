@@ -13,13 +13,16 @@ function SEO({description, lang, meta, keywords, title}) {
         const siteUrl = (data.site && data.site.url) || '';
         const siteImageUrl = (data.site && data.site.imageUrl) || '';
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || '';
-
         return (
           <Helmet
             htmlAttributes={{lang}}
             title={title}
             titleTemplate={title === siteTitle ? '%s' : `%s | ${siteTitle}`}
             meta={[
+              {
+                name: 'google-site-verification',
+                property: 'T1WSch4FP8eogVz5x6134wOeJhuNgoikLg5RHqii5Ag',
+              },
               {
                 property: 'og:url',
                 content: siteUrl,
