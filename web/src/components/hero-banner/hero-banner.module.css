@@ -2,8 +2,11 @@
 @import '../../styles/custom-properties.css';
 
 .root {
-  background: rgb(30, 32, 34);
-  background: linear-gradient(90deg, rgba(30, 32, 34, 1) 0%, rgba(54, 60, 68, 1) 100%);
+  background-color: #121a23;
+  background-image: url('../../static/images/bg-black.svg');
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,8 +14,8 @@
 }
 
 .whiteGradientBackground {
-  background: rgb(221, 221, 221);
-  background: linear-gradient(90deg, rgba(221, 221, 221, 1) 0%, rgba(255, 255, 255, 1) 100%);
+  background-color: #b4bcc7;
+  background-image: url('../../static/images/bg-white.svg');
 }
 
 .particles {

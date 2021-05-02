@@ -69,6 +69,7 @@ code:not(.code-block) {
   border-radius: 0.125rem;
   padding: 0.0625rem 0.125rem;
   font-weight: 600;
+  font-size: var(--font-base-size);
 }
 
 body.dark code:not(.code-block) {
@@ -76,4 +77,6 @@ body.dark code:not(.code-block) {
   border-radius: 0.125rem;
   padding: 0.0625rem 0.125rem;
   font-weight: 600;
+  font-size: 2rem;
+  font-size: var(--font-base-size);
 }
