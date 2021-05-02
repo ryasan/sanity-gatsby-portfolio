@@ -12,15 +12,9 @@ function Header({onHideNav, onShowNav, showNav, isDark}) {
     <div className={cn(styles.root, isDark && styles.rootDarkMode)}>
       <div className={styles.wrapper}>
         <div className={cn(styles.branding, isDark && styles.brandingDarkMode)}>
-          {typeof window !== 'undefined' && window.location.pathname === '/' ? (
-            <Link to='/'>
-              <Icon symbol='my-initials' />
-            </Link>
-          ) : (
-            <Link to='/'>
-              <Icon symbol='home' />
-            </Link>
-          )}
+          <Link to='/'>
+            <Icon symbol='my-initials' />
+          </Link>
         </div>
 
         <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
@@ -28,37 +22,23 @@ function Header({onHideNav, onShowNav, showNav, isDark}) {
         </button>
 
         <nav className={cn(styles.nav, isDark && styles.navDarkMode, showNav && styles.showNav)}>
-          <ul>
-            <li className={styles.toggleSwitchContainer}>
-              <ThemeToggleSwitch>{`${isDark ? 'Light' : 'Dark'} Mode`}</ThemeToggleSwitch>
-            </li>
-            <li>
-              <Link to='/about/' className={styles.navLink} activeClassName={styles.navLinkActive}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to='/blog/' className={styles.navLink} activeClassName={styles.navLinkActive}>
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link
-                to='/projects/'
-                className={styles.navLink}
-                activeClassName={styles.navLinkActive}>
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link
-                to='/contact/'
-                className={styles.navLink}
-                activeClassName={styles.navLinkActive}>
-                Contact
-              </Link>
-            </li>
-          </ul>
+          <div className={styles.navInner}>
+            <a className={styles.toggleSwitchContainer}>
+              <ThemeToggleSwitch />
+            </a>
+            <Link className={styles.link} activeClassName={styles.linkActive} to='/about/'>
+              About
+            </Link>
+            <Link className={styles.link} activeClassName={styles.linkActive} to='/blog/'>
+              Blog
+            </Link>
+            <Link className={styles.link} activeClassName={styles.linkActive} to='/projects/'>
+              Projects
+            </Link>
+            <Link className={styles.link} activeClassName={styles.linkActive} to='/contact/'>
+              Contact
+            </Link>
+          </div>
         </nav>
       </div>
     </div>

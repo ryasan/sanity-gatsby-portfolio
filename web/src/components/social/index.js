@@ -15,21 +15,21 @@ const SocialList = () => {
       <li
         className={styles.socialItem}
         onClick={() => openLink('https://codepen.io/ryasan86')}
-        tabIndex='0'>
+        tabIndex={0}>
         <Icon symbol='codepen' />
         <span>Codepen</span>
       </li>
       <li
         className={styles.socialItem}
         onClick={() => openLink('https://github.com/ryasan86')}
-        tabIndex='0'>
+        tabIndex={0}>
         <Icon symbol='github' />
         <span>Github</span>
       </li>
       <li
         className={styles.socialItem}
         onClick={() => openLink('https://www.linkedin.com/in/ryasan86')}
-        tabIndex='0'>
+        tabIndex={0}>
         <Icon symbol='linkedIn' />
         <span>LinkedIn</span>
       </li>
