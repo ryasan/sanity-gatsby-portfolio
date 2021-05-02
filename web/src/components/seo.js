@@ -20,10 +20,6 @@ function SEO({description, lang, meta, keywords, title}) {
             titleTemplate={title === siteTitle ? '%s' : `%s | ${siteTitle}`}
             meta={[
               {
-                name: 'google-site-verification',
-                property: 'T1WSch4FP8eogVz5x6134wOeJhuNgoikLg5RHqii5Ag',
-              },
-              {
                 property: 'og:url',
                 content: siteUrl,
               },
