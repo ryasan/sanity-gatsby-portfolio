@@ -1,6 +1,6 @@
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import {dracula} from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import {atomOneDark} from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import * as styles from './serializers.module.css';
 import {Figure} from '../figure';
@@ -15,7 +15,7 @@ const Code = ({node}) => {
     <div className={styles.root}>
       <SyntaxHighlighter
         language={language || 'text'}
-        style={dracula}
+        style={atomOneDark}
         customStyle={{width: '100%'}}
         codeTagProps={{className: 'code-block'}}>
         {code}
