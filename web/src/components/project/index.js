@@ -8,15 +8,13 @@ import {imageUrlFor} from '../../lib/image-url';
 import BlockContent from '../block-content';
 import Container from '../container';
 import RoleList from '../role-list';
-import Loader from '../loader';
 
 function Project(props) {
   const {_rawBody, title, categories, mainImage, members, publishedAt, relatedProjects} = props;
-
   return (
     <Container>
       <article className={styles.root}>
-        {props.mainImage && mainImage.asset ? (
+        {props.mainImage && mainImage.asset && (
           <div className={styles.mainImage}>
             <img
               src={imageUrlFor(buildImageObj(mainImage))
@@ -26,10 +24,6 @@ function Project(props) {
                 .url()}
               alt={mainImage.alt}
             />
-          </div>
-        ) : (
-          <div className={styles.loaderContainer}>
-            <Loader />
           </div>
         )}
         <div className={styles.grid}>

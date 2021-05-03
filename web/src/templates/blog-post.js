@@ -5,6 +5,8 @@ import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
 import BlogPost from '../components/blog-post';
 import SEO from '../components/seo';
+import Loader from '../components/loader';
+import {isEmpty} from '../lib/type-check-utils';
 
 export const query = graphql`
   query BlogPostTemplateQuery($id: String!) {
@@ -76,20 +78,17 @@ export const query = graphql`
 
 const BlogPostTemplate = (props) => {
   const {data, errors} = props;
-  const post = data && data.post;
+
+  if (!isEmpty(errors)) return <GraphQLErrorList errors={errors} />;
+  if (isEmpty(data)) return <Loader />;
+
+  const {post} = data;
+
   return (
-    <>
-      {errors && <SEO title='GraphQL Error' />}
-      {post && <SEO title={post.title || 'Untitled'} />}
-
-      {errors && (
-        <Container>
-          <GraphQLErrorList errors={errors} />
-        </Container>
-      )}
-
-      {post && <BlogPost {...post} />}
-    </>
+    <Container>
+      {!isEmpty(post) && <SEO title={post.title || 'Untitled'} />}
+      {!isEmpty(post) && <BlogPost {...post} />}
+    </Container>
   );
 };
 

@@ -5,6 +5,8 @@ import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
 import Project from '../components/project';
 import SEO from '../components/seo';
+import Loader from '../components/loader';
+import {isEmpty} from '../lib/type-check-utils';
 
 export const query = graphql`
   query ProjectTemplateQuery($id: String!) {
@@ -83,19 +85,17 @@ export const query = graphql`
 
 const ProjectTemplate = (props) => {
   const {data, errors} = props;
-  const project = data && data.project;
-  return (
-    <>
-      {errors && <SEO title='GraphQL Error' />}
-      {project && <SEO title={project.title || 'Untitled'} />}
 
-      {errors && (
-        <Container>
-          <GraphQLErrorList errors={errors} />
-        </Container>
-      )}
-      {project && <Project {...project} />}
-    </>
+  if (!isEmpty(errors)) return <GraphQLErrorList errors={errors} />;
+  if (isEmpty(data)) return <Loader />;
+
+  const {project} = data;
+
+  return (
+    <Container>
+      {!isEmpty(project) && <SEO title={project.title || 'Untitled'} />}
+      {!isEmpty(project) && <Project {...project} />}
+    </Container>
   );
 };
 

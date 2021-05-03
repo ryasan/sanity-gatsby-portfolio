@@ -12,6 +12,9 @@ import ProjectPreviewGrid from '../components/project-preview-grid';
 import SEO from '../components/seo';
 import HeroBanner from '../components/hero-banner';
 import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
+import Loader from '../components/loader';
+import {isEmpty} from '../lib/type-check-utils';
+
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
@@ -99,29 +102,24 @@ export const query = graphql`
 
 const IndexPage = (props) => {
   const {data, errors} = props;
-  if (errors) {
-    return (
-      <div>
-        <GraphQLErrorList errors={errors} />
-      </div>
-    );
-  }
 
-  const site = (data || {}).site;
-  const projectNodes = (data || {}).projects
+  if (!isEmpty(errors)) return <GraphQLErrorList errors={errors} />;
+  if (isEmpty(data)) return <Loader />;
+
+  const {site} = data;
+  if (isEmpty(site)) throw new Error('Missing "Site settings".');
+
+  const projectNodes = data.projects
     ? mapEdgesToNodes(data.projects)
         .filter(filterOutDocsWithoutSlugs)
         .filter(filterOutDocsPublishedInTheFuture)
     : [];
-  const postNodes = (data || {}).posts
-    ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
-    : [];
 
-  if (!site) {
-    throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.',
-    );
-  }
+  const blogPostNodes = data.posts
+    ? mapEdgesToNodes(data.posts)
+        .filter(filterOutDocsWithoutSlugs)
+        .filter(filterOutDocsPublishedInTheFuture)
+    : [];
 
   return (
     <>
@@ -129,20 +127,16 @@ const IndexPage = (props) => {
       <HeroBanner />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        {postNodes && (
-          <BlogPostPreviewGrid
-            title='Latest blog posts'
-            nodes={postNodes}
-            browseMoreHref='/blog/'
-          />
-        )}
-        {projectNodes && (
-          <ProjectPreviewGrid
-            title='Latest side projects'
-            nodes={projectNodes}
-            browseMoreHref='/projects/'
-          />
-        )}
+        <BlogPostPreviewGrid
+          title='Latest blog posts'
+          nodes={blogPostNodes}
+          browseMoreHref='/blog/'
+        />
+        <ProjectPreviewGrid
+          title='Latest projects'
+          nodes={projectNodes}
+          browseMoreHref='/projects/'
+        />
       </Container>
     </>
   );
