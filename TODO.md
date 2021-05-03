@@ -9,5 +9,5 @@
 7. ~~Add custom typography for Montserrat.~~
 8. ~~Fix hero image bug.~~
 9. ~~Add loader for blogs.~~
-10. Sticky nav
-11. Home transforming button.
+10. ~~Home transforming button.~~
+11. Move animations to framer motion

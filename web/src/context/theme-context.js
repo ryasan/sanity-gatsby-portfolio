@@ -1,9 +1,9 @@
 import React, {createContext, useState, useContext} from 'react';
 
-export const LIGHT = 'light';
-export const DARK = 'dark';
+const LIGHT = 'light';
+const DARK = 'dark';
 
-export const ThemeContext = createContext({});
+const ThemeContext = createContext({});
 
 function ThemeProvider({children}) {
   const [theme, setTheme] = useState(LIGHT);
@@ -35,4 +35,4 @@ const withThemeInfo = (Component) => (props) => {
   return ComplexComponent;
 };
 
-export {ThemeProvider, withThemeInfo};
+export {ThemeProvider, withThemeInfo, ThemeContext, LIGHT, DARK};

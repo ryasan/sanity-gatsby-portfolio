@@ -6,8 +6,10 @@ import SunSVG from '../../static/images/sun.svg';
 import {withThemeInfo, ThemeContext} from '../../context/theme-context';
 import {cn} from '../../lib/helpers';
 import {isNullOrUndefined} from '../../lib/type-check-utils';
+import {UIContext} from '../../context/ui-context';
 
 const ThemeToggleSwitch = ({isDark}) => {
+  const {setUiIsLoaded} = useContext(UIContext);
   const {theme, toggleTheme, changeTheme} = useContext(ThemeContext);
 
   const cacheThemePreference = () => {
@@ -22,8 +24,10 @@ const ThemeToggleSwitch = ({isDark}) => {
   useEffect(() => {
     if (typeof window !== 'undefined' && typeof document !== 'undefined') {
       const cachedTheme = window.localStorage.getItem('theme');
+
       if (!isNullOrUndefined(cachedTheme)) changeTheme(cachedTheme);
       document.body.classList.add(cachedTheme);
+      setUiIsLoaded(true);
     }
   }, []);
 
