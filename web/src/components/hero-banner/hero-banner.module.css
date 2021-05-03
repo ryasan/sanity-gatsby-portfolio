@@ -97,14 +97,26 @@
 .myStuff {
   --landscape-screen-height: 12em;
   --landscape-screen-width: 24em;
-  --portrait-screen-height: 17em;
-  --portrait-screen-width: 12em;
 
+  position: relative;
+  width: 100%;
+}
+
+.itemContainer {
+  position: absolute;
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
-  max-width: 40em;
-  width: 100%;
+  bottom: -1px;
+}
+
+.deskLamp {
+  color: var(--color-white);
+  width: 6em;
+}
+
+.coffee {
+  color: var(--color-white);
+  width: 3.5em;
 }
 
 .screen {
@@ -195,21 +207,6 @@
   background: var(--color-white);
   height: 0.6em;
   width: 4em;
-}
-
-.deskLamp {
-  color: var(--color-white);
-  width: 6em;
-  bottom: -1px;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-}
-
-.coffee {
-  color: var(--color-white);
-  width: 3.5em;
-  transform: translateY(1px);
 }
 
 .socialList {
