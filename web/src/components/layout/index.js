@@ -7,6 +7,7 @@ import Header from '../header';
 import SocialList from '../social';
 import Loader from '../../components/loader';
 import {UIContext} from '../../context/ui-context';
+import {cn} from '../../lib/helpers';
 
 const LoaderContainer = () => (
   <motion.div
@@ -22,7 +23,7 @@ const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => {
   const date = new Date().getFullYear();
 
   return (
-    <div className={styles.root}>
+    <div className={cn(styles.root, showNav && styles.rootMobile)}>
       {!uiIsLoaded && <LoaderContainer uiIsLoaded={uiIsLoaded} />}
 
       <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5}}}>
