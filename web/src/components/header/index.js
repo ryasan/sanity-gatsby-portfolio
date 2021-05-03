@@ -57,18 +57,9 @@ const HomeIcon = ({isHome}) => (
   </motion.div>
 );
 
-const Branding = ({isHome}) => {
-  if (isHome) return <InitialsIcon />;
-  else return <HomeIcon />;
-};
-
-Branding.displayName = 'Branding';
-
-const Header = (props) => {
-  const {onHideNav, onShowNav, showNav, isDark} = props;
+const Header = ({onHideNav, onShowNav, showNav, isDark}) => {
   const {pathname} = useLocation();
   const isHome = pathname === '/';
-  console.log(isHome);
 
   return (
     <div className={cn(styles.root, isDark && styles.rootDarkMode)}>
