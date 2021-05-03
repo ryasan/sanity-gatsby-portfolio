@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'gatsby';
+import {useLocation} from '@gatsbyjs/reach-router';
+import {motion} from 'framer-motion';
 
 import * as styles from './header.module.css';
 import Icon from '../icon';
@@ -7,14 +9,73 @@ import ThemeToggleSwitch from '../theme-toggle-switch';
 import {cn} from '../../lib/helpers';
 import {withThemeInfo} from '../../context/theme-context';
 
-function Header({onHideNav, onShowNav, showNav, isDark}) {
+const show = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transitionEnd: {
+      zIndex: 1,
+    },
+  },
+  transition: {
+    duration: 0.5,
+    ease: 'linear',
+  },
+};
+
+const hide = {
+  initial: {
+    opacity: 1,
+  },
+  animate: {
+    opacity: 0,
+    transitionEnd: {
+      zIndex: 0,
+    },
+  },
+  transition: {
+    duration: 0.5,
+    ease: 'linear',
+  },
+};
+
+const InitialsIcon = ({isHome}) => (
+  <motion.div className={styles.brandingInner} {...(isHome ? show : hide)}>
+    <Link className={styles.brandingLink} to='/'>
+      <Icon symbol='my-initials' />
+    </Link>
+  </motion.div>
+);
+
+const HomeIcon = ({isHome}) => (
+  <motion.div className={styles.brandingInner} {...(isHome ? hide : show)}>
+    <Link className={styles.brandingLink} to='/'>
+      <Icon symbol='home' />
+    </Link>
+  </motion.div>
+);
+
+const Branding = ({isHome}) => {
+  if (isHome) return <InitialsIcon />;
+  else return <HomeIcon />;
+};
+
+Branding.displayName = 'Branding';
+
+const Header = (props) => {
+  const {onHideNav, onShowNav, showNav, isDark} = props;
+  const {pathname} = useLocation();
+  const isHome = pathname === '/';
+  console.log(isHome);
+
   return (
     <div className={cn(styles.root, isDark && styles.rootDarkMode)}>
       <div className={styles.wrapper}>
         <div className={cn(styles.branding, isDark && styles.brandingDarkMode)}>
-          <Link to='/'>
-            <Icon symbol='my-initials' />
-          </Link>
+          <InitialsIcon isHome={isHome} />
+          <HomeIcon isHome={isHome} />
         </div>
 
         <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
@@ -43,6 +104,8 @@ function Header({onHideNav, onShowNav, showNav, isDark}) {
       </div>
     </div>
   );
-}
+};
+
+Header.displayName = 'Header';
 
 export default withThemeInfo(Header);

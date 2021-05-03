@@ -5,7 +5,6 @@ import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
 import ProjectPreviewGrid from '../components/project-preview-grid';
 import SEO from '../components/seo';
-import Layout from '../containers/layout';
 import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers';
 import {responsiveTitle1} from '../components/typography.module.css';
 
@@ -39,21 +38,17 @@ export const query = graphql`
 const ProjectsPage = (props) => {
   const {data, errors} = props;
   if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    );
+    return <GraphQLErrorList errors={errors} />;
   }
   const projectNodes = data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs); // prettier-ignore
   return (
-    <Layout>
+    <>
       <SEO title='Side Projects' />
       <Container>
         <h1 className={responsiveTitle1}>Side Projects</h1>
         {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
       </Container>
-    </Layout>
+    </>
   );
 };
 
