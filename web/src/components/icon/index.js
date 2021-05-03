@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import CloseIcon from './close';
 import CodepenIcon from './codepen';
 import CoffeeIcon from './coffee';
 import DeskLampIcon from './desk-lamp';
@@ -13,6 +14,8 @@ import MySignatureIcon from './my-signature';
 
 function Icon(props) {
   switch (props.symbol) {
+    case 'close':
+      return <CloseIcon {...props} />;
     case 'codepen':
       return <CodepenIcon {...props} />;
     case 'coffee':

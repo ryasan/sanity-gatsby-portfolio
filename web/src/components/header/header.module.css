@@ -68,15 +68,16 @@
 
 .toggleNavButton {
   appearance: none;
-  font-size: 25px;
   border: none;
   background: none;
   margin: 0;
   padding: calc(14 / 17 / 2 * 1rem);
   outline: none;
-  color: inherit;
+  color: white;
 
   & svg {
+    width: 2em;
+    height: 2em;
     display: block;
     fill: inherit;
   }

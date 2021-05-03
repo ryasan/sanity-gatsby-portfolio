@@ -70,7 +70,7 @@ const Header = ({onHideNav, onShowNav, showNav, isDark}) => {
         </div>
 
         <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
-          <Icon symbol='hamburger' />
+          <Icon symbol={showNav ? 'close' : 'hamburger'} />
         </button>
 
         <nav className={cn(styles.nav, isDark && styles.navDarkMode, showNav && styles.showNav)}>
