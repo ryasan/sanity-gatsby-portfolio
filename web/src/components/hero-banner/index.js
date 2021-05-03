@@ -17,8 +17,8 @@ const HeroBanner = ({isDark}) => (
         <div className={styles.myStuff}>
           <motion.div
             className={styles.itemContainer}
-            initial={{left: '-8em', rotate: -50}}
-            animate={{left: '25.5em', rotate: 0}}
+            initial={{x: '-100%', rotate: -50}}
+            animate={{x: 'calc(50vw - 22em)', rotate: 0}}
             transition={{duration: 1.5, delay: 0.25, type: 'spring', bounce: 0.4}}>
             <Icon className={cn(styles.deskLamp, isDark && styles.colorBlack)} symbol='desk-lamp' />
           </motion.div>
@@ -39,8 +39,8 @@ const HeroBanner = ({isDark}) => (
           </motion.div>
           <motion.div
             className={styles.itemContainer}
-            initial={{right: '-6em', rotate: 50}}
-            animate={{right: '27em', rotate: 0}}
+            initial={{x: '100vw', rotate: 50}}
+            animate={{x: 'calc(50vw + 15em)', rotate: 0}}
             transition={{duration: 1.5, delay: 0.75, type: 'spring', bounce: 0.5}}>
             <Icon className={cn(styles.coffee, isDark && styles.colorBlack)} symbol='coffee' />
           </motion.div>
