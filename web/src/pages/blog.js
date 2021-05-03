@@ -6,7 +6,9 @@ import Container from '../components/container';
 import SEO from '../components/seo';
 import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
 import GraphQLErrorList from '../components/graphql-error-list';
+import Loader from '../components/loader';
 import {mapEdgesToNodes} from '../lib/helpers';
+import {isEmpty} from '../lib/type-check-utils';
 
 export const query = graphql`
   query BlogPageQuery {
@@ -38,18 +40,15 @@ export const query = graphql`
 const BlogPage = (props) => {
   const {data, errors} = props;
 
-  if (errors) {
-    return <GraphQLErrorList errors={errors} />;
-  }
-
-  const postNodes = data && data.blogPosts && mapEdgesToNodes(data.blogPosts);
+  if (errors) return <GraphQLErrorList errors={errors} />;
+  if (isEmpty(data)) return <Loader />;
 
   return (
     <>
       <SEO title='Blog' />
       <Container>
         <h1 className={responsiveTitle1}>Blog</h1>
-        {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
+        <BlogPostPreviewGrid nodes={mapEdgesToNodes(data.blogPosts)} />
       </Container>
     </>
   );
