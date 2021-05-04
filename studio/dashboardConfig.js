@@ -50,8 +50,13 @@ export default {
     {name: 'project-users', layout: {height: 'auto'}},
     {
       name: 'document-list',
-      options: {title: 'Recent projects', order: '_createdAt desc', types: ['project']},
-      layout: {width: 'medium'},
+      options: {title: 'Recent Blog Posts', order: '_createdAt desc', types: ['blogPost']},
+      layout: {width: 'small'},
+    },
+    {
+      name: 'document-list',
+      options: {title: 'Recent Projects', order: '_createdAt desc', types: ['project']},
+      layout: {width: 'small'},
     },
   ],
 };
