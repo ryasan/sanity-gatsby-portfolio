@@ -62,81 +62,67 @@ const collapse = {
   },
 };
 
-const Nav = ({isDark, onHideNav, showNav}) => (
-  <motion.nav
-    className={cn(styles.nav, isDark && styles.navDarkMode)}
-    {...(showNav ? expand : collapse)}>
-    <div className={styles.navInner}>
-      <a className={styles.toggleSwitchContainer}>
-        <ThemeToggleSwitch />
-      </a>
-      <Link
-        className={styles.link}
-        activeClassName={styles.linkActive}
-        to='/about/'
-        onClick={onHideNav}>
-        About
-      </Link>
-      <Link
-        className={styles.link}
-        activeClassName={styles.linkActive}
-        to='/blog/'
-        onClick={onHideNav}>
-        Blog
-      </Link>
-      <Link
-        className={styles.link}
-        activeClassName={styles.linkActive}
-        to='/projects/'
-        onClick={onHideNav}>
-        Projects
-      </Link>
-      <Link
-        className={styles.link}
-        activeClassName={styles.linkActive}
-        to='/contact/'
-        onClick={onHideNav}>
-        Contact
-      </Link>
-    </div>
-  </motion.nav>
-);
-
-const InitialsIcon = ({isHome}) => (
-  <motion.div className={styles.brandingInner} {...(isHome ? fadeIn : fadeOut)}>
-    <Link className={styles.brandingLink} to='/'>
-      <Icon symbol='my-initials' />
-    </Link>
-  </motion.div>
-);
-
-const HomeIcon = ({isHome}) => (
-  <motion.div className={styles.brandingInner} {...(isHome ? fadeOut : fadeIn)}>
-    <Link className={styles.brandingLink} to='/'>
-      <Icon symbol='home' />
-    </Link>
-  </motion.div>
-);
-
 const Header = ({onHideNav, onShowNav, showNav, isDark}) => {
   const {pathname} = useLocation();
   const isHome = pathname === '/';
-
-  console.log('SHOW NAV----->', showNav);
 
   return (
     <div className={cn(styles.root, isDark && styles.rootDarkMode)}>
       <div className={styles.wrapper}>
         <div className={styles.branding}>
-          <InitialsIcon isHome={isHome} />
-          <HomeIcon isHome={isHome} />
+          <motion.div className={styles.brandingInner} {...(isHome ? fadeIn : fadeOut)}>
+            <Link className={styles.brandingLink} to='/'>
+              <Icon symbol='my-initials' />
+            </Link>
+          </motion.div>
+          <motion.div className={styles.brandingInner} {...(isHome ? fadeOut : fadeIn)}>
+            <Link className={styles.brandingLink} to='/'>
+              <Icon symbol='home' />
+            </Link>
+          </motion.div>
         </div>
 
         <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
           <HamburgerMenu showNav={showNav} />
         </button>
 
-        <Nav isDark={isDark} onHideNav={onHideNav} showNav={showNav} />
+        <motion.nav
+          className={cn(styles.nav, isDark && styles.navDarkMode)}
+          {...(showNav ? expand : collapse)}>
+          <div className={styles.navInner}>
+            <a className={styles.toggleSwitchContainer}>
+              <ThemeToggleSwitch />
+            </a>
+            <Link
+              className={styles.link}
+              activeClassName={styles.linkActive}
+              to='/about/'
+              onClick={onHideNav}>
+              About
+            </Link>
+            <Link
+              className={styles.link}
+              activeClassName={styles.linkActive}
+              to='/blog/'
+              onClick={onHideNav}>
+              Blog
+            </Link>
+            <Link
+              className={styles.link}
+              activeClassName={styles.linkActive}
+              to='/projects/'
+              onClick={onHideNav}>
+              Projects
+            </Link>
+            <Link
+              className={styles.link}
+              activeClassName={styles.linkActive}
+              to='/contact/'
+              onClick={onHideNav}>
+              Contact
+            </Link>
+          </div>
+        </motion.nav>
       </div>
     </div>
   );
