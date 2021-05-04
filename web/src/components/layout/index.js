@@ -26,7 +26,7 @@ const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => {
     <div
       className={cn(
         styles.root,
-        typeof window === 'undefined' && window.innerWidth < 450 && styles.rootMobile,
+        typeof window !== 'undefined' && window.innerWidth < 450 && styles.rootMobile,
       )}>
       {!ui?.uiIsLoaded && <LoaderContainer />}
 

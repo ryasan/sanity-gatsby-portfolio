@@ -2,13 +2,10 @@ import React from 'react';
 
 import * as styles from './social.module.css';
 import Icon from '../icon';
-import {isNullOrUndefined} from '../../lib/type-check-utils';
 
 const SocialList = () => {
   const openLink = (link) => {
-    if (!isNullOrUndefined(window)) {
-      window.open(link);
-    }
+    if (typeof window !== 'undefined') window.open(link);
   };
   return (
     <ul className={styles.socialList} data-testid='social-list'>
