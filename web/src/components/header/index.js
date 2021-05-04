@@ -5,6 +5,7 @@ import {motion} from 'framer-motion';
 
 import * as styles from './header.module.css';
 import Icon from '../icon';
+import HamburgerMenu from './hamburger'
 import ThemeToggleSwitch from '../theme-toggle-switch';
 import {cn} from '../../lib/helpers';
 import {withThemeInfo} from '../../context/theme-context';
@@ -136,7 +137,7 @@ const Header = ({onHideNav, onShowNav, showNav, isDark}) => {
         </div>
 
         <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
-          <Icon symbol={showNav ? 'close' : 'hamburger'} />
+          <HamburgerMenu showNav={showNav} />
         </button>
 
         <Nav isDark={isDark} onHideNav={onHideNav} showNav={showNav} />

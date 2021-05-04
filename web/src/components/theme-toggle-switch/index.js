@@ -9,7 +9,7 @@ import {isNullOrUndefined} from '../../lib/type-check-utils';
 import {UIContext} from '../../context/ui-context';
 
 const ThemeToggleSwitch = ({isDark}) => {
-  const {setUiIsLoaded} = useContext(UIContext);
+  const ui = useContext(UIContext);
   const {theme, toggleTheme, changeTheme} = useContext(ThemeContext);
 
   const cacheThemePreference = () => {
@@ -27,7 +27,8 @@ const ThemeToggleSwitch = ({isDark}) => {
 
       if (!isNullOrUndefined(cachedTheme)) changeTheme(cachedTheme);
       document.body.classList.add(cachedTheme);
-      setUiIsLoaded(true);
+
+      if (!isNullOrUndefined(ui)) ui.setUiIsLoaded(true);
     }
   }, []);
 

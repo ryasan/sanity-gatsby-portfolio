@@ -19,7 +19,7 @@ const LoaderContainer = () => (
 );
 
 const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => {
-  const {uiIsLoaded} = useContext(UIContext);
+  const ui = useContext(UIContext);
   const date = new Date().getFullYear();
 
   return (
@@ -28,7 +28,7 @@ const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => {
         styles.root,
         typeof window === 'undefined' && window.innerWidth < 450 && styles.rootMobile,
       )}>
-      {!uiIsLoaded && <LoaderContainer uiIsLoaded={uiIsLoaded} />}
+      {!ui?.uiIsLoaded && <LoaderContainer />}
 
       <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5}}}>
         <Header
