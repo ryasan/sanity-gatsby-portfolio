@@ -5,7 +5,7 @@ import {motion} from 'framer-motion';
 
 import * as styles from './header.module.css';
 import Icon from '../icon';
-import HamburgerMenu from './hamburger'
+import HamburgerMenu from './hamburger';
 import ThemeToggleSwitch from '../theme-toggle-switch';
 import {cn} from '../../lib/helpers';
 import {withThemeInfo} from '../../context/theme-context';
@@ -43,9 +43,6 @@ const fadeOut = {
 };
 
 const expand = {
-  initial: {
-    height: 0,
-  },
   animate: {
     height: 'calc(100vh - 4em)',
   },
@@ -56,9 +53,6 @@ const expand = {
 };
 
 const collapse = {
-  initial: {
-    height: 'calc(100vh - 4em)',
-  },
   animate: {
     height: 0,
   },
@@ -127,6 +121,8 @@ const HomeIcon = ({isHome}) => (
 const Header = ({onHideNav, onShowNav, showNav, isDark}) => {
   const {pathname} = useLocation();
   const isHome = pathname === '/';
+
+  console.log('SHOW NAV----->', showNav);
 
   return (
     <div className={cn(styles.root, isDark && styles.rootDarkMode)}>
