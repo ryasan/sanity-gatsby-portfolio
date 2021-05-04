@@ -10,4 +10,5 @@
 8. ~~Fix hero image bug.~~
 9. ~~Add loader for blogs.~~
 10. ~~Home transforming button.~~
-11. Move animations to framer motion
+11. Move animations to framer motion.
+12. Trim down the isDark code and use more inherit in CSS.

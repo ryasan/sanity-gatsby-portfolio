@@ -41,6 +41,51 @@ const hide = {
   },
 };
 
+const Nav = ({isDark, onHideNav, showNav}) => {
+  return (
+    <motion.nav
+      className={cn(
+        styles.navMobile,
+        showNav && styles.navMobileOpen,
+        isDark && styles.navDarkMode,
+      )}>
+      <div className={styles.navInner}>
+        <a className={styles.toggleSwitchContainer}>
+          <ThemeToggleSwitch />
+        </a>
+        <Link
+          className={styles.link}
+          activeClassName={styles.linkActive}
+          to='/about/'
+          onClick={onHideNav}>
+          About
+        </Link>
+        <Link
+          className={styles.link}
+          activeClassName={styles.linkActive}
+          to='/blog/'
+          onClick={onHideNav}>
+          Blog
+        </Link>
+        <Link
+          className={styles.link}
+          activeClassName={styles.linkActive}
+          to='/projects/'
+          onClick={onHideNav}>
+          Projects
+        </Link>
+        <Link
+          className={styles.link}
+          activeClassName={styles.linkActive}
+          to='/contact/'
+          onClick={onHideNav}>
+          Contact
+        </Link>
+      </div>
+    </motion.nav>
+  );
+};
+
 const InitialsIcon = ({isHome}) => (
   <motion.div className={styles.brandingInner} {...(isHome ? show : hide)}>
     <Link className={styles.brandingLink} to='/'>
@@ -63,8 +108,10 @@ const Header = ({onHideNav, onShowNav, showNav, isDark}) => {
 
   return (
     <div className={cn(styles.root, isDark && styles.rootDarkMode)}>
+      <Nav isDark={isDark} onHideNav={onHideNav} />
+
       <div className={styles.wrapper}>
-        <div className={cn(styles.branding, isDark && styles.brandingDarkMode)}>
+        <div className={styles.branding}>
           <InitialsIcon isHome={isHome} />
           <HomeIcon isHome={isHome} />
         </div>
@@ -72,26 +119,6 @@ const Header = ({onHideNav, onShowNav, showNav, isDark}) => {
         <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
           <Icon symbol={showNav ? 'close' : 'hamburger'} />
         </button>
-
-        <nav className={cn(styles.nav, isDark && styles.navDarkMode, showNav && styles.showNav)}>
-          <div className={styles.navInner}>
-            <a className={styles.toggleSwitchContainer}>
-              <ThemeToggleSwitch />
-            </a>
-            <Link className={styles.link} activeClassName={styles.linkActive} to='/about/'>
-              About
-            </Link>
-            <Link className={styles.link} activeClassName={styles.linkActive} to='/blog/'>
-              Blog
-            </Link>
-            <Link className={styles.link} activeClassName={styles.linkActive} to='/projects/'>
-              Projects
-            </Link>
-            <Link className={styles.link} activeClassName={styles.linkActive} to='/contact/'>
-              Contact
-            </Link>
-          </div>
-        </nav>
       </div>
     </div>
   );

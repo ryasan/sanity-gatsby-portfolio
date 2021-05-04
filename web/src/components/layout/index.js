@@ -23,7 +23,7 @@ const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => {
   const date = new Date().getFullYear();
 
   return (
-    <div className={cn(styles.root, showNav && styles.rootMobile)}>
+    <div className={cn(styles.root, true && styles.rootMobile)}>
       {!uiIsLoaded && <LoaderContainer uiIsLoaded={uiIsLoaded} />}
 
       <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5}}}>
