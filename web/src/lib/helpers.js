@@ -1,27 +1,27 @@
 import {format, isFuture} from 'date-fns';
 
-export function cn(...args) {
+export const cn = (...args) => {
   return args.filter(Boolean).join(' ');
-}
+};
 
-export function mapEdgesToNodes(data) {
+export const mapEdgesToNodes = (data) => {
   if (!(data && data.edges)) return [];
   return data.edges.map((edge) => edge.node);
-}
+};
 
-export function filterOutDocsWithoutSlugs({slug}) {
+export const filterOutDocsWithoutSlugs = ({slug}) => {
   return (slug || {}).current;
-}
+};
 
-export function filterOutDocsPublishedInTheFuture({publishedAt}) {
+export const filterOutDocsPublishedInTheFuture = ({publishedAt}) => {
   return !isFuture(publishedAt);
-}
+};
 
-export function getBlogUrl(publishedAt, slug) {
+export const getBlogUrl = (publishedAt, slug) => {
   return `/blog/${format(publishedAt, 'YYYY/MM')}/${slug.current || slug}/`;
-}
+};
 
-export function buildImageObj(source) {
+export const buildImageObj = (source) => {
   const imageObj = {
     asset: {_ref: source.asset._ref || source.asset._id},
   };
@@ -30,4 +30,4 @@ export function buildImageObj(source) {
   if (source.hotspot) imageObj.hotspot = source.hotspot;
 
   return imageObj;
-}
+};

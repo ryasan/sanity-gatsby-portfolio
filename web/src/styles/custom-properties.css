@@ -1,5 +1,5 @@
 :root {
-  --font-family-sans: -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-sans: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Typography */
   --unit: 16;
