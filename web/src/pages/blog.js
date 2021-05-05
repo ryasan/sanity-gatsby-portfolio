@@ -1,26 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {graphql} from 'gatsby';
 
 import {responsiveTitle1} from '../components/typography.module.css';
 import Container from '../components/container';
-// import Categories from '../components/categories';
+import Categories from '../components/categories';
 import SEO from '../components/seo';
 import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
 import GraphQLErrorList from '../components/graphql-error-list';
 import Loader from '../components/loader';
 import {mapEdgesToNodes} from '../lib/helpers';
-import {isEmpty} from '../lib/type-check-utils';
-
-// categories: allSanityCategory {
-//   edges {
-//     node {
-//       title
-//     }
-//   }
-// }
+import {isEmpty, isEmptyArray} from '../lib/type-check-utils';
 
 export const query = graphql`
   query BlogPageQuery {
+    categories: allSanityCategory {
+      edges {
+        node {
+          title
+        }
+      }
+    }
     blogPosts: allSanityBlogPost(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
@@ -40,6 +39,9 @@ export const query = graphql`
           slug {
             current
           }
+          categories {
+            title
+          }
         }
       }
     }
@@ -48,17 +50,39 @@ export const query = graphql`
 
 const BlogPage = (props) => {
   const {data, errors} = props;
+  const [activeList, setActiveList] = useState([]);
 
   if (errors) return <GraphQLErrorList errors={errors} />;
   if (isEmpty(data)) return <Loader />;
+
+  const handleClick = (title) => {
+    setActiveList((list) => {
+      if (list.includes(title)) return list.filter((t) => t !== title);
+      else return [...list, title];
+    });
+  };
+
+  const posts = mapEdgesToNodes(data.blogPosts);
+
+  const blogPosts = !isEmptyArray(activeList)
+    ? posts.filter((post) => {
+        return activeList.some((active) => {
+          return post.categories.some(({title}) => title === active);
+        });
+      })
+    : posts;
 
   return (
     <>
       <SEO title='Blog' />
       <Container>
         <h1 className={responsiveTitle1}>Blog</h1>
-        {/* <Categories categories={mapEdgesToNodes(data.categories)} /> */}
-        <BlogPostPreviewGrid nodes={mapEdgesToNodes(data.blogPosts)} />
+        <Categories
+          categories={mapEdgesToNodes(data.categories)}
+          activeList={activeList}
+          onClick={handleClick}
+        />
+        <BlogPostPreviewGrid nodes={blogPosts} />
       </Container>
     </>
   );

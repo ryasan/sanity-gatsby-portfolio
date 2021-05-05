@@ -1,21 +1,37 @@
 @import '../../styles/custom-properties.css';
 
 .root {
-  /* list-style-type: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap; */
-}
-
-.categoryList {
   list-style-type: none;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.categoryListDark {
+  display: grid;
+  gap: 0.625rem;
+  grid-template-columns: repeat(auto-fill, minmax(3.125rem, 1fr));
 }
 
 .category {
+  padding: 0 0.1875rem;
+  border: 0.0625rem solid var(--color-black);
+  text-align: center;
+  border-radius: 0.1875rem;
+  font-size: var(--font-micro-size);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.active {
+  color: var(--color-white);
+  background-color: var(--color-black);
+}
+
+.categoryDark {
+  color: var(--color-gray);
+  border-color: var(--color-gray);
+}
+
+.activeDark {
+  color: var(--color-black);
+  background-color: var(--color-light-gray);
 }
