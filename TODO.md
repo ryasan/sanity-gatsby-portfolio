@@ -13,3 +13,4 @@
 11. Move animations to framer motion.
 12. Trim down the isDark code and use more inherit in CSS.
 13. ~~don't hide overflow on non home pages.~~
+14. Look into Google Tag Manager.
