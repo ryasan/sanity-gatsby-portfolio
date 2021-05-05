@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {graphql} from 'gatsby';
 
-import {responsiveTitle1} from '../components/typography.module.css';
+import {responsiveTitle1, responsiveTitle2} from '../components/typography.module.css';
 import Container from '../components/container';
 import Categories from '../components/categories';
 import SEO from '../components/seo';
@@ -82,6 +82,7 @@ const BlogPage = (props) => {
           activeList={activeList}
           onClick={handleClick}
         />
+        {isEmptyArray(blogPosts) && <h2 className={responsiveTitle2}>Empty 😭</h2>}
         <BlogPostPreviewGrid nodes={blogPosts} />
       </Container>
     </>
