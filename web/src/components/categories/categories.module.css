@@ -1,0 +1,21 @@
+@import '../../styles/custom-properties.css';
+
+.root {
+  /* list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap; */
+}
+
+.categoryList {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.categoryListDark {
+}
+
+.category {
+}
