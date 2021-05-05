@@ -22,8 +22,8 @@ const HeroBanner = ({isDark}) => (
             transition={{duration: 1.5, delay: 0.5, type: 'spring', bounce: 0.38}}>
             <Icon className={cn(styles.deskLamp, isDark && styles.colorBlack)} symbol='desk-lamp' />
           </motion.div>
-          <motion.div>
-            <div className={styles.screen} initial={{bottom: '-12em'}} animate={{bottom: '-100em'}}>
+          <motion.div initial={{bottom: '-12em'}} animate={{bottom: '-100em'}}>
+            <div className={styles.screen}>
               <div className={styles.screenInner}>
                 <div className={cn(styles.screenTrack)}>
                   <div className={styles.code}></div>
