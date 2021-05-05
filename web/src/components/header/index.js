@@ -71,12 +71,15 @@ const Header = ({onHideNav, onShowNav, showNav, isDark}) => {
       <div className={styles.wrapper}>
         <div className={styles.branding}>
           <motion.div className={styles.brandingInner} {...(isHome ? fadeIn : fadeOut)}>
-            <Link className={styles.brandingLink} to='/'>
+            <Link className={styles.brandingLink} to='/' onClick={onHideNav}>
               <Icon symbol='my-initials' />
             </Link>
           </motion.div>
-          <motion.div className={styles.brandingInner} {...(isHome ? fadeOut : fadeIn)}>
-            <Link className={styles.brandingLink} to='/'>
+          <motion.div
+            className={styles.brandingInner}
+            onClick={onHideNav}
+            {...(isHome ? fadeOut : fadeIn)}>
+            <Link className={styles.brandingLink} to='/' onClick={onHideNav}>
               <Icon symbol='home' />
             </Link>
           </motion.div>
