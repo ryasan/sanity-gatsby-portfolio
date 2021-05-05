@@ -57,7 +57,7 @@
   position: absolute;
   content: '';
   background-color: var(--color-white);
-  transition: 0.4s;
+  transition: transform 0.4s;
   border-radius: 50%;
   background-position: center center;
   background-repeat: no-repeat;
