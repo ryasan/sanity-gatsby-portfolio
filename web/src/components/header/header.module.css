@@ -17,7 +17,6 @@
   composes: root;
   border-bottom-color: var(--color-black);
   background-color: var(--color-black);
-  /* box-shadow: var(--box-shadow-xs); */
   color: var(--color-gray);
 }
 
@@ -91,7 +90,7 @@
     top: 4em;
     left: 0;
     width: 100%;
-    height: calc(100vh - 4em);
+    height: 0;
   }
 }
 

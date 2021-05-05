@@ -42,26 +42,6 @@ const fadeOut = {
   },
 };
 
-const expand = {
-  animate: {
-    height: 'calc(100vh - 4em)',
-  },
-  transition: {
-    duration: 0.3,
-    ease: 'easeOut',
-  },
-};
-
-const collapse = {
-  animate: {
-    height: 0,
-  },
-  transition: {
-    duration: 0.3,
-    ease: 'easeIn',
-  },
-};
-
 const Header = ({onHideNav, onShowNav, showNav, isDark}) => {
   const {pathname} = useLocation();
   const isHome = pathname === '/';
@@ -91,7 +71,7 @@ const Header = ({onHideNav, onShowNav, showNav, isDark}) => {
 
         <motion.nav
           className={cn(styles.nav, isDark && styles.navDarkMode)}
-          {...(showNav ? expand : collapse)}>
+          animate={{height: showNav ? 'calc(100vh - 4em)' : 0}}>
           <div className={styles.navInner}>
             <a className={styles.toggleSwitchContainer}>
               <ThemeToggleSwitch />
