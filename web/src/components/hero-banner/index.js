@@ -22,21 +22,19 @@ const HeroBanner = ({isDark}) => (
             transition={{duration: 1.5, delay: 0.5, type: 'spring', bounce: 0.38}}>
             <Icon className={cn(styles.deskLamp, isDark && styles.colorBlack)} symbol='desk-lamp' />
           </motion.div>
-          <motion.div initial={{bottom: '-12em'}} animate={{bottom: '-100em'}}>
-            <div className={styles.screen}>
-              <div className={styles.screenInner}>
-                <div className={cn(styles.screenTrack)}>
-                  <div className={styles.code}></div>
-                  <div className={styles.code}></div>
-                  <div className={styles.code}></div>
-                </div>
-                <div className={cn(styles.frame, isDark && styles.borderColorBlack)}></div>
+          <div className={styles.screen}>
+            <div className={styles.screenInner}>
+              <div className={cn(styles.screenTrack)}>
+                <div className={styles.code}></div>
+                <div className={styles.code}></div>
+                <div className={styles.code}></div>
               </div>
-              <div className={cn(styles.stand, isDark && styles.borderColorDarkGray)}></div>
-              <div className={cn(styles.standNeck, isDark && styles.backgroundColorBlack)}></div>
-              <div className={cn(styles.standBottom, isDark && styles.backgroundColorBlack)}></div>
+              <div className={cn(styles.frame, isDark && styles.borderColorBlack)}></div>
             </div>
-          </motion.div>
+            <div className={cn(styles.stand, isDark && styles.borderColorDarkGray)}></div>
+            <div className={cn(styles.standNeck, isDark && styles.backgroundColorBlack)}></div>
+            <div className={cn(styles.standBottom, isDark && styles.backgroundColorBlack)}></div>
+          </div>
           <motion.div
             className={styles.itemContainer}
             initial={{x: 'calc(100vw + 3.5em)', rotate: 90}}
