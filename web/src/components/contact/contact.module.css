@@ -25,6 +25,37 @@
   @nest & > div {
     margin-bottom: 0.625rem;
   }
+
+  @nest & input {
+    border: 0.125rem solid var(--color-black);
+    border-radius: 0.1875rem;
+    flex: 1;
+    font-size: var(--font-large-size);
+    padding: 0.625rem 0.3125rem;
+  }
+
+  @nest & textarea {
+    border: 0.125rem solid var(--color-black);
+    border-radius: 0.1875rem;
+    flex: 1;
+    font-size: var(--font-large-size);
+    padding: 0.625rem 0.3125rem;
+    font-family: inherit;
+  }
+}
+
+.darkMode {
+  @nest & input {
+    background-color: var(--color-black);
+    border-color: var(--color-light-gray);
+    color: var(--color-white);
+  }
+
+  @nest & textarea {
+    background-color: var(--color-black);
+    border-color: var(--color-light-gray);
+    color: var(--color-white);
+  }
 }
 
 .title {
@@ -48,7 +79,7 @@
 }
 
 .topRow input {
-  @media(--media-min-large) {
+  @media (--media-min-large) {
     margin-bottom: 0;
   }
 }
@@ -66,47 +97,24 @@
   flex-direction: column;
 }
 
-.submitButtonBase {
+.button {
   composes: large from '../typography.module.css';
   border: 0.125rem solid;
   border-radius: 0.1875rem;
   margin-top: 0.625rem;
-}
-
-.submitButtonBase:hover {
-  color: var(--color-accent);
-}
-
-.submitButtonLightMode {
-  composes: submitButtonBase;
   background-color: var(--color-black);
   color: var(--color-white);
   border-color: var(--color-black);
+  font-size: var(--font-large-size);
+  padding: 0.625rem 0;
 }
 
-.submitButtonDarkMode {
-  composes: submitButtonBase;
+.button:hover {
+  color: var(--color-accent);
+}
+
+.buttonDarkMode {
   background-color: var(--color-white);
   color: var(--color-black);
   border-color: var(--color-white);
-}
-
-.inputBase {
-  border: 0.125rem solid;
-  border-radius: 0.1875rem;
-  flex: 1;
-  font-size: 1rem;
-  padding: 0.3125rem;
-}
-
-.whiteInput {
-  composes: inputBase;
-  border-color: var(--color-black);
-  color: var(--color-black);
-}
-
-.blackInput {
-  composes: inputBase;
-  border-color: var(--color-white);
-  color: var(--color-white);
 }

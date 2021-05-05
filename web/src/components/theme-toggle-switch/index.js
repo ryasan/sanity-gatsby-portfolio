@@ -26,6 +26,7 @@ const ThemeToggleSwitch = ({isDark}) => {
       const cachedTheme = window.localStorage.getItem('theme');
 
       if (!isNullOrUndefined(cachedTheme)) changeTheme(cachedTheme);
+
       document.body.classList.add(cachedTheme);
 
       if (!isNullOrUndefined(ui)) ui.setUiIsLoaded(true);
