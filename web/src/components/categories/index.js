@@ -30,7 +30,7 @@ const Categories = ({onClick, activeList, categories, isDark}) => (
             isDark && isActive && styles.activeDark,
           )}
           key={i}
-          onClick={() => onClick(title)}
+          onClick={() => onClick(title, activeList)}
           title={title}
           tabIndex={0}>
           {isActive && <CheckMark />}

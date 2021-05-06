@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useReducer} from 'react';
 import {graphql} from 'gatsby';
 
 import {responsiveTitle1, responsiveTitle2} from '../components/typography.module.css';
@@ -49,63 +49,87 @@ export const query = graphql`
   }
 `;
 
+const SEARCH = 'SEARCH';
+const ACTIVE_CATEGORIES = 'ACTIVE_CATEGORIES';
+const BLOG_POSTS = 'BLOG_POSTS';
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case SEARCH:
+      return {...state, activeCategories: [], searchTerm: action.payload};
+    case ACTIVE_CATEGORIES:
+      return {...state, activeCategories: action.payload, searchTerm: ''};
+    case BLOG_POSTS:
+      return {...state, blogPosts: action.payload};
+    default:
+      return state;
+  }
+};
+
 const BlogPage = (props) => {
   const {data, errors} = props;
-  const [searchTerm, setSearchTerm] = useState('');
-  const [activeCategories, setActiveCategories] = useState([]);
-  const [blogPosts, setBlogPosts] = useState([]);
+  const [state, dispatch] = useReducer(reducer, {
+    blogPosts: [],
+    activeCategories: [],
+    searchTerm: '',
+  });
 
   if (errors) return <GraphQLErrorList errors={errors} />;
   if (isEmpty(data)) return <Loader />;
 
-  const handleClick = (title) => {
-    setActiveCategories((list) => {
-      if (list.includes(title)) return list.filter((t) => t !== title);
-      else return [...list, title];
+  const handleClick = (title, list) => {
+    dispatch({
+      type: ACTIVE_CATEGORIES,
+      payload: list.includes(title) ? list.filter((t) => t !== title) : [...list, title],
     });
   };
 
   const handleChange = (e) => {
-    setSearchTerm(e.target.value);
+    dispatch({
+      type: SEARCH,
+      payload: e.target.value,
+    });
   };
 
   const posts = mapEdgesToNodes(data.blogPosts);
 
   useEffect(() => {
-    setBlogPosts(() => {
-      return posts.filter(({categories}) => {
+    dispatch({
+      type: BLOG_POSTS,
+      payload: posts.filter(({categories}) => {
         return (
-          isEmptyArray(activeCategories) ||
-          categories.some(({title}) => activeCategories.includes(title))
+          isEmptyArray(state.activeCategories) ||
+          categories.some(({title}) => state.activeCategories.includes(title))
         );
-      });
+      }),
     });
-  }, [activeCategories]);
+  }, [state.activeCategories]);
 
   useEffect(() => {
-    setBlogPosts(() => {
-      return posts.filter(({title, ...post}) => {
+    dispatch({
+      type: BLOG_POSTS,
+      payload: posts.filter(({title, ...post}) => {
         const {text} = post._rawExcerpt[0].children[0];
-        const regex = new RegExp(searchTerm, 'i');
+        const regex = new RegExp(state.searchTerm, 'i');
 
-        return isEmptyString(searchTerm) || regex.test(title) || regex.test(text);
-      });
+        return isEmptyString(state.searchTerm) || regex.test(title) || regex.test(text);
+      }),
     });
-  }, [searchTerm]);
+  }, [state.searchTerm]);
 
   return (
     <>
       <SEO title='Blog' />
       <Container>
         <h1 className={responsiveTitle1}>Blog</h1>
-        <Search onChange={handleChange} value={searchTerm} placeholder='Search posts...' />
+        <Search onChange={handleChange} value={state.searchTerm} placeholder='Search posts...' />
         <Categories
           categories={mapEdgesToNodes(data.categories)}
-          activeList={activeCategories}
+          activeList={state.activeCategories}
           onClick={handleClick}
         />
-        {isEmptyArray(blogPosts) && <h2 className={responsiveTitle2}>Empty 😭</h2>}
-        <BlogPostPreviewGrid nodes={blogPosts} />
+        {isEmptyArray(state.blogPosts) && <h2 className={responsiveTitle2}>Empty 😭</h2>}
+        <BlogPostPreviewGrid nodes={state.blogPosts} />
       </Container>
     </>
   );
