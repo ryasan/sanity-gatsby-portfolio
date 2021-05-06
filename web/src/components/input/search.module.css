@@ -1,7 +1,9 @@
 @import '../../styles/custom-properties.css';
 
 .root {
-  composes: large from '../../components/typography.module.css';
+  composes: inputReset from '../../components/resets.css';
+  font-size: var(--font-large-size);
+  line-height: var(--font-large-line-height);
   background-color: transparent;
   border: 0.125rem solid;
   border-radius: 0.1875rem;

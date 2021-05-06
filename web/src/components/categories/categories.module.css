@@ -1,11 +1,11 @@
 @import '../../styles/custom-properties.css';
 
 .root {
-  list-style-type: none;
-  padding: 0;
+  composes: ulReset from '../resets.css';
   gap: 0.625rem;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 0.9375rem;
 }
 
 .category {
