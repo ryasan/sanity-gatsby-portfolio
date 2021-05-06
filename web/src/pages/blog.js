@@ -49,9 +49,9 @@ export const query = graphql`
   }
 `;
 
-const SEARCH = 'SEARCH';
 const ACTIVE_CATEGORIES = 'ACTIVE_CATEGORIES';
 const BLOG_POSTS = 'BLOG_POSTS';
+const SEARCH = 'SEARCH';
 
 const reducer = (state, action) => {
   switch (action.type) {
