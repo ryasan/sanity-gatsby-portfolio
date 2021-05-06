@@ -15,3 +15,4 @@
 13. ~~don't hide overflow on non home pages.~~
 14. Look into Google Tag Manager.
 15. Email client.
+16. Add animation to nav links.

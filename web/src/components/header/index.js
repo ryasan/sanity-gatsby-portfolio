@@ -73,7 +73,8 @@ const Header = ({onHideNav, onShowNav, showNav, isDark}) => {
 
         <motion.nav
           className={cn(styles.nav, isDark && styles.navDarkMode)}
-          animate={{height: showNav ? 'calc(100vh - 4em)' : 0}}>
+          animate={{height: showNav ? 'calc(100vh - 4em)' : 0}}
+          style={{paddingBottom: showNav ? '4em' : 0}}>
           <div className={styles.navInner}>
             <a className={styles.toggleSwitchContainer}>
               <ThemeToggleSwitch />
