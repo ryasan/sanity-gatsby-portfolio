@@ -123,8 +123,10 @@
   text-decoration: none;
   color: inherit;
   margin: 1em 0;
+  font-size: var(--font-title2-size);
 
   @media (--media-min-small) {
+    font-size: var(--font-large-size);
     margin: 0;
     margin-left: 0.5em;
   }
