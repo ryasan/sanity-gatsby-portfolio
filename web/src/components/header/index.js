@@ -50,7 +50,9 @@ const Header = ({onHideNav, onShowNav, showNav, isDark}) => {
     <div className={cn(styles.root, isDark && styles.rootDarkMode)}>
       <div className={styles.wrapper}>
         <div className={styles.branding}>
-          <motion.div className={styles.brandingInner} {...(isHome ? fadeIn : fadeOut)}>
+          <motion.div
+            className={styles.brandingInner}
+            animate={isHome ? fadeIn.animate : fadeOut.animate}>
             <Link className={styles.brandingLink} to='/' onClick={onHideNav}>
               <Icon symbol='my-initials' />
             </Link>
@@ -58,7 +60,7 @@ const Header = ({onHideNav, onShowNav, showNav, isDark}) => {
           <motion.div
             className={styles.brandingInner}
             onClick={onHideNav}
-            {...(isHome ? fadeOut : fadeIn)}>
+            animate={isHome ? fadeOut.animate : fadeIn.animate}>
             <Link className={styles.brandingLink} to='/' onClick={onHideNav}>
               <Icon symbol='home' />
             </Link>
