@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer} from 'react';
+import React, {useEffect, useReducer, useMemo} from 'react';
 import {graphql} from 'gatsby';
 
 import Container from '../components/container';
@@ -91,7 +91,7 @@ const ProjectsPage = (props) => {
     });
   };
 
-  const projects = mapEdgesToNodes(data.projects);
+  const projects = useMemo(() => mapEdgesToNodes(data.projects), [mapEdgesToNodes, data]);
 
   useEffect(() => {
     dispatch({

@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer} from 'react';
+import React, {useEffect, useReducer, useMemo} from 'react';
 import {graphql} from 'gatsby';
 
 import {responsiveTitle1, responsiveTitle2} from '../components/typography.module.css';
@@ -91,7 +91,7 @@ const BlogPage = (props) => {
     });
   };
 
-  const posts = mapEdgesToNodes(data.blogPosts);
+  const posts = useMemo(() => mapEdgesToNodes(data.blogPosts), [mapEdgesToNodes, data]);
 
   useEffect(() => {
     dispatch({
