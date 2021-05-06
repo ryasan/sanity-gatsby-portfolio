@@ -39,7 +39,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Montserrat';
+  /* font-family: 'Montserrat'; */
   text-align: center;
   z-index: 1;
 }
@@ -48,7 +48,7 @@
   composes: responsiveTitle1 from '../typography.module.css';
   font-weight: 800;
   letter-spacing: 0.2rem;
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
   color: var(--color-white);
 }
 
@@ -57,10 +57,10 @@
   color: var(--color-accent);
   font-weight: 800;
   letter-spacing: 0.2rem;
-  margin-top: 1.25rem;
+  margin-top: 0 !important;
 
   @media (--media-min-medium) {
-    margin-top: 1.5rem;
+    margin-top: 1.5rem !important;
     letter-spacing: 0.3rem;
   }
 }
