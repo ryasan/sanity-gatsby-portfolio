@@ -25,6 +25,8 @@ export const Textarea = ({isDark, placeholder, onChange, value, rows}) => (
   />
 );
 
+export const TextAreaWithTheme = withThemeInfo(Textarea);
+
 Input.defaultProps = {
   placeholder: 'Search...',
   onChange: () => {},

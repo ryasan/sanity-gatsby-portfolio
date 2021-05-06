@@ -18,5 +18,5 @@
 }
 
 .rootDarkMode::placeholder {
-  color: var(--color-light-gray);
+  color: var(--color-light-gray) !important;
 }

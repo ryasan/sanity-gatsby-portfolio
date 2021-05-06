@@ -4,7 +4,7 @@ import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps'
 
 import * as styles from './contact.module.css';
 import MarkerIcon from '../../static/images/marker.svg';
-import Input, {Textarea} from '../input';
+import Input, {TextAreaWithTheme} from '../input';
 import {responsiveTitle1} from '../../components/typography.module.css';
 import {withThemeInfo} from '../../context/theme-context';
 import {cn} from '../../lib/helpers';
@@ -49,7 +49,7 @@ function Contact({isDark}) {
         </div>
 
         <div className={styles.bottomRow}>
-          <Textarea type='text' placeholder='Message' rows={5} />
+          <TextAreaWithTheme type='text' placeholder='Message' rows={5} />
           <button className={cn(styles.button, isDark && styles.buttonDarkMode)}>Send</button>
           <small style={{marginTop: '5px'}}>*not working yet</small>
         </div>
