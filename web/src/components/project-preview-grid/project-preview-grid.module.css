@@ -38,15 +38,16 @@
 
   @nest & a {
     display: inline-block;
-    padding: 0.3125rem;
     color: inherit;
-    border: 1px solid;
     text-decoration: none;
-    border-radius: 3px;
+    border-radius: 0.1875rem;
+    color: var(--color-accent);
+    transition: color 0.2s ease;
 
     @media (hover: hover) {
       @nest &:hover {
-        color: var(--color-accent);
+        color: #00bbd49a;
+        text-decoration: underline;
       }
     }
   }
