@@ -2,11 +2,12 @@ import React, {useState} from 'react';
 import {graphql} from 'gatsby';
 
 import {responsiveTitle1, responsiveTitle2} from '../components/typography.module.css';
+import SEO from '../components/seo';
+import GraphQLErrorList from '../components/graphql-error-list';
 import Container from '../components/container';
 import Categories from '../components/categories';
-import SEO from '../components/seo';
 import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
-import GraphQLErrorList from '../components/graphql-error-list';
+import Search from '../components/input';
 import Loader from '../components/loader';
 import {mapEdgesToNodes} from '../lib/helpers';
 import {isEmpty, isEmptyArray} from '../lib/type-check-utils';
@@ -51,6 +52,7 @@ export const query = graphql`
 const BlogPage = (props) => {
   const {data, errors} = props;
   const [activeList, setActiveList] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   if (errors) return <GraphQLErrorList errors={errors} />;
   if (isEmpty(data)) return <Loader />;
@@ -60,6 +62,10 @@ const BlogPage = (props) => {
       if (list.includes(title)) return list.filter((t) => t !== title);
       else return [...list, title];
     });
+  };
+
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
   };
 
   const posts = mapEdgesToNodes(data.blogPosts);
@@ -77,6 +83,7 @@ const BlogPage = (props) => {
       <SEO title='Blog' />
       <Container>
         <h1 className={responsiveTitle1}>Blog</h1>
+        <Search onChange={handleChange} value={searchTerm} placeholder='Search posts...' />
         <Categories
           categories={mapEdgesToNodes(data.categories)}
           activeList={activeList}

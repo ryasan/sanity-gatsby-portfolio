@@ -1,0 +1,22 @@
+@import '../../styles/custom-properties.css';
+
+.root {
+  composes: large from '../../components/typography.module.css';
+  background-color: transparent;
+  border: 0.125rem solid;
+  border-radius: 0.1875rem;
+  border-color: inherit;
+  padding: 0.15625rem 0.625rem;
+  width: 100%;
+  max-width: 480px;
+  font-family: inherit;
+}
+
+.root::placeholder {
+  color: var(--color-light-gray);
+}
+
+.rootDarkMode {
+  color: var(--color-white);
+  border-color: var(--color-light-gray);
+}
