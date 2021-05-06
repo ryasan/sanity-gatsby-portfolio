@@ -12,11 +12,11 @@
   font-family: inherit;
 }
 
-.root::placeholder {
-  color: var(--color-light-gray);
-}
-
 .rootDarkMode {
   color: var(--color-white);
   border-color: var(--color-light-gray);
+}
+
+.rootDarkMode::placeholder {
+  color: var(--color-light-gray);
 }

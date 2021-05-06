@@ -33,7 +33,7 @@ Input.defaultProps = {
 Textarea.defaultProps = {
   placeholder: 'Message...',
   onChange: () => {},
-  rows: 3,
+  rows: 5,
 };
 
 export default withThemeInfo(Input);

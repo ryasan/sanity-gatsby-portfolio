@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {graphql} from 'gatsby';
 
 import {responsiveTitle1, responsiveTitle2} from '../components/typography.module.css';
@@ -10,7 +10,7 @@ import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
 import Search from '../components/input';
 import Loader from '../components/loader';
 import {mapEdgesToNodes} from '../lib/helpers';
-import {isEmpty, isEmptyArray} from '../lib/type-check-utils';
+import {isEmpty, isEmptyArray, isEmptyString} from '../lib/type-check-utils';
 
 export const query = graphql`
   query BlogPageQuery {
@@ -51,14 +51,15 @@ export const query = graphql`
 
 const BlogPage = (props) => {
   const {data, errors} = props;
-  const [activeList, setActiveList] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [activeCategories, setActiveCategories] = useState([]);
+  const [blogPosts, setBlogPosts] = useState([]);
 
   if (errors) return <GraphQLErrorList errors={errors} />;
   if (isEmpty(data)) return <Loader />;
 
   const handleClick = (title) => {
-    setActiveList((list) => {
+    setActiveCategories((list) => {
       if (list.includes(title)) return list.filter((t) => t !== title);
       else return [...list, title];
     });
@@ -70,13 +71,27 @@ const BlogPage = (props) => {
 
   const posts = mapEdgesToNodes(data.blogPosts);
 
-  const blogPosts = !isEmptyArray(activeList)
-    ? posts.filter((post) => {
-        return activeList.some((active) => {
-          return post.categories.some(({title}) => title === active);
-        });
-      })
-    : posts;
+  useEffect(() => {
+    setBlogPosts(() => {
+      return posts.filter(({categories}) => {
+        return (
+          isEmptyArray(activeCategories) ||
+          categories.some(({title}) => activeCategories.includes(title))
+        );
+      });
+    });
+  }, [activeCategories]);
+
+  useEffect(() => {
+    setBlogPosts(() => {
+      return posts.filter(({title, ...post}) => {
+        const {text} = post._rawExcerpt[0].children[0];
+        const regex = new RegExp(searchTerm, 'i');
+
+        return isEmptyString(searchTerm) || regex.test(title) || regex.test(text);
+      });
+    });
+  }, [searchTerm]);
 
   return (
     <>
@@ -86,7 +101,7 @@ const BlogPage = (props) => {
         <Search onChange={handleChange} value={searchTerm} placeholder='Search posts...' />
         <Categories
           categories={mapEdgesToNodes(data.categories)}
-          activeList={activeList}
+          activeList={activeCategories}
           onClick={handleClick}
         />
         {isEmptyArray(blogPosts) && <h2 className={responsiveTitle2}>Empty 😭</h2>}
