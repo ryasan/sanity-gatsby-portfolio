@@ -4,13 +4,12 @@ import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
 import {nord} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-import * as styles from './serializers.module.css';
-import {Figure} from '../figure';
+import * as styles from './highlighter.module.css';
 
 SyntaxHighlighter.registerLanguage('jsx', jsx);
 SyntaxHighlighter.registerLanguage('scss', scss);
 
-const Code = ({node}) => {
+const Highlighter = ({node}) => {
   if (!node || !node.code) return null;
   const {language, code} = node;
 
@@ -27,11 +26,10 @@ const Code = ({node}) => {
   );
 };
 
-const serializers = {
-  types: {
-    figure: Figure,
-    code: Code,
-  },
-};
+Highlighter.defaultProps = {
+  node: {
+    language: 'javascript',
+  }
+}
 
-export default serializers;
+export default Highlighter;

@@ -10,7 +10,7 @@
     font-size: 1.2rem;
 
     @media (--media-max-small) {
-      font-size: 0.8rem;
+      font-size: 1rem;
     }
   }
 
