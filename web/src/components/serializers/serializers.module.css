@@ -1,14 +1,20 @@
 @import '../../styles/custom-properties.css';
+@import '../../styles/custom-media.css';
 
 .root {
   background-color: #282d33;
 
   @nest & pre {
-    font-family: 'Roboto Mono';
-    font-weight: 500;
+    font-family: 'Inconsolata';
+    font-weight: 600;
+    font-size: 1.2rem;
+
+    @media (--media-max-small) {
+      font-size: 0.8rem;
+    }
   }
 
   @nest & code {
-    font-family: inherit;
+    font-family: 'Inconsolata';
   }
 }

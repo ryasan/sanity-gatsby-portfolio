@@ -69,7 +69,7 @@
 
 .scrollTop {
   position: fixed;
-  bottom: 0.625rem;
+  bottom: 0.9375rem;
   right: 0.625rem;
   background-color: var(--color-accent);
   width: 2.5rem;

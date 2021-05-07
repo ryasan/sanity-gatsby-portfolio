@@ -39,6 +39,10 @@ module.exports = {
               family: 'Roboto Mono',
               variants: ['500', '600'],
             },
+            {
+              family: 'Inconsolata',
+              variants: ['500', '600'],
+            },
           ],
         },
       },
