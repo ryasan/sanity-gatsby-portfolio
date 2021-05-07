@@ -9,6 +9,7 @@ import HomeIcon from './home';
 import LinkedInIcon from './linked-in';
 import MyInitialsIcon from './my-initials';
 import MySignatureIcon from './my-signature';
+import SearchIcon from './search';
 
 function Icon(props) {
   switch (props.symbol) {
@@ -28,6 +29,8 @@ function Icon(props) {
       return <MyInitialsIcon {...props} />;
     case 'my-signature':
       return <MySignatureIcon {...props} />;
+    case 'search':
+      return <SearchIcon {...props} />;
     default:
       return <span>Unknown icon: {props.symbol}</span>;
   }

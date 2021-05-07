@@ -1,6 +1,7 @@
 import React, {useEffect, useReducer, useMemo} from 'react';
 import {graphql} from 'gatsby';
 
+import * as styles from '../styles/modules/blog.module.css';
 import {responsiveTitle1, responsiveTitle2} from '../components/typography.module.css';
 import SEO from '../components/seo';
 import GraphQLErrorList from '../components/graphql-error-list';
@@ -8,9 +9,11 @@ import Container from '../components/container';
 import Categories from '../components/categories';
 import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
 import Search from '../components/input';
+import Icon from '../components/icon';
 import Loader from '../components/loader';
-import {mapEdgesToNodes} from '../lib/helpers';
+import {cn, mapEdgesToNodes} from '../lib/helpers';
 import {isEmpty, isEmptyArray, isEmptyString} from '../lib/type-check-utils';
+import {withThemeInfo} from '../context/theme-context';
 
 export const query = graphql`
   query BlogPageQuery {
@@ -122,7 +125,13 @@ const BlogPage = (props) => {
       <SEO title='Blog' />
       <Container>
         <h1 className={responsiveTitle1}>Blog</h1>
-        <Search onChange={handleChange} value={state.searchTerm} placeholder='Search posts...' />
+        <Search
+          className={styles.search}
+          value={state.searchTerm}
+          onChange={handleChange}
+          icon={<Icon symbol='search' className={cn(props.isDark && styles.iconDarkMode)} />}
+          placeholder='Search posts...'
+        />
         <Categories
           categories={mapEdgesToNodes(data.categories)}
           activeList={state.activeCategories}
@@ -135,4 +144,4 @@ const BlogPage = (props) => {
   );
 };
 
-export default BlogPage;
+export default withThemeInfo(BlogPage);

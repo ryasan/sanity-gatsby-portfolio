@@ -13,6 +13,6 @@
 11. Move animations to framer motion.
 12. Trim down the isDark code and use more inherit in CSS.
 13. ~~don't hide overflow on non home pages.~~
-14. Look into Google Tag Manager.
-15. Email client.
-16. Add animation to nav links.
+14. Email client.
+15. Add animation to nav links.
+16. Move CSS from components to styles folder.

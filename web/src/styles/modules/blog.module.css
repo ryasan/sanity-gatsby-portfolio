@@ -1,0 +1,13 @@
+@import '../../styles/custom-properties.css';
+
+.iconDarkMode {
+  color: var(--color-light-gray);
+}
+
+.search {
+  display: flex;
+
+  @nest & input {
+    padding-left: 0;
+  }
+}
