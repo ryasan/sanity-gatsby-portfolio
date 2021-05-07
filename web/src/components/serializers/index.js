@@ -1,12 +1,14 @@
 import React from 'react';
 import {PrismLight as SyntaxHighlighter} from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
-import {dracula} from 'react-syntax-highlighter/dist/esm/styles/prism';
+import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
+import {nord} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import * as styles from './serializers.module.css';
 import {Figure} from '../figure';
 
 SyntaxHighlighter.registerLanguage('jsx', jsx);
+SyntaxHighlighter.registerLanguage('scss', scss);
 
 const Code = ({node}) => {
   if (!node || !node.code) return null;
@@ -16,7 +18,7 @@ const Code = ({node}) => {
     <div className={styles.root}>
       <SyntaxHighlighter
         language={language}
-        style={dracula}
+        style={nord}
         customStyle={{width: '100%'}}
         codeTagProps={{className: 'code-block'}}>
         {code}
