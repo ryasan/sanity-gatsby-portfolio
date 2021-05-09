@@ -1,7 +1,8 @@
-import React, {useEffect, useReducer, useMemo} from 'react';
+import React, {useEffect, useReducer, useMemo, useState} from 'react';
 import {graphql} from 'gatsby';
+import {motion} from 'framer-motion';
 
-import * as styles from '../styles/modules/blog.module.css';
+import * as styles from '../styles/modules/post.module.css';
 import {responsiveTitle1, responsiveTitle2} from '../components/typography.module.css';
 import SEO from '../components/seo';
 import GraphQLErrorList from '../components/graphql-error-list';
@@ -11,7 +12,7 @@ import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
 import Search from '../components/input';
 import Icon from '../components/icon';
 import Loader from '../components/loader';
-import {cn, mapEdgesToNodes} from '../lib/helpers';
+import {mapEdgesToNodes} from '../lib/helpers';
 import {isEmpty, isEmptyArray, isEmptyString} from '../lib/type-check-utils';
 import {withThemeInfo} from '../context/theme-context';
 
@@ -76,6 +77,7 @@ const BlogPage = (props) => {
     activeCategories: [],
     searchTerm: '',
   });
+  const [focusOnInput, setFocusOnInput] = useState(false);
 
   if (errors) return <GraphQLErrorList errors={errors} />;
   if (isEmpty(data)) return <Loader />;
@@ -92,6 +94,14 @@ const BlogPage = (props) => {
       type: SEARCH,
       payload: e.target.value,
     });
+  };
+
+  const handleFocus = () => {
+    setFocusOnInput(true);
+  };
+
+  const handleBlur = () => {
+    setFocusOnInput(false);
   };
 
   const posts = useMemo(() => mapEdgesToNodes(data.blogPosts), [mapEdgesToNodes, data]);
@@ -125,13 +135,20 @@ const BlogPage = (props) => {
       <SEO title='Blog' />
       <Container>
         <h1 className={responsiveTitle1}>Blog</h1>
-        <Search
-          className={styles.search}
-          value={state.searchTerm}
-          onChange={handleChange}
-          icon={<Icon symbol='search' className={cn(props.isDark && styles.iconDarkMode)} />}
-          placeholder='Search posts...'
-        />
+        <motion.div
+          className={styles.searchContainer}
+          animate={{width: focusOnInput ? '100%' : 'auto'}}
+          transition={{duration: 0.5}}>
+          <Icon symbol='search' className={styles.icon} />
+          <Search
+            className={styles.search}
+            value={state.searchTerm}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            placeholder='Search posts...'
+          />
+        </motion.div>
         <Categories
           categories={mapEdgesToNodes(data.categories)}
           activeList={state.activeCategories}
