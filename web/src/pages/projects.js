@@ -136,7 +136,7 @@ const ProjectsPage = (props) => {
         <h1 className={responsiveTitle1}>Side Projects</h1>
         <motion.div
           className={styles.searchContainer}
-          animate={{width: focusOnInput ? '100%' : 'auto'}}
+          animate={{width: focusOnInput ? '100%' : '250px'}}
           transition={{duration: 0.5}}>
           <Icon symbol='search' className={styles.icon} />
           <Search
@@ -147,7 +147,7 @@ const ProjectsPage = (props) => {
             onBlur={handleBlur}
             placeholder='Search projects...'
           />
-        </motion.div>{' '}
+        </motion.div>
         <Categories
           categories={mapEdgesToNodes(data.categories)}
           activeList={state.activeCategories}

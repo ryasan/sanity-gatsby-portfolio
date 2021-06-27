@@ -78,6 +78,8 @@ const BlogPage = (props) => {
     searchTerm: '',
   });
   const [focusOnInput, setFocusOnInput] = useState(false);
+  const handleFocus = () => setFocusOnInput(true);
+  const handleBlur = () => setFocusOnInput(false);
 
   if (errors) return <GraphQLErrorList errors={errors} />;
   if (isEmpty(data)) return <Loader />;
@@ -94,14 +96,6 @@ const BlogPage = (props) => {
       type: SEARCH,
       payload: e.target.value,
     });
-  };
-
-  const handleFocus = () => {
-    setFocusOnInput(true);
-  };
-
-  const handleBlur = () => {
-    setFocusOnInput(false);
   };
 
   const posts = useMemo(() => mapEdgesToNodes(data.blogPosts), [mapEdgesToNodes, data]);
@@ -137,7 +131,7 @@ const BlogPage = (props) => {
         <h1 className={responsiveTitle1}>Blog</h1>
         <motion.div
           className={styles.searchContainer}
-          animate={{width: focusOnInput ? '100%' : 'auto'}}
+          animate={{width: focusOnInput ? '100%' : '250px'}}
           transition={{duration: 0.5}}>
           <Icon symbol='search' className={styles.icon} />
           <Search
