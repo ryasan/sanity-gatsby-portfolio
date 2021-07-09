@@ -11,7 +11,7 @@ const SocialList = () => {
     <ul className={styles.socialList} data-testid='social-list'>
       <li
         className={styles.socialItem}
-        onClick={() => openLink('https://codepen.io/ryasan86')}
+        onClick={() => openLink('https://codepen.io/ryasan86/pens')}
         tabIndex={0}>
         <Icon symbol='codepen' />
         <span>Codepen</span>
