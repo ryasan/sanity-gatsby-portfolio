@@ -35,9 +35,9 @@ const LatentPotential = () => {
       </figure>
       <div className={styles.textContainer}>
         <p>
-          The diagram above is called the &quot;Plateau of Latent Potential&quot; and it simply
-          states that work is never wasted. It is simply being stored and that sometimes it
-          won&apos;t be until much later that the full value of previous efforts is revealed.
+          The diagram above is called the &quot;Plateau of Latent Potential&quot; and it states that
+          work is never wasted. It is simply being stored and that sometimes it won&apos;t be until
+          much later that the full value of previous efforts is revealed.
         </p>
         <p>
           Anyways this is something I remind myself constantly now and it always eventually proves
