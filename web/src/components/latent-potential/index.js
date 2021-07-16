@@ -20,8 +20,8 @@ const LatentPotential = () => {
           It&apos;s normal to find stagnation when faced with difficult tasks. Maybe you&apos;ve
           been at a rubik&apos;s cube for a couple hours and just can&apos;t seem to get that last
           row right. Or you&apos;ve been going mono e mono with a jar of pickles but just can&apos;t
-          the damn thing to pop. Don&apos;t quit! Progress isn&apos;t how we think it&apos;s suppose
-          to be. Check it out...
+          get the damn thing to pop. Don&apos;t quit! Progress isn&apos;t how we think it&apos;s
+          suppose to be. Check it out...
         </p>
       </div>
       <figure className={styles.figure}>
