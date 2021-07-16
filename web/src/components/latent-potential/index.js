@@ -17,11 +17,11 @@ const LatentPotential = () => {
           <div>-Social Reformer Jacob Riis</div>
         </blockquote>
         <p>
-          Often times it&apos;s easy feel stagnant when faced with a difficult task. Perhaps
-          you&apos;ve decided to resign because the finish line doesn&apos;t appear to be anywhere
-          in site. Maybe you&apos;ve been trying to learn how to do a kick flip on a skateboard for
-          the past one thousand hours but still haven&apos;t landed a single one. Don&apos;t quit!
-          Progress isn&apos;t how we think it&apos;s suppose to be. Check it out...
+          It&apos;s normal to find stagnation when faced with difficult tasks. Maybe you&apos;ve
+          been at a rubik&apos;s cube for a couple hours and just can&apos;t seem to get that last
+          row right. Or you&apos;ve been going mono e mono with a jar of pickles but just can&apos;t
+          the damn thing to pop. Don&apos;t quit! Progress isn&apos;t how we think it&apos;s suppose
+          to be. Check it out...
         </p>
       </div>
       <figure className={styles.figure}>
@@ -42,7 +42,7 @@ const LatentPotential = () => {
         <p>
           Anyways this is something I remind myself constantly now and it always eventually proves
           to be true. With the correct mind set, we are capable of things we would never expect from
-          ourselves 😄
+          ourselves...believe Neo.
         </p>
       </div>
     </div>
