@@ -23,13 +23,6 @@ const SocialList = () => {
         <Icon symbol='github' />
         <span>Github</span>
       </li>
-      <li
-        className={styles.socialItem}
-        onClick={() => openLink('https://www.linkedin.com/in/ryasan86')}
-        tabIndex={0}>
-        <Icon symbol='linkedIn' />
-        <span>LinkedIn</span>
-      </li>
     </ul>
   );
 };
