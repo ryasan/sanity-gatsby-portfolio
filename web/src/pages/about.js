@@ -20,8 +20,8 @@ const AboutPage = () => (
         I haven&apos;t always been interested in software though and my career background has
         actually been rooted elsewhere in technology. To me, application development just seemed
         like a path for the intellectually gifted and I really just never thought of myself as the
-        type. Nevertheless, there was something fun and interesting about so I started a new chapter
-        in my career.
+        type. Nevertheless, there was something fun and interesting about it so I started a new
+        chapter in my career.
       </p>
       <p>
         At the beginning it was very easy for me to dismiss things as too frustrating or requiring
