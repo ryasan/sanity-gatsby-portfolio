@@ -21,6 +21,7 @@
 
 .rightColumn {
   flex: 1;
+  position: relative;
 
   @nest & > div {
     margin-bottom: 0.625rem;
@@ -42,6 +43,51 @@
     padding: 0.625rem 0.3125rem;
     font-family: inherit;
   } */
+}
+
+.modal {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  left: 50%;
+  bottom: -125px;
+  transform: translateX(-50%);
+  background-color: var(--color-black);
+  border-radius: 0.1875rem;
+  color: var(--color-white);
+  font-size: var(--font-large-size);
+  transition: var(--transition);
+  width: 195px;
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+
+  @nest & p {
+    margin-top: 0;
+  }
+
+  @nest & button {
+    background-color: var(--color-accent);
+    border: 0;
+    border-radius: 0.1875rem;
+    color: var(--color-white);
+    padding: 5px 15px;
+    font-size: inherit;
+  }
+}
+
+.modalDarkMode {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.isVisible {
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  opacity: 1;
 }
 
 .darkMode {
@@ -113,8 +159,20 @@
   color: var(--color-accent);
 }
 
+.button:disabled {
+  background: var(--gray-800);
+  border-color: var(--gray-800);
+  color: var(--color-very-light-gray);
+}
+
 .buttonDarkMode {
   background-color: var(--color-white);
   color: var(--color-black);
   border-color: var(--color-white);
+}
+
+.buttonDarkMode:disabled {
+  background: var(--color-light-gray);
+  border-color: var(--color-light-gray);
+  color: var(--color-white);
 }

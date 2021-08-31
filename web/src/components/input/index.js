@@ -4,7 +4,7 @@ import * as styles from './input.module.css';
 import {withThemeInfo} from '../../context/theme-context';
 import {cn} from '../../lib/helpers';
 
-const Input = ({isDark, placeholder, onChange, value, onFocus, onBlur, className}) => (
+const Input = ({isDark, placeholder, onChange, value, onFocus, onBlur, className, ...props}) => (
   <input
     className={cn(styles.root, isDark && styles.rootDarkMode, className)}
     placeholder={placeholder}
@@ -12,7 +12,7 @@ const Input = ({isDark, placeholder, onChange, value, onFocus, onBlur, className
     onFocus={onFocus}
     onBlur={onBlur}
     value={value}
-    type='text'
+    {...props}
   />
 );
 
@@ -25,6 +25,7 @@ export const Textarea = ({
   onFocus,
   onBlur,
   className,
+  ...props
 }) => (
   <textarea
     className={cn(styles.root, isDark && styles.rootDarkMode, className)}
@@ -34,7 +35,7 @@ export const Textarea = ({
     onBlur={onBlur}
     value={value}
     rows={rows}
-    type='text'
+    {...props}
   />
 );
 
@@ -42,9 +43,9 @@ export const TextAreaWithTheme = withThemeInfo(Textarea);
 
 Input.defaultProps = {
   placeholder: 'Search...',
-  onChange: () => console.log('needs handler'),
-  onFocus: () => console.log('needs handler'),
-  onBlur: () => console.log('needs handler'),
+  onChange: () => ({}),
+  onFocus: () => ({}),
+  onBlur: () => ({}),
 };
 
 Textarea.defaultProps = {

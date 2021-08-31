@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {compose, withProps} from 'recompose';
 import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
+import {useForm, ValidationError} from '@formspree/react';
 
 import * as styles from './contact.module.css';
 import MarkerIcon from '../../static/images/marker.svg';
@@ -10,6 +11,7 @@ import {withThemeInfo} from '../../context/theme-context';
 import {cn} from '../../lib/helpers';
 
 const gMapsApiKey = 'AIzaSyANr_3txW2d9EoNsRJjlJ4hyenEcHLSYr8';
+const formId = 'xrgrrelb';
 
 const props = {
   googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${gMapsApiKey}&v=3.exp&libraries=geometry,drawing,places`,
@@ -23,37 +25,71 @@ const GoogleMaps = compose(
   withScriptjs,
   withGoogleMap,
 )((props) => (
-  <GoogleMap defaultZoom={12} defaultCenter={{lat: 34.079425, lng: -118.134693}}>
+  <GoogleMap defaultZoom={12} defaultCenter={{lat: 34.0683307547939, lng: -118.30003943119638}}>
     {props.markerIsShowing && (
-      <Marker position={{lat: 34.079425, lng: -118.134693}} icon={MarkerIcon} />
+      <Marker position={{lat: 34.0683307547939, lng: -118.30003943119638}} icon={MarkerIcon} />
     )}
   </GoogleMap>
 ));
 
+function Modal({toggleModal, isDark, modalOpen}) {
+  return (
+    <div
+      className={cn(styles.modal, isDark && styles.modalDarkMode, modalOpen && styles.isVisible)}>
+      <p>Message sent!</p>
+      <button onClick={toggleModal}>Close</button>
+    </div>
+  );
+}
+
 function Contact({isDark}) {
+  const [state, handleSubmit] = useForm(formId);
+  const [modalOpen, setModalOpen] = useState(false);
+  const toggleModal = () => setModalOpen(!modalOpen);
+
+  useEffect(() => {
+    if (state.succeeded) toggleModal();
+  }, [state.succeeded]);
+
   return (
     <div className={styles.root}>
       <div className={styles.leftColumn}>
         <GoogleMaps />
       </div>
-      <div className={cn(styles.rightColumn, isDark && styles.darkMode)}>
+
+      <form className={cn(styles.rightColumn, isDark && styles.darkMode)} onSubmit={handleSubmit}>
+        <Modal isDark={isDark} toggleModal={toggleModal} modalOpen={modalOpen} />
         <h2 className={responsiveTitle1}>Contact Me</h2>
 
         <div className={styles.topRow}>
-          <Input type='text' placeholder='Name' />
-          <Input type='text' placeholder='Email' />
+          <Input id='name' name='name' type='text' placeholder='Name' />
+          <ValidationError prefix='Name' field='name' errors={state.errors} />
+          <Input id='email' name='email' type='email' placeholder='Email' />
+          <ValidationError prefix='Email' field='email' errors={state.errors} />
         </div>
 
         <div className={styles.middleRow}>
-          <Input type='text' placeholder='Subject' />
+          <Input id='subject' name='subject' type='text' placeholder='Subject' />
+          <ValidationError prefix='Subject' field='subject' errors={state.errors} />
         </div>
 
         <div className={styles.bottomRow}>
-          <TextAreaWithTheme type='text' placeholder='Message' rows={5} />
-          <button className={cn(styles.button, isDark && styles.buttonDarkMode)}>Send</button>
-          <small style={{marginTop: '5px'}}>*not working yet</small>
+          <TextAreaWithTheme
+            id='message'
+            name='message'
+            type='text'
+            placeholder='Message'
+            rows={5}
+          />
+          <ValidationError prefix='Message' field='message' errors={state.errors} />
+          <button
+            type='submit'
+            className={cn(styles.button, isDark && styles.buttonDarkMode)}
+            disabled={state.submitting}>
+            Send
+          </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
