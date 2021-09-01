@@ -49,7 +49,11 @@ function BlogPost(props) {
           )}
           <div className={styles.buyMeACoffeeContainer}>
             <a href='https://buymeacoffee.com/ryansantos'>
-              <strong>Buy Me a Coffee</strong>
+              <img
+                src='https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg'
+                alt='Buy me a coffee'
+              />
+              <span>Buy me a coffee</span>
             </a>
           </div>
         </aside>
