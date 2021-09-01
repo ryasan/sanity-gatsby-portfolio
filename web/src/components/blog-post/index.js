@@ -47,6 +47,11 @@ function BlogPost(props) {
               </ul>
             </div>
           )}
+          <div className={styles.buyMeACoffeeContainer}>
+            <a href='https://buymeacoffee.com/ryansantos'>
+              <strong>Buy Me a Coffee</strong>
+            </a>
+          </div>
         </aside>
       </div>
     </article>
