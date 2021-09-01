@@ -88,12 +88,17 @@
   @nest & a {
     border-radius: 0.1875rem;
     background-color: var(--color-accent);
-    padding: 0.5rem 1rem;
     text-decoration: none;
     color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+    font-weight: 600;
   }
 
-  @nest & a span {
-    margin-left: 0.3125rem;
+  @nest & a img {
+    height: 25px;
+    margin-right: 12px;
   }
 }
