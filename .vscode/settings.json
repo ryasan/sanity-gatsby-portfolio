@@ -1,3 +1,4 @@
 {
-  "javascript.referencesCodeLens.enabled": false
+  "javascript.referencesCodeLens.enabled": false,
+  "editor.fontSize": 15
 }

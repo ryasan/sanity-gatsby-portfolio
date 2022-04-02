@@ -29,7 +29,7 @@ const Highlighter = ({node}) => {
 Highlighter.defaultProps = {
   node: {
     language: 'javascript',
-  }
-}
+  },
+};
 
 export default Highlighter;

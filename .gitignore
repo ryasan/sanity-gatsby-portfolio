@@ -6,3 +6,7 @@
 
 # lerna files
 /lerna-debug.log
+
+# other
+.vscode
+.history

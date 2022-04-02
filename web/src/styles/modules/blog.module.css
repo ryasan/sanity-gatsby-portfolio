@@ -5,9 +5,22 @@
 }
 
 .search {
-  display: flex;
+  display: inline-block;
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  position: relative;
+  background: blue;
 
   @nest & input {
     padding-left: 0;
+    display: inline !important;
+  }
+
+  @nest & svg {
+    display: inline !important;
+    width: 2rem;
   }
 }
