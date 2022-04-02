@@ -19,6 +19,7 @@
     "start-server-and-test": "^1.12.1"
   },
   "dependencies": {
+    "@formspree/react": "^2.2.3",
     "react-google-maps": "^9.4.5"
   }
 }

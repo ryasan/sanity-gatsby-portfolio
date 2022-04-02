@@ -2,31 +2,34 @@ import React from 'react';
 
 import {responsiveTitle1} from '../components/typography.module.css';
 import Container from '../components/container';
+import LatentPotential from '../components/latent-potential/index';
 import SEO from '../components/seo';
 import SkillsAndExperience from '../components/skills-experience';
-
-const paragraphs = [
-  `My name is Ryan Santos and I'm a frontend developer, skater, pool player, and proud
-   father of a chiweenie and french bulldog. I always aim to pursue interests that are
-   meaningful to me and coding is one of the items on that list.`,
-  `I haven't always been interested in software. My career background has actually been
-   rooted in support and hardware. To me, it seemed like a path for the intellectually gifted
-   and I never thought of myself the type.`,
-  `While working as a hardware guy and as time passed, I was gradually exposed to the software
-   side of things. I found development to be more my thing so I switched gears and started a
-   new chapter in my life. Fast forward to today and now I'm into all things development
-   & design!`,
-];
 
 const AboutPage = () => (
   <Container>
     <SEO title='About' />
     <div>
-      <h2 className={responsiveTitle1}>Background</h2>
-      {paragraphs.map((paragraph, i) => (
-        <p key={i}>{paragraph}</p>
-      ))}
+      <h2 className={responsiveTitle1}>Hello!</h2>
+      <p>
+        My name is Ryan Santos and I&apos;m a frontend engineer, pool player, skater, gamer, and
+        proud father of two lovable doggos. I always aim to pursue interests that are meaningful to
+        me and building stuff with code happens to be one of the items on that list.
+      </p>
+      <p>
+        I haven&apos;t always been interested in software though and my career background has
+        actually been rooted elsewhere in technology. To me, application development just seemed
+        like a path for the intellectually gifted and I really just never thought of myself as the
+        type. Nevertheless, there was something fun and interesting about it so I started a new
+        chapter in my career.
+      </p>
+      <p>
+        At the beginning it was very easy for me to dismiss things as too frustrating or requiring
+        too much effort. There were many times where I wondered if I should quit. The imposter
+        syndrome was real and it was a frequent visitor that always overstayed its freaking welcome.
+      </p>
     </div>
+    <LatentPotential />
     <SkillsAndExperience />
   </Container>
 );

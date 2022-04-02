@@ -1,6 +1,8 @@
-import React, {useEffect, useReducer, useMemo} from 'react';
+import React, {useEffect, useReducer, useMemo, useState} from 'react';
 import {graphql} from 'gatsby';
+import {motion} from 'framer-motion';
 
+import * as styles from '../styles/modules/post.module.css';
 import Container from '../components/container';
 import SEO from '../components/seo';
 import GraphQLErrorList from '../components/graphql-error-list';
@@ -8,6 +10,7 @@ import Categories from '../components/categories';
 import ProjectPreviewGrid from '../components/project-preview-grid';
 import Search from '../components/input';
 import Loader from '../components/loader';
+import Icon from '../components/icon';
 import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers';
 import {responsiveTitle1, responsiveTitle2} from '../components/typography.module.css';
 import {isEmpty, isEmptyArray, isEmptyString} from '../lib/type-check-utils';
@@ -73,6 +76,7 @@ const ProjectsPage = (props) => {
     activeCategories: [],
     searchTerm: '',
   });
+  const [focusOnInput, setFocusOnInput] = useState(false);
 
   if (errors) return <GraphQLErrorList errors={errors} />;
   if (isEmpty(data)) return <Loader />;
@@ -89,6 +93,14 @@ const ProjectsPage = (props) => {
       type: SEARCH,
       payload: e.target.value,
     });
+  };
+
+  const handleFocus = () => {
+    setFocusOnInput(true);
+  };
+
+  const handleBlur = () => {
+    setFocusOnInput(false);
   };
 
   const projects = useMemo(() => mapEdgesToNodes(data.projects), [mapEdgesToNodes, data]);
@@ -122,7 +134,20 @@ const ProjectsPage = (props) => {
       <SEO title='Side Projects' />
       <Container>
         <h1 className={responsiveTitle1}>Side Projects</h1>
-        <Search onChange={handleChange} value={state.searchTerm} placeholder='Search projects...' />
+        <motion.div
+          className={styles.searchContainer}
+          animate={{width: focusOnInput ? '100%' : '250px'}}
+          transition={{duration: 0.5}}>
+          <Icon symbol='search' className={styles.icon} />
+          <Search
+            className={styles.search}
+            value={state.searchTerm}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            placeholder='Search projects...'
+          />
+        </motion.div>
         <Categories
           categories={mapEdgesToNodes(data.categories)}
           activeList={state.activeCategories}

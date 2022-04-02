@@ -4,6 +4,7 @@ import {format, distanceInWords, differenceInDays} from 'date-fns';
 import * as styles from './blog-post.module.css';
 import {buildImageObj} from '../../lib/helpers';
 import {imageUrlFor} from '../../lib/image-url';
+import BMCLogo from '../../static/images/bmc-logo.svg';
 import BlockContent from '../block-content';
 import RoleList from '../role-list';
 
@@ -47,6 +48,12 @@ function BlogPost(props) {
               </ul>
             </div>
           )}
+          <div className={styles.buyMeACoffeeContainer}>
+            <a href='https://buymeacoffee.com/ryansantos'>
+              <img src={BMCLogo} alt='Buy me a coffee' />
+              <span>Buy me a coffee</span>
+            </a>
+          </div>
         </aside>
       </div>
     </article>

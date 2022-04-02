@@ -24,7 +24,8 @@
   flex-direction: column;
   justify-content: center;
 
-  @nest & p:first-child {
+  @nest & p {
     margin: 0;
+    margin-bottom: 16px;
   }
 }

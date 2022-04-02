@@ -1,0 +1,18 @@
+@import '../../styles/custom-properties.css';
+
+.searchContainer {
+  display: inline-block;
+  position: relative;
+}
+
+.icon {
+  height: 1.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0.4rem;
+}
+
+.search {
+  padding-left: 2rem !important;
+}

@@ -1,0 +1,45 @@
+@import '../../styles/custom-media.css';
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.figure {
+  width: 80%;
+  align-self: center;
+  margin: 2rem 0;
+
+  @media (--media-max-small) {
+    width: 100%;
+  }
+
+  & img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  & figcaption {
+    font-style: italic;
+  }
+}
+
+.textContainer {
+  /* flex: 1; */
+}
+
+.blockquote {
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+
+  @media (--media-max-small) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  & div:last-child {
+    text-align: right;
+  }
+}
