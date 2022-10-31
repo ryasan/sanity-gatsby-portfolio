@@ -15,7 +15,6 @@
 
 .rootDarkMode {
   composes: root;
-  border-bottom-color: var(--color-black);
   background-color: var(--color-black);
   color: var(--color-gray);
 }
