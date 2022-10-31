@@ -18,7 +18,7 @@ const SocialList = () => {
       </li>
       <li
         className={styles.socialItem}
-        onClick={() => openLink('https://github.com/ryasan86')}
+        onClick={() => openLink('https://github.com/ryasan')}
         tabIndex={0}>
         <Icon symbol='github' />
         <span>Github</span>
