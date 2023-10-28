@@ -9,8 +9,8 @@ const paragraphs = [
    have experience in all areas of the stack and don't mind getting my hands dirty
    whether it be frontend, backend, or anything in between.`,
   `I've been part of teams employing scrum methodologies, involved in the feature
-   planning processes, Git rebase and merge workflows...and more. Contact me if you'd
-   like to know more.`,
+   planning processes, and more! Contact me if you'd
+   like to find out.`,
 ];
 
 const SkillsAndExperience = () => (
